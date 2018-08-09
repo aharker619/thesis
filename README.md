@@ -1,7 +1,6 @@
-# tbd
+# thesis
 
-This repo contains the TEX files for my **TB** **D**issertation. I used
-the [ucetd][ucetd] template provided by the [UChicago Dissertation
+This repo contains the TEX files for my thesis on Actin Binding Proteins. I copied this repo from Jon Blischak at https://github.com/jdblischak/tbd used for his **TB** **D**issertation. He used the [ucetd][ucetd] template provided by the [UChicago Dissertation
 Office][site].
 
 The content is available under the [CC-BY 4.0 International][ccby]

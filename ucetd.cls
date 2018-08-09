@@ -73,7 +73,7 @@
 			\ \\
                         % My degree is being granted by the Committee on Genetics.
 			% DEPARTMENT OF \MakeUppercase{\@department}\\
-			COMMITTEE ON \MakeUppercase{\@department}\\
+			DEPARTMENT OF \MakeUppercase{\@department}\\
 			\vspace{0.8in}
 			BY\\
 			\MakeUppercase{\@author}\\

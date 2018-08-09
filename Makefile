@@ -1,4 +1,4 @@
-NAME := tbd
+NAME := thesis
 TEX := tex/preamble-custom.tex tex/acknowledgments.tex tex/abstract.tex tex/ch01.tex tex/ch02.tex tex/ch03.tex tex/ch04.tex tex/ch05.tex
 BIB := refs.bib
 CLS := ucetd.cls
