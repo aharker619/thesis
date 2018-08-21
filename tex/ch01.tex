@@ -1,455 +1,172 @@
-\chapter{Introduction}
+% Chapter 01
+\chapter{Introduction}\label{ch:intro}
+As the most abundant protein in most eukaryotic cells, actin participates in more protein-protein interactions than any known protein. Additionally actin is highly conserved among organisms and even among the three isoforms in vertebrates, only varies by a few amino acids near the N-terminus \cite{dominguez_actin_2011}. 
+The actin cytoskeleton is made up of various dynamic networks made up of filamentous actin (F-actin) and other actin binding proteins (ABPs). These networks are formed and degraded at certain times and locations within cells and are important for motility, cytokinesis, adherence, and %blank. 
 
-\section{Human Genetics and the search for the genetic basis of human phenotypes}
+\section{Actin}\label{actin-intro}
 
-The field of Human Genetics aims to discover the genetic basis of the
-variation observed in human phenotypes \citep{Strachan2011}. The
-difficulty of this goal depends on the genetic architecture of the
-phenotype \citep{DiRienzo2006, Bodmer2008, Schork2009}. On the one
-hand are monogenic (or Mendelian) traits, which are caused by
-mutations in a single gene. Isolating the causal gene is relatively
-tractable. On the other hand are polygenic (or complex) traits, which
-are the result of many genes acting in concert. Furthermore, the genes
-can interact with each other in a non-additive manner (gene-gene
-interactions, or epistasis) \citep{Cordell2009, Mechanic2012} and the
-environment can also play a significant role (gene-environment
-interactions) \citep{Thomas2010, Ober2011}.
+Actin is a 46 kDa globular protein and contains four subdomains. Subdomains 1 and 3 are structurally similar and subdomains 1 and 2 form the outer domain while 3 and 4 form the inner, larger domain. Between these domains is a hinge region and two large clefts, a nucleotide binding cleft and a target binding cleft. The nucleotide binding cleft binds ATP and an associated cation (Mg\textsubscript{2+} in cells). Many proteins bind actin in the target-binding cleft \citep{dominguez_actin_2009}.
 
-As an example, consider human height. A disabling mutation in just one
-gene, the growth hormone receptor (GHR), nullifies the effect of
-growth hormone leading to very short stature and other metabolic
-abnormalities (Laron Syndrome) \citep{Laron2011}. Because of its
-easily identifiable phenotype and single gene origin, the genetic
-basis of Laron Syndrome was discovered in the late 1980s using a
-candidate gene approach in a small number of pedigrees
-\citep{Amselem1989, Godowski1989, Shevah2011} (the correct candidate
-gene was known from previous physiology experiments
-\citep{Eshet1984}). In contrast, the considerable variability in
-height in the human population is not caused by rare mutations in a
-single or a few genes, but instead is due to the aggregate effect of
-many mutations (or variants) of small effect size interacting with
-each other and the environment (e.g. diet, pollution, etc.)
-\citep{Lettre2011, Turchin2012}. Thus although height has been
-determined to be highly heritable, genetic studies involving hundreds
-of thousands of individuals that identified thousands of associated
-variants which affect height still only explain a small percentage of
-the heritable variation \citep{LangoAllen2010, Wood2014}. Larger
-studies with increased power will only continue to find associated
-variants with even smaller effect size (or otherwise they would have
-already been discovered), thus the genetic basis of a highly polygenic
-trait may unsatisfyingly be that many variants across the genome make
-a minute contribution to the height of an individual.
+Actin assembles into polar filaments with new subunits being primarily added onto the barbed end (subdomains 1 and 3) versus the pointed end (subdomains 2 and 4). An actin filament contains two protofilaments that wrap around each other with a right-handed twist along the long-axis (hanson J the strucutre of F-actin 1963). However, the repeated unit of symmetry is a left-handed helix with \mytilde13 actin subunits repeating every 35.9nm. The G-actin to F-actin transition consists of a 12-13$^\circ$ rotation of the outer domain (subunits 1 and 2) with respect to the inner domain (subunits 3 and 4) with some additional bending movements of subdomains 2 and 4. Therefore, F-actin is flatter than F-actin and the D-loop in subdomain 2 inserts into the target-binding cleft of the subunit above \citep{dominguez_actin_2011}.
 
-The current state-of-the-art technique for mapping genetic variants
-that affect a polygenic trait is the genome-wide association study
-(GWAS) \citep{Hirschhorn2005}. This technique was made possible by the
-sequencing of the human genome \citep{Lander2001, Venter2001, HGP2004,
-  Lander2011} and the cataloging of the common genetic variation
-segregating in the human population (the latter done via the
-International HapMap Project \citep{HapMap2005, HapMap2007,
-  HapMap2010} and 1000 Genomes Project \citep{1KG2010, 1KG2012}). For
-a GWAS, individuals are phenotyped (e.g. height is measured) and
-genotyped at millions of common variants, referred to as single
-nucleotide polymorphisms (SNPs).  Then each SNP is tested individually
-for an association with the trait measurements via a linear regression
-or related statistical technique \citep{Balding2006, Stephens2009,
-  Yang2014}. Similarly, for a binary trait such as cases with a
-disease versus controls without a disease, the phenotype is the
-presence or absence of a disease and each SNP is tested for
-association with a logistic regression or related statistical
-technique \citep{Chang2015}. GWAS have identified many genetic
-variants affecting a diverse set of human polygenic traits, especially
-as the sample sizes for GWAS increased into the hundreds of thousands
-\citep{Welter2014}. Nevertheless, their results have several
-limitations.
+The formation of an actin filament contains two main steps, nucleation and elongation. 
+Nucleation is slow, forming a seed
+Elongation is dependent on concentration
+In vitro, ~10 sub/s/uM
+Contain two protofilaments 
+Main binding cleft
+Many proteins bind the same cleft on actin subunits
 
-As mentioned above, one of the main issues with GWAS results is the
-small effect size of the associated SNPs on the trait of interest
-\citep{Manolio2009}. The hope of finding these SNPs is that they will
-be useful for predicting the trait (e.g. how likely are you to develop
-diabetes). However, with such small effect sizes, they have little
-predictive power and thus are generally not clinically actionable
-\citep{Torres2013, Wray2013}. These disappointing results could be due
-to limitations in our knowledge when designing the study and modeling
-the data. For example, when recruiting study participants, it is
-impossible to record every possible environmental factor that could
-have contributed to each person's trait value
-\citep{Ober2011}. Furthermore, in case-control studies, the controls
-will likely include a subset of individuals that have yet to develop
-the disease. Similarly, when modeling the genetic associations, most
-models assume an isolated additive effect of each variant on the trait
-\citep{Cordell2009}. This simplifying assumption is made such that the
-statistical test is tractable and interpretable. However, it is
-missing the contribution of any gene-gene or gene-environment
-interactions \citep{Cordell2009, Thomas2010, Lappalainen2011,
-  Ackermann2012, Huang2012, Starr2016}. On the other hand, the
-disappointing results of GWAS may not be due to limitations of the
-approach, but simply reflect the actual biology of polygenic traits
-\citep{DiRienzo2006, Bodmer2008, Schork2009, Pritchard2010}.
-Mutations with strong effect, such as those that disable the GHR and
-cause Laron Syndrome, are often disruptive to the complex network of
-biochemical reactions that sustain a living individual. For this
-reason, they face strong negative selection and are often rare in the
-population. In contrast, mutations with small effect on a trait are
-more likely to be neutral or slightly favorable, and thus are able to
-rise to higher allele frequencies in the population. Over millions of
-years of evolution, the many variants of small effect could give rise
-to the large variation in phenotypes observed today, e.g. the
-difference in height between a 5 foot person and a 7 foot
-person. Supporting this view, when all SNPs assayed in an experiment
-are used to explain heritability, known as the ``chip'' heritability,
-this estimate is closer to the observed heritability (this has been
-demonstrated for height and other polygenic traits) \citep{Yang2010,
-  Lee2011}. This suggests that highly polygenic traits like human
-height are indeed the result of thousands of variants of small effect
-size \citep{Wood2014}.
+\section{Actin networks}\label{network-intro}
 
-Beyond the ability to predict a disease outcome or trait value,
-another goal of GWAS is to elucidate the underlying biological
-mechanisms which ultimately determine the trait. This has proven
-difficult because most GWAS hits do not affect the protein-coding
-sequence of a gene, for which it would be straightforward to predict
-and test the effect this would have on gene function, but instead the
-associated SNPs are located in non-coding regions of the genome
-\citep{Hindorff2009, Manolio2009}. It is much more difficult to
-predict the effect of these variants because there is no simple code
-to translate changes in non-coding sequence. This has motivated the
-study of gene regulation in the field of Human Genetics
-\citep{Lappalainen2010, Trynka2013, Civelek2014, Lappalainen2015}.
+Cell division, ect from introduction that is not main focus (or at end)
+Lamellipodia
+Edge of motile cells, dense branched network nucleated by Arp2/3 complex
+Capped by capping protein
+Filopodia
+Fingerlike projections that emerge from the lamellipodium. Important for exploration of extracellular space in motile cells. 
+Convergent Elongation
+Formin and Ena/VASP: different dynamics and lengths
+Stress Fibers/Focal adhesions
+Different types of stress fibers
+Why?
+Focal adhesions form and then release from forward to backward in motile cells
 
-\section{Functional genomics and the investigation of the non-coding regions of the genome}
+\section{Actin binding proteins}\label{abps} 
+% sub sub sections within here?
+Profilin is a small actin binding protein. Slows down nucleation and elongation?
+Amount of actin in cells that is bound to profilin?
+Tropomyosin here?
+\subsection{Nucleation factors}\label{nucleators}
+different classes
+Arp2/3 Complex
+Complex made of seven subunits, with Arp2 and Arp3 subunits similar to actin
+Binds to the sides of exisiting actin filaments (mother filaments) and nucleates a new daughter branch. The branch forms at a consistent 70 degree angle.
+Found in lamellipodium, actin patches?
+Formin, uses profilin-actin to nucleate, more later
+   mechanism here of how formin nucleates
+   unless in review
+VopL/F and WH2
+Newer class of nucleators
+Rely on multiple WH2 domains that can bind to G-actin monomers. 
+Vops from cholera, mechanism was debated between barbed or pointed end binding
+\subsection{Elongation factors}\label{elongators}
+Formin also processively elongates actin
+Ena/VASP, tetrameric actin elongation factor that processively associates with barbed ends of actin filaments more later 
+\subsection{Bundling proteins}\label{bundlers}
+(figure here)
+Different families
+CH domain
+Alpha actinin, fimbrin/plastin, filamin?
+Fascin
+Different architectures
+Packing
+Transverse repeat
+Spacing
+Polarity
+Different localization in cells (networks next or first?)
+Do this one protein at a time?
 
-Gene regulation refers to how cells control which genes are turned on
-and to what extent \citep{Davidson2010, Natoli2010, Strachan2011,
-  Ostuni2013, Tsankov2015}. This is critical because all cells in the
-human body contain the same genomic material (ignoring the
-complications of somatic recombination in certain immune cells and
-somatic mutations in general). Thus in order for a liver cell to
-function differently than a skin cell, the two cells must have
-different gene expression levels. These gene regulatory differences
-are established during development as an organism grows from an
-initial single cell. Signaling molecules, initially from the mother
-but subsequently produced by the offspring's cells, bind to the
-receptors of a cell to initiate signal transduction cascades that
-ultimately lead to activation of transcription factors which bind to
-DNA at their degenerate binding sites across the genome to modulate
-the expression of many genes. As development continues and cells
-differentiate into their final tissue type, the gene expression levels
-are maintained by the gene regulatory network established by the
-transcription factors active in that cell type.
+\section{Ena/VASP and Formins}\label{ena-formin-review}
 
-Just as differences in gene regulation generate extreme diversity in
-cellular function among cells with identical genomes in a single
-organism \citep{Natoli2010}, a long standing hypothesis is that
-differences among humans and the differences between humans and our
-closest evolutionary relatives, the great apes, are due to mutations
-that affect not the protein-coding sequence but instead mutations
-which affect the spatiotemporal expression of genes
-\citep{Britten1969, King1975, Carroll2008}. This theory was originally
-proposed because of the high similarity of protein-coding sequences
-between humans and chimpanzees \citep{King1975}, and is supported by
-the finding of mainly non-coding SNPs from GWAS \citep{Welter2014}.
+\subsection{Comparison of processive actin elongation factors}
 
-Understanding which transcription factors establish and maintain a
-given cellular identity is quite difficult \citep{Vaquerizas2009,
-  Biggin2011, Zaret2016}. However, even without this knowledge, it is
-possible to learn about the regulatory state of a given cell type
-\citep{Ho2014}. First, it is possible to measure genome-wide gene
-expression levels using technologies like microarrays or RNA
-sequencing (RNA-seq; described in more detail below) \citep{Wang2009,
-  Oshlack2010, Waern2011}. Second, it is possible to interrogate the
-non-coding regions of the genome by measuring chromatin marks
-\citep{Park2009, Landt2012}. Chromatin marks are deposited by
-chromatin-remodeling enzymes which are recruited by the transcription
-factors active in the cell. The most common are methylation of the
-cysteine base in CpG dinucleotides (DNA methylation) or chemical
-modification of the tails of the protein octamers (histones) which DNA
-is wrapped around. These marks signal the state of the region,
-e.g. active or repressed, and may help to maintain the current
-state. Histone marks can be assayed with chromatin immunoprecipitation
-followed by sequencing (ChIP-seq), and DNA methylation can be assayed
-with specialized microarrays or bisulphite sequencing. Using these
-technologies, it is possible to learn about the function of the
-non-coding SNPs discovered by GWAS.
+Why are we interested in learning the mechanism of abps?
+Many important cellular functions depend on the architecture of a dynamic actin cytoskeleton forming at the correct location and time during the cell cycle. Cellular division, motility, and endocytosis are a few examples of processes in which actin filaments must be nucleated, polymerized, severed, and depolymerized at the precise time and location in the cell. Here I will focus on the mechanism of two processive protein families, formins and Ena/VASP, which bind to the barbed end of actin filaments and affect actin filament polymerization. Interestingly, though these two families have different structures and use distinct mechanisms, they share similarities in how they increase actin polymerization as well as that they are both localized to the leading edge and involved in filopodia formation. However, their mechanistic differences in terms of processive run lengths, diverse protein binding partners, and formin's reliance on profilin actin bring up many interesting questions concerning how these proteins are utilized by a cell within different and even the same processes. The knowledge of formin's mechanism is a step ahead of Ena/VASP's, exploring the role of force, rotation, and diverse actin regulatory domains on its actin assembly properties. However, this allows insight to compare and contrast the two processive machines and understand how they both individually and concurrently help to assemble the necessary actin networks for proper cellular function. 
 
-As an aside, it should be noted that there is a lot of confusion about
-the role of chromatin marks and their effect on gene expression
-\citep{Henikoff2011}. Chromatin marks are not causal. Instead, they
-are signs of a given chromatin state, and at best help maintain that
-state. As an analogy, consider viewing a stretch of highway from a
-helicopter. If you observe orange signs and barrels, you can conclude
-that this section of the highway is a construction zone. Furthermore,
-because they notify the motorists to slow down and to merge into one
-lane, you can conclude that the construction signs and barrels help
-this section to maintain the characteristics of a construction
-zone. However, you would not conclude that the signs and barrels
-caused this section of highway to be a construction zone. The decision
-to work on this section of road was made by local government officials
-and contractors after observing the conditions of the road and
-receiving complaints from citizens. In gene regulation, the chromatin
-marks are the construction signs and barrels. If you observe
-activating chromatin marks, you can conclude that the nearby gene is
-expressed and that the chromatin marks are helping maintain this
-transcriptional activity. However, it is the result of transcription
-factors receiving input from outside the cell that caused these active
-chromatin marks to be established and the gene to be expressed
-\citep{Natoli2010}.
+\subsection{Cellular processes}\label{ena-formin-cellular-processes}
 
-Thus using these chromatin marks enables the deciphering of the
-non-coding regions of the genome. While not as easily readable as the
-initially envisioned ``histone code'' \citep{Jenuwein2001}, much
-progress has been made. The ENCODE Project \citep{ENCODE2004,
-  ENCODE2007, ENCODE2012, Ho2014, Kellis2014}, Roadmap Epigenomics
-Project \citep{Roadmap2015}, and independent laboratories
-\citep{Mikkelsen2007} have assayed gene expression and many chromatin
-marks in a large variety of cell types. Using a hidden Markov model
-(HMM), one group was able to define distinct regions of the genome in
-each of the cell types they collected \citep{Ernst2011}. This now
-provides the context-specificity required to predict and test the
-effect of non-coding SNPs identified in GWAS \citep{Trynka2013}. For
-example, a GWAS hit for type II diabetes could be potentially
-affecting gene expression in the liver, adipose tissue, brain, or beta
-cells of the pancreas. If chromatin profiling reveals that SNP is
-located in an enhancer region in only one of those tissues, that would
-inform the follow-up experiments to perform. Encouragingly, this sort
-of relationship is observed generally. That is, GWAS hits for given
-disease are more likely to be found in gene regulatory regions of the
-genome specific to tissues relevant to the disease pathogenesis
-\citep{Ernst2011, Trynka2013, Farh2015, Roadmap2015}. Furthermore,
-knowledge of these genomic annotations has been successfully used as
-prior information to increase the power to detect associations in GWAS
-\citep{Pickrell2014, Wang2016}.
+\subsubsection{Ena/VASP}
 
-While knowing that an associated SNP is located in an enhancer region
-in a particular cell type is extremely helpful for generating testable
-hypotheses, it still leaves many unanswered questions. While it is
-usually assumed that a variant is affecting the most nearby gene,
-there is no guarantee this is true. And even if that assumption is
-true, it is unknown which allele is associated with higher
-expression. A direct method for addressing these uncertainties is
-expression quantitative trait loci (eQTL) mapping (early eQTL studies
-were performed using linkage in pedigrees, but current eQTL studies
-are tests of association in unrelated individuals like a typical GWAS)
-\citep{Monks2004, Duan2008, Franke2009, Lappalainen2015, Pai2015}. In
-this approach the phenotype of interest is the expression level of a
-gene. To reduce the multiple testing burden (and also because
-regulatory variants are often closer to the gene they affect
-\citep{Battle2014}), most eQTL studies test for eQTLs nearby the
-transcription start site of each gene. To date, eQTL studies have been
-performed in many cell types \citep{Nica2011, GTEx2015}. Reassuringly,
-eQTLs are more likely to be GWAS-associated SNPs, consistent with the
-idea that GWAS hits in non-coding regions are affecting gene
-expression \citep{Emilsson2008, Nica2010, Nicolae2010, Raj2013,
-  GTEx2015}. Furthermore, by combining eQTL results from many tissues
-collected by the GTEx Consortium \citep{GTEx2013} with GWAS results,
-it is possible to determine the tissue(s) most affecting a given
-disease by finding which tissue is enriched for tissue-specific eQTLs
-that are also GWAS hits for the disease \citep{Ongen2016}.
+Ena/VASP processes: actin polymerization
+Bundling and nucleation in vitro, not sure in vivo implications, cell migration?
+Vasodilator-stimulated phosphoprotein (VASP) was first discovered in human platelets as a substrate of both the cAMP- and cGMP-dependent protein kinases \citep{halbrugge_analysis_1990}. Simultaneously, enabled (ena) was found in Drosophila during a genetic screen for surpressors of abelson protein tyrosine kinase mutant phenotypes \citep{gertler_genetic_1990}. Ena and VASP were found to be homologous \citep{ahern-djamali_identification_1999} and homologs have been found in all multicellular metazoan cells and Dictyostelium \citep{sebe-pedros_insights_2013}.
+Invertebrates (Drosophila, C.elegans, Dictyostelium ect.) only have one isoform of Ena/VASP while mammalians have three: Mena (mammalian Enabled), VASP, and EVL (Ena-Vasp-like) \cite{gertler_mena_1996}.
+Ena/VASP localization: lamellipodia, filopodia, stress fibers, and focal adhesions adherence junctions
 
-A common functional genomics technique is RNA-seq \citep{Wang2009,
-  Oshlack2010, Waern2011}. It is an efficient method for interrogating
-cellular function by measuring genome-wide gene expression
-levels. RNA-seq has multiple advantages over its predecessor, gene
-expression microarrays. For example, it is not as limited by genome
-annotations and has a higher dynamic range \citep{Marioni2008,
-  Zhao2014}. Most importantly for Human Genetics applications, any
-polymorphisms present in the coding regions in a population being
-studied will be present in the RNA-seq reads. These can be used to
-verify the identity of the individual being sequenced (i.e. avoid
-sample swaps and contamination) \citep{Jun2012}, and also to increase
-power in eQTL studies by comparing the allele-specific expression
-measurements to the eQTL effects \citep{Castel2015, VandeGeijn2015}.
+\subsubsection{Formin}
 
-\section{Tuberculosis and the genetic basis of susceptibility}
+Formin homology proteins (formins) are highly conserved actin binding proteins that function in multiple cellular processes such as cytokinesis, oogenesis, and stress fiber and filopodia formation. Furthermore, formins can interact with both actin and microtubules [cite], allowing for communication between these two cytoskeleton systems. Formins were first discovered as mutations at the mouse limb deformity (ld) locus resulting in development defects \citep{woychik_formins:_1990}. Since their discovery the formin family has grown, now counting 15 different formins in mammalian cells. The formins are localized to different areas of the cell including the leading edge, tips of filopodia, cell-cell junctions, and cytokinetic rings. As a class, formins are implicated in nucleation of nascent actin filaments, processive elongation, and competition with capping protein as well as other F-actin barbed end binding proteins. However, there are some proteins within the formin family (i.e. INF2) that have been shown to carry out additional behaviors, such as depolymerization, bundling of filaments, severing, or actin monomer binding \citep{gurel_assembly_2015}. Though the mechanism of formin-mediated processive filament assembly has been well-studied, the individual characteristics of different formins and how those characteristics influence their distinct roles within the same cell  continue to be open questions. 
 
-A major subfield of Human Genetics focuses on understanding the
-genetic basis of susceptibility to infectious diseases
-\citep{Casanova2007, Chapman2012, Novembre2012, Manry2013}. There are
-multiple reasons that infectious diseases are of particular
-interest. First, from a pragmatic standpoint, infectious diseases are
-a major public health concern, responsible for the deaths of millions
-annually. Thus any increased understanding of who is likely to be
-susceptible or potential drug targets has great potential to reduce
-human suffering worldwide. Second, from a theoretical perspective,
-because hosts and pathogens engage in a constant co-evolutionary arms
-race, natural selection on any mutations affecting the response to a
-pathogen are strong and more likely to be detected via statistical
-tests (in contrast to the example of height above) \citep{Hamblin2002,
-  Prugnolle2005, Novembre2012, Fumagalli2014, Mangano2014}. Indeed,
-genome-wide scans of selection have found an enrichment of
-immune-related genes \citep{Raj2013, Fumagalli2011,
-  Fumagalli2014}. Third, because the immune system is responsible for
-fighting all pathogens it encounters but also results in less
-desirable functions like allergic reactions and auto-immune disorders,
-understanding the genetic basis of the susceptibility to one pathogen
-informs susceptibility to other pathogens and also other immune-based
-phenotypes of interest \citep{Vannberg2011, Raj2013}. As an example, a
-GWAS of the auto-immune disorder inflammatory bowel disease (IBD)
-found significant overlaps between the IDB susceptibility loci and not
-only other immune-related disorders, but also with susceptibility loci
-for infection with \emph{Mycobacterium leprae} (which causes leprosy)
-\citep{Jostins2012}.
+\subsection{Domain organization}\label{ena-formin-domains}
 
-My dissertation research addresses susceptibility to a different
-mycobacterium, \emph{Mycobacterium tuberculosis} (MTB), which causes
-tuberculosis (TB). TB has been an extremely deadly disease throughout
-human history and continues to this day
-\citep{Glaziou2015}. Specifically, the latest statistics released by
-the World Health Organization estimated that in 2014 there were 9.6
-million new cases of TB and 1.5 million deaths caused by TB
-\citep{WHO2015a, WHO2015b}. TB is contracted by inhaling MTB in air
-droplets \citep{Nardell2016}. If uncontained, MTB proliferates in the
-lungs (and also sometimes spreads to other organs) leading to
-coughing, weight loss, and degradation of the lung tissue (and any
-other organ it colonizes) \citep{Loddenkemper2016}. The induced
-coughing is how MTB spreads to other hosts, and thus it is very
-contagious. 70\% of untreated individuals die from TB
-\citep{WHO2015a}. The current treatment regimen involves 6 months of
-cocktail antibiotic therapy \citep{Sotgiu2015}. Because of the
-difficulty of adhering to intense antibiotic therapy for such a
-prolonged period of time, multi-drug resistant strains of MTB have
-evolved as patients stop taking their medicine once their symptoms
-resolve \citep{Seung2015}. With the concurrent spread of human
-immunodeficiency virus (HIV), which weakens the immune system, MTB
-(and especially multi-drug resistant MTB) has the potential to kill
-many millions more in the future \citep{Bruchfeld2015}. International
-efforts to prevent the spread of MTB and reduce the number of cases of
-TB worldwide have successfully led to improvements in diagnosis and
-treatment of TB and stimulated further research \citep{Glaziou2015,
-  WHO2015a}. Unfortunately progress is slow; the incidence rate of TB
-has decreased by an average of only 1.5\% every year since 2000
-\citep{WHO2015a}.
+\subsubsection{Ena/VASP}
+N-terminal Ena-VASP homology 1 (EVH1) domain: localization, FP4 binding (FPPPP) such as formin, zyxin, lamellipodin, vinculin [ball dual 2000, niebuhr a novel 1997 klostermann 2000].
+EVH1 present in all Ena/VASP family members as well as distantly related Wiskott-Aldrich syndrome proteins, WASP and N-WASP, and Homer/Vesl family, though proteins from outside the Ena/VASP family recognize different domains. Structurally the EVH1 domain is similar to pleckstrin homology (PH) and phosphotyrosine-binding (PTB) domains though there is little sequence similarity to these domains \citep{prehoda_structure_1999,reinhard_actin-based_2001} [fedorov structure, ball dual 2000].
+The C-termianl Ena/VASP Homology 2 (EVH2) domain contains the main actin binding domains. The G-actin binding domain (GAB) is related to a WH2 domain which also binds actin monomers. The F-actin binding domain (FAB) and the C-terminal coiled-coil facilitates tetramerization. Interestingly, it was found that mammalian proteins can form hetero-tetramers in vitro [gertler]. 
+Between the EVH1 and EVH2 domain is a poly-proline region. This region can bind to profilin and other SH3 containing molecules such as Abl, Src [lanier from 2000] \citep{gertler_mena_1996}.
 
-TB is an ancient disease. It is estimated that MTB began infecting
-humans before the out-of-Africa migration \cite{Comas2013}. This
-provides an explanation for the peculiar combination of features of
-MTB transmission. On the one hand, because MTB induces coughing and
-spreads through aerosol transmission, its ability to quickly spread
-throughout a population is typical of so-called ``crowd diseases''
-which emerged when humans began living in dense populations
-(e.g. smallpox) \citep{Wolfe2007}. On the other hand, only
-approximately 10\% of individuals infected with MTB will go on to
-develop active TB, with the most critical window within the first 2
-years \citep{North2004, OGarra2013}. The majority of individuals will
-have what is called a latent TB infection, in which MTB persists in a
-dormant state inside alveolar macrophages \citep{Barry2009,
-  Munoz2015}. This suggests an adaptation to a low density population
-where it would be disastrous for a pathogen to kill the entire
-population.
+\subsubsection{Formin}
+The classical formin homology 1 (FH1) and formin homology 2 (FH2) domains are the characteristic  domains of the formin family. The N-terminus of formin contains regulatory and localization domains that vary depending on the subfamily of formins. The largest subfamily, Diaphanous-related formins (DRF), is autoregulated by the N-terminal Diaphanous inhibitory domain (DID) binding to a C-terminal Diaphanous autoregulatory domain (DAD).  Rho-GTPase binding to the N-terminal GTPase binding domain (GBD) can relieve this autoregulation. Subsets outside of DRFs have C-terminal DAD or Wiskott-Aldrich syndrome homology region 2 (WH2) domains. Other domains are found across the diverse formin family, including those that function in auto-regulation, inhibition, localization, depolymerization, and filament actin (F-actin) binding.
 
-Given that only approximately 10\% of individuals are susceptible to
-TB and that this variation is heritable \citep{Kallmann1943,
-  Comstock1978, Cobat2010, Moller2010}, there has been much interest
-in understanding its genetic basis. Being able to predict who is
-susceptible to TB would inform who to monitor most closely after a TB
-outbreak and also reduce the need of treating individuals with latent
-TB infections (the current standard is to give 3 months of antibiotic
-therapy to a latently infected individual
-\citep{Munoz2015}). Unfortunately, multiple GWAS to date have only
-identified a few loci with small effect size \citep{Thye2010,
-  Mahasirimongkol2012, Thye2012, Png2012, Chimusa2014, Curtis2015,
-  Sobota2016}.  Thus they are not useful for predicting TB
-susceptibility. These results suggest that TB susceptibility is also a
-highly polygenic disease, perhaps because of its long evolutionary
-history with humans. Encouragingly, however, some of these GWAS
-signals have identified genes potentially important for fighting TB
-susceptibility. A recent GWAS in a Russian population identified
-associated SNPs nearby the gene \emph{ASAP1}, and further functional
-experiments revealed that decreased expression of \emph{ASAP1} leads
-to decreased migration of dendritic cells (DCs) \citep{Curtis2015}.
+The FH1 and FH2 domains have canonically been associated with the formins' actin assembly properties and dimerization. The FH1 domain contains between one to 15 polyproline repeats that are able to bind to profilin, but with varying affinity. This domain is flexible and allows for increased actin filament elongation in the presence of profilin-actin likely by increasing the local concentration of actin monomers near the polymerizing barbed end (ref). The FH2 domain forms a head-to-tail dimer that is thought to stabilize an actin dimer, promoting nucleation of a nascent actin filament. The dimerized FH2 domains can additionally encircle and remain associated with the barbed end of an actin filament, facilitating the addition of profilin-actin to the barbed end during elongation. For a detailed review of the FH1 and FH2 domains, see \citep{paul_review_2009}. 
 
-Because the small number of GWAS hits to date suggest a highly
-polygenic architecture, and furthermore since most hits have been in
-non-coding regions, there has been motivation to use functional
-genomics techniques on innate immune cells \citep{Thuong2008,
-  Barreiro2012, Pacis2015}.  When MTB enters the lungs, the first
-immune cells it encounters are the alveolar macrophages
-\citep{Tailleux2008, Ernst2012, Sia2015}. Importantly, these are the
-cells that MTB persists inside during a latent infection. Another
-important part of the innate immune response to MTB is the DC. DCs
-phagocytose MTB in the lungs and then subsequently travel to the
-draining lymph nodes to stimulate T cell maturation
-\citep{Tailleux2008, Ernst2012, Sia2015}. Thus DCs are a critical
-connection between innate and adaptive immunity. The adaptive immune
-response is necessary for fighting an MTB infection
-\citep{Flynn1992}. However, most functional genomics studies of MTB
-infection focus on innate immune cells because 1) MTB replicates
-inside macrophages \citep{Sia2015} (not DCs however
-\citep{Tailleux2003}) , 2) the adaptive immune response does not begin
-until well after MTB has time to propagate \citep{Khan2016}, and 3)
-attempts to prime the adaptive immune response via vaccinations have
-been largely unsuccessful \citep{Wang2013}.
+\subsection{Mechanism of processive F-actin elongation}\label{ena-formin mechanism}
 
-Focusing on innate immune cells, both the chromatin profiling and eQTL
-mapping strategies described above have been used to study MTB
-infection. Specifically, DNA methylation, histone marks, and chromatin
-accessibility have been assayed in DCs 18 hours post-infection with
-MTB (or control) \citep{Pacis2015}. Furthermore, hundreds of eQTLs
-were identified that were specific either to MTB-infected or
-non-infected DCs \citep{Barreiro2012}. My dissertation work continued
-this functional genomics approach. In Chapter \ref{ch:tb}, I
-identified gene expression changes in macrophages infected with MTB
-and related mycobacteria, but not other bacterial pathogens
-\citep{Blischak2015}. These genes likely harbor genetic variation
-underlying TB susceptibility. In Chapter \ref{ch:tb-suscept}, I
-discovered gene expression changes in DCs isolated from individuals
-known to be susceptible or resistant to TB. Furthermore, I used these
-gene expression differences to build a classifier of TB
-susceptibility. Both of these studies increased our understanding of
-the role of the innate immune response in TB susceptibility, and more
-generally demonstrate the utility of a functional genomics approach to
-decipher polygenic traits.
+\subsubsection{Ena/VASP}
+G-actin or profilin-actin transfered to barbed end. Change in conformation of G-actin once it adds to the filament allows for release of newly added monomer. 
+Doesn't fall off like formins with a certain number of steps. Actin concentration independent \citep{hansen_vasp_2010}.
+Rotation not known
+All arms equal?
+Clustering in vivo?
+
+\subsubsection{Formin}
+
+There are two main models for formin processive elongation, stair stepping and stepping second. Both models incorporate an over-rotation of the short-pitch helical twist at the barbed end from native F-actin state of $167^{\circ}$ to $180^{\circ}$ when FH2 is tightly bound. FH2 exists in a dynamic equilibrium between the tightly bound “closed” state ($180^{\circ}$) and loosely bound “open” state ($167^{\circ}$). The closed state does not allow addition of new monomer because the filament is over rotated and does not present favorable contacts for an incoming subunit \citep{otomo_structural_2005}. The initial model, stair stepping, describes the FH2 bound tightly to three actin subunits in the closed state. The FH2 domain can then transition to an open state by releasing one actin binding contact. This allows a monomer to bind to the barbed end and FH2. With the addition of a new monomer, the FH2 can return back to the closed state. Therefore, the FH2 domain translocates first, then facilitates monomer addition \citep{otomo_structural_2005}. 
+
+The stepping second model reverses these steps and proposes that monomer addition promotes a translocation. Importantly, the translocation state is the most loosely bound state where formin would dissociate. In this model, the FH2 domain again begins in the closed state with four actin-binding contacts. The FH2 domain transitions to an open state that is permissive to monomer addition. After monomer addition, the formin is transiently bound to two interior subunits. The FH2 can then move onto the new barbed end by passing through an unstable state (dissociative) state to again reach its closed low energy state \citep{paul_role_2008}.
+
+The stair stepping model postulates that formin enters its most unstably bound (dissociative) state independent of monomer addition. The second stepping model predicts that formin only enters the dissociative state if a monomer is added. Therefore the second stepping model predicts that the dissociation rate should be proportional to the number of subunits added whereas the stair stepping model predicts that dissociation should be a function of time \citep{paul_review_2009}. In support of the second stepping model, formin dissociation rate appears to be a function of the number of subunits added \citep{paul_role_2008}. 
+
+Whether the FH2 domain is in a closed or open state can dictate whether additional monomers can be added to the barbed end of a filament. Modulating the open-closed equilibrium state would allow fine-tuning of formin-mediated elongation rates. Using microfluidics, recent studies have shown that formin-mediated elongation rate is sensitive to tension on the formin and filament \citep{courtemanche_tension_2013,jegou_formin_2013}. Jégou et al. showed that the formin mDia1's elongation rate is increased up to two-fold when under tension. Similarly, Courtemanche et al. have shown that the elongation rate of the formin Bni1 also increases when a pulling force is applied, though only in the presence of profilin. Both groups suggest that a pulling force shifts the gating equilibrium of the FH2 domain towards the open state, which then causes an increase in elongation. Interestingly, when the FH1 domains are also pulled straight the elongation rate still increases. Therefore, the space that the FH1 can explore to find monomers is not a major factor because when the FH1 have reduced mobility you do not see reduced elongation rates.  The sensitivity to tension opens up the possibility that within cells formins can sense mechanotransduction of forces, which could tune formin elongation rates.
+
+These models also suggest that formins rotate to track the helical twist of the actin filament as it processively elongates filaments. New tools have been used to gain a clearer understanding of formin rotation during elongation. Previously, it had been suggested that formins do not rotate while processively binding to the barbed end of filaments because when formins are adhered to the surface, the filaments buckled and did not supercoil \citep{kovar_insertional_2004}. Recently Mizuno et al. used fluorescence polarization of a labeled filament with a formin (mDia1) biotinylated to the surface and were able to directly observe this rotation. The tetramethylrhodamine (TMR) label on the filament had periodic movement that corresponded to half of the long-pitch helical length of F-actin. Since the formin was linked to the surface, the filament was forced to rotate rather than the formin. In vivo it is likely that the formin rotates during filament elongation, especially in crosslinked F-actin networks \citep{mizuno_rotational_2011}. Rotation may be able to apply torque to actin filaments resulting in a change in twist, something actin-binding proteins may detect. Formins may be able to relieve this torque in various ways, either by rotating or by 'slipping' on the end of the filament. Alternatively, in some situations the filaments themselves may be able to rotate. However, filaments usually exist as part of highly connected F-actin networks, which would seem to inhibit filament rotation. This work raises many new questions including whether formin binding partners would rotate with the formins and if this would affect their actin assembly properties. It also opens new possibilities for mechanisms of regulation involving formin rotation. 
+
+\subsection{Behaviors outside of polymerization}\label{ena-formin-behaviors}
+
+\subsubsection{Ena/VASP}
+Different homologs have stronger/weaker g-actin binding. Lead to differences in actin elongation
+Profilin here
+Capping protein competition
+bundling
+nucleation
+
+\subsubsection{Formin}
+
+The main behaviors of formins include F-actin nucleation, processive elongation, and actin filament crosslinking. There are a variety of ways that formins balance these behaviors to fulfill unique functions. For example, between the three different formin isoforms in fission yeast (Cdc12, Fus1, and For3) the nucleation rates, processivity, elongation and ability to bundle vary significantly. Cdc12 and Fus1 can efficiently nucleate filaments and are 70-fold better nucleators than For3 \citep{scott_functionally_2011}. Cdc12 and For3 are both highly processive and elongate filaments at a moderate rate, while Fus1 is only able to elongate filaments at half of this rate in the absence of profilin. Where Cdc12 adds 27 times more monomers than Fus1 on an average processive run, Fus1 is the only fission yeast formin that can bundle filaments. These varying behaviors of the different formin isoforms found within the same organism raises the question of how these formins are tuned to their unique role within the cell. Furthermore, how do proteins differentially interact with these formins, and how can that contribute to or change these properties?
+
+The actin assembly activity of formins can also be tuned to the environment in the cell. Higashida et al. have shown that mDia1 rapidly increases processive F-actin assembly with the release of cell tension using sequential fluorescence decay after photoactivation (s-FDAPplus) to visualize the nucleation and elongation activity of mDia1 \citep{higashida_f-_2013}. How actin and binding proteins are able to sense cell stress and forces is not very well understood. It will be important to look into what protein(s) are initially sensing the forces on the cell and how this is translated to modifying actin networks. 
+% include Dennis' research in this section
+
+Previous formin research has often focused on the two characteristic FH1 and FH2 domains to understand their actin assembly properties. However, formins contain other domains that vary across the formin family, including those that function in auto-regulation, inhibition, depolymerization, and filament actin (F-actin) binding. New studies have shown that the C-terminal tails of different formins play an important role in its actin assembly and nucleation properties. Cappuccino (Capu) \citep{vizcarra_role_2014}, FMNL3 \citep{heimsath_c_2012}, and mDia1 \citep{gould_formin_2011} can bind G-actin monomers with their C-terminal tails to help the FH2 domains nucleate F-actin filaments. Furthermore, Vizcarra et al. suggest that Capu's C-terminal tail also enhances elongation by forming nonspecific electrostatic interactions with F-actin that can assist in stabilizing the open-state FH2 dimer binding to the actin filament. INF2 has been shown to have important domains present in the C-terminal tail that can bind and sequester actin monomers \citep{chhabra_inf2_2006}. However, even though many formins depend on their C-terminal tail for their specific function, they do not all function equally. Replacing the C-terminal tail of Capu with the C-terminal tail of DRF formins changed its nucleation and processivity properties \citep{vizcarra_role_2014}. The growing evidences of the role of the C-terminal tail in tuning of nucleation and processivity opens up the possibility of differential regulation and function of formin isoforms present in the same cell. Whether these C-terminal interactions have important contributions to formin function and regulation overriding that of the FH1FH2 is unclear. 
+
+Beyond binding to actin, Capu's C-terminal tail along with specific residues of the FH2 have been shown to promote high affinity microtubule binding, though this occurs separately from Capu's actin assembly properties \citep{roth-johnson_interaction_2014}. Actin and microtubule dynamics are linked within the cell and the details of this relationship remain a current question in the field. Recently it has been shown that formins mDia1, mDia2, and mDia3 are involved in ErbB2-dependent microtubule capture through their FH2 domains \citep{daou_essential_2014}. Additionally, TIRFM was used to visualize the interaction between microtubule plus end localizing CLIP-170 and formin mDia1, which stimulates actin growth from microtubule plus ends \citep{henty-ridilla_accelerated_2016}. This opens up many new questions about how various formins could be regulating actin-microtubule crosstalk. 
 
 
-\section{Single cell sequencing technology and the future of functional genomics}
+\subsection{Regulation}\label{ena-formin-regulation}
+phosphorylation
+localization
 
-The previous functional genomics techniques discussed above,
-e.g. RNA-seq and ChIP-seq, measure averages across many cells. Thus
-they are unable to detect the cell-to-cell heterogeneity due to
-stochastic noise, different subpopulations of cells, or differences in
-the surrounding environment. In recent years, many new technologies
-have been developed for assaying genome-wide measurements in single
-cells \citep{Liang2014, Macaulay2014, Saliba2014, Grun2015,
-  Stegle2015, Bacher2016}.  Most enable measuring gene expression
-levels via single cell RNA-seq (scRNA-seq), but techniques have also
-been developed to measure DNA methylation \citep{Smallwood2014,
-  Angermueller2016}, transcription factor binding \citep{Rotem2015},
-chromatin accessibility \citep{Buenrostro2015, Cusanovich2015},
-protein levels \citep{Genshaft2016}, and 3D genome architecture
-\citep{Nagano2013} in single cells. The increased resolution obtained
-with these single cell technologies has great potential for improving
-our understanding of gene regulatory mechanisms.
 
-While there are many applications of single cell technology, one
-exciting area of research is investigating the innate immune response
-to infection at the resolution of single cells \citep{Satija2014,
-  Proserpio2016}. The gene expression differences I have observed in
-my bulk RNA-seq experiments of bacterial infection could have arisen
-from any combination of the following explanations: a global
-difference in the innate immune response to a pathogen, a difference
-in only a subset of cells, or a difference in the fraction of cells
-that are infected. Interestingly, initial studies of the innate immune
-response to bacterial infection have observed substantial
-heterogeneity among single cells \citep{Shalek2013, Jaitin2014,
-  Shalek2014, Avraham2015}.
+\subsubsection{Formin}
 
-As with any new functional genomics technique, it is important to
-investigate and understand the technical biases to avoid during study
-design \citep{Auer2010, Leek2010, Gilad2015}. The initial studies
-which investigated the technical noise in scRNA-seq were interested in
-differentiating between the biological and technical variation
-affecting cell-to-cell differences in gene expression
-\citep{Brennecke2013, Grun2014, Islam2014, Ding2015, Vallejos2015}.
-On the other hand, scRNA-seq studies of gene expression differences
-across multiple conditions were generating data from many batches of
-single cell RNA-seq. Because many of the new technologies are limited
-to sorting cells from just one condition in each batch, many of these
-studies confounded the biological conditions of interest with the
-technical batch processing \citep{Hicks2015}. With this confounded
-study design (each biological condition being represented in only one
-batch), any technical variation will be contributed to differences
-between the biological conditions of interest. In Chapter
-\ref{ch:singleCellSeq}, I discuss my research that measured the
-technical variation in scRNA-seq introduced by batch processing and
-recommended an efficient study design to account for technical
-variation while minimizing replication \citep{Tung2016}.
+It is well established that DRF formins are autoregulated by interaction of the DID-DAD domains, which can be relieved by Rho-GTPase binding. Recently, a structure has been solved of full-length mDia1 that confirms that the DID-CC domain sterically occludes where actin binds on FH2 during nucleation \citep{maiti_structure_2012}. Furthermore, it was shown that the formin does not quickly return to its autoinhibited state during processive elongation, which opens further questions about how, or if, formins are stopped once a processive run has been initiated. Other insights into autoregulation have been highlighted by the structure of Rho-GTPase Cdc42 with formins FMNL1 and FMNL2. The structure along with biochemical data suggests that specific interactions between formin FMNL2 and the Rho-GTPase insert helix are at play when determining specificity of Rho-GTPases to release formin autoinhibition \citep{kuhn_structure_2015}. Beyond autoregulation, it has been shown that PIP2 can inhibit mDia1 by binding to its C-terminal tail. Phospholipids can recruit mDia1 to the membrane \citep{van_gisbergen_class_2012}, which then causes an accumulation of PIP2 so phospholipids are able to regulate formin localization to the membrane and inactivation \citep{ramalingam_phospholipids_2010}. 
+
+Recent studies focusing on formin binding partners has opened up even further opportunities for regulation. The formin mDia1 has been shown to interact with adenomatous polyposis coli (APC) through its tail, forming a complex that acts as a potent nucleator \citep{breitsprecher_rocket_2012,okada_adenomatous_2010}. Likewise, nucleation-promoting factor Bud6 is known to enhance the nucleation of formin Bni1 \citep{moseley_differential_2005}. Capu and closely related FMN2 have been shown to interact with the nucleating protein Spire with their C-terminal domains \citep{montaville_role_2016,montaville_spire_2014,pechlivanis_identification_2009,vizcarra_structure_2011}. Recent studies have visualized a 'decision complex' of capping protein and formins mDia1 and FMNL2. Previous genetic and biochemical work suggested that formins and capping protein were entirely antagonistic (Kovar, 2006)**, yet single-molecule TIRF microscopy has shown that both of these proteins can bind simultaneously to a barbed end for a set amount of time before one gains sole control \citep{bombardier_single-molecule_2015,shekhar_formin_2015}. Further questions remain about how different formins are regulated to act at the precise time and location within a cell. Exploring the interaction between a formin and different protein binding partners and macromolecules can open up new possibilities for regulation.
+
+\subsection{Ena/VASP and formin interaction}\label{ena-formin-interaction}
+
+Although their biochemical mechanisms and rate constants are quite different, Ena/VASP and formins both stimulate the assembly of long, straight filaments within cells in two ways: both families 1) protect actin filaments from capping protein by processive association with the barbed end and 2) increase elongation rate of filaments during this processive association. In line with these activities, both protein families induce the assembly of filopodia \citep{bilancia_enabled_2014,homem_exploring_2009} and localize to zones of actin assembly at distal tips of these structures. However, Ena/VASPs and formins appear to drive distinct types of filopodia \citep{barzik_ena/vasp_2014,bilancia_enabled_2014,nowotarski_actin_2014,homem_exploring_2009}. In general, formin-induced filopodia are much longer, and the actin is not highly connected with other actin networks. Conversely, Ena/VASP-induced filopodia are shorter and deeply rooted in lamellar networks. During dorsal closure in fly embryos, motile epithelial cells displayed filopodia more characteristic of Ena, while underlying non-motile amnioserosal cells displayed filopodia more characteristic of formin Dia \citep{nowotarski_actin_2014}. However, both proteins played roles in both tissue types. It is possible that in each tissue type, activities of each elongation factor are modulated accordingly to drive different functions. For example, it has been suggested that Ena/VASP may work primarily in reorganizing preexisting networks in the leading edge of motile cells through a convergent elongation-type mechanism \citep{svitkina_mechanism_2003}. Formin, which can also nucleate actin filaments, may not require a preexisting lamellipodial network and assemble its own filaments for filopodia de novo (Faix et al., 2009), and therefore may function more in non-motile cells. 
+
+However, Ena/VASPs and formins directly bind to each other and colocalize at the distal tips of some filopodia. These observations led different groups to question why these proteins with generally similar assembly properties would colocalize in filopodia and how their direct binding might regulate each other's activity. Ena/VASP's EVH1 domain mediates this interaction either through formin's FH1 \citep{bilancia_enabled_2014} and/or FH2 domain (Barzik et al., 2014a; Schirenbeck et al., 2006). Ena's EVH1 domain binds to the fly formin Diaphanous with a Kd of 13 $\mu$M, similar to the low affinity EVH1-FPPP4 interaction that the EVH1 uses to bind a large number of other proteins \citep{prehoda_structure_1999}. This interaction may negatively regulate formin by interfering with the core assembly machinery. 
+
+Recent data shows that in addition to Ena/VASP and formin driving distinct filopodial morphology and dynamics, Ena/VASP is necessary for proper function in some cells. Bilancia et al., found that Enabled could negatively regulate the formin Diaphanous both in vivo and in vitro. Work from the Gertler lab extended these ideas by showing the physiological consequences of driving filopodia formation with either formin or Ena/VASP \citep{barzik_ena/vasp_2005}. This study found that although formins can generate filopodia, Ena/VASP is necessary for initiating focal contacts and integrin-dependent signaling. It is not currently clear if these dynamics play out in all cell types, and will be an important area of future research. In addition, the effect of formin on Ena/VASP activity, if any, is also an area of future research.
+
+\section{Single-molecule total internal reflection microscopy (TIRFM)}\label{tirfm}
+The main experimental set-up that we have used to study actin binding proteins and their activity and dynamics is total internal reflection microscopy (TIRFM). This microscopy uses a special objective that allows for a low angle of incidence of the incoming laser. The laser internally reflects between the glass slide and coverslip. This internal reflection causes an evanescent wave that can illuminate fluorophores within 150 $\mu$m from the coverslip. By only illuminating this small area, we get much better signal to noise by reduction of background fluorescence beyond the 150 $\mu$. TIRFM is especially beneficial for observing single molecules due to the reduced background. Single-molecule TIRFM allows us to measure single events at low concentrations of our protein of interest. Specifically for studying the actin cytoskeleton, we are able to watch filaments assemble in real time and monitor binding dynamics and how actin binding proteins interact with F-actin. Compared to bulk actin assays such as fluorescent pyrene assays we are able to distinguish polymerization, nucleation, and measure actual elongation rates of the filaments. We are also able to localize where proteins are interacting with the actin filament as well as other actin binding proteins. One of the biggest advantages of visualizing actin binding proteins with TIRFM is the ability to measure dynamics of both binding and dissociation of the F-actin. This kinetic information can inform the molecular mechanisms of actin binding proteins. 
+
+
+Lead-in to rest of thesis?
+What is the molecular mechanism of Ena/VASP on single and bundled filaments?
+How do bundling proteins effect other actin binding proteins?
+What are the effect of WH2 containing molecules?

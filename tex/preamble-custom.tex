@@ -1,7 +1,7 @@
 % Packages used by pandoc when converting Markdown to LaTeX
-\usepackage{fixltx2e}
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{tabularx}
 % Make cross-references hyperlinks (also format URLs with \url).
 % Specify breaklinks so that titles in table of contents linewrap.
 \usepackage[breaklinks]{hyperref}
@@ -21,3 +21,23 @@
 % Nice tilde
 % http://tex.stackexchange.com/questions/9363/how-does-one-insert-a-backslash-or-a-tilde-into-latex/9372#comment47661_9372
 \newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{‌​\sim}$}}
+% Add packages to make list with multiple letters
+% https://tex.stackexchange.com/questions/12279/outline-of-style-i-a-i-a-1
+\usepackage{outlines}
+\usepackage{enumitem}
+\setenumerate[1]{label=\Roman*.}
+\setenumerate[2]{label=\alph*.}
+\setenumerate[3]{label=\roman*.}
+\setenumerate[4]{label=\Alph*.}
+% try rotating table
+\usepackage{rotating}
+\usepackage{graphicx}
+% use tabulary for wrapping text in tables
+\usepackage{tabulary}
+% math short hyphen
+\mathchardef\mhyphen="2D
+% get accents in bibliography
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+% declare alpha as
+\DeclareUnicodeCharacter{3B1}{$\alpha$}

@@ -1,1297 +1,394 @@
 % Chapter 02
-\chapter{Mycobacterial infection induces a specific human innate immune response}\label{ch:tb}
+\chapter{Ena/VASP processive elongation is modulated by avidity on actin filaments bundled by the filopodia crosslinker fascin}\label{ch:ena}
+
 \section[Abstract]{Abstract\footnotemark}
+Ena/VASP tetramers are processive actin elongation factors that localize to diverse F-actin networks composed of filaments bundled by different crosslinking proteins, such as filopodia (fascin), lamellipodia (fimbrin), and stress fibers ($\alpha$-actinin). Previously, we found that \textit{Drosophila} Ena takes \mytilde3-fold longer processive runs on trailing barbed ends of fascin-bundled actin filaments. Here, we used single-molecule TIRFM and developed a kinetic model to further dissect Ena/VASP's processive mechanism on bundled filaments. We discovered that Ena's enhanced processivity on trailing barbed ends is specific to fascin bundles, with no enhancement on fimbrin or $\alpha$-actinin bundles. Notably, Ena/VASP's processive run length increases with the number of both fascin-bundled filaments and Ena 'arms', revealing avidity facilitates enhanced processivity. Moreover, Ena tetramers form more filopodia than mutant dimer and trimers in Drosophila culture cells. Finally, enhanced processivity on trailing barbed ends of fascin-bundled filaments is an evolutionarily conserved property of Ena/VASP homologs human VASP and \textit{C. elegans} UNC-34. These results demonstrate that Ena tetramers are tailored for enhanced processivity on fascin bundles and avidity of multiple arms associating with multiple filaments is critical for this process. Furthermore, we discovered a novel regulatory process whereby bundle size and bundling protein specificity control activities of a processive assembly factor.
 
-The innate immune system provides the first response to infection and
-is now recognized to be partially
-pathogen-specific. \emph{Mycobacterium tuberculosis} (MTB) is able to
-subvert the innate immune response and survive inside
-macrophages. Curiously, only 5-10\% of otherwise healthy individuals
-infected with MTB develop active tuberculosis (TB). We do not yet
-understand the genetic basis underlying this individual-specific
-susceptibility. Moreover, we still do not know which properties of the
-innate immune response are specific to MTB infection. To identify
-immune responses that are specific to MTB, we infected macrophages
-with eight different bacteria, including different MTB strains and
-related mycobacteria, and studied their transcriptional response. We
-identified a novel subset of genes whose regulation was affected
-specifically by infection with mycobacteria. This subset includes
-genes involved in phagosome maturation, superoxide production,
-response to vitamin D, macrophage chemotaxis, and sialic acid
-synthesis. We suggest that genetic variants that affect the function
-or regulation of these genes should be considered candidate loci for
-explaining TB susceptibility.
-
-\footnotetext{Citation for chapter: John D Blischak, Ludovic Tailleux,
-  Amy Mitrano, Luis B Barreiro, and Yoav Gilad. Mycobacterial
-  infection induces a specific human innate immune
-  response. Scientific reports, 5:16882, 2015}
+\footnotetext{Citation for chapter: Alyssa J. Harker, Harshwardhan H. Katkar*, Tamara C. Bidone*, Fikret Aydin, Gregory A. Voth, Derek A. Applewhite, David R. Kovar. * Contributed equally}
 
 \section{Introduction}\label{ch02-introduction}
+Many important cellular functions depend on formation of actin cytoskeleton networks at the correct time and location with specific architectures and dynamics \citep{pollard_actin_2009,campellone_nucleator_2010}. For example, filopodia are filamentous actin (F-actin)-rich finger-like protrusions that elongate from the lamellipodium, a dense, branched F-actin network kept short by capping protein \citep{pollard_cellular_2003} at the cell periphery. Filopodia are important for cell motility and environment sensing. Filopodial actin filaments are assembled by actin elongation factors such as formins and Enabled/vasodilator-stimulated phosphoprotein (Ena/VASP) \citep{mattila_filopodia:_2008}. During filopodia initiation, Ena/VASP localizes to the edge of the lamellipodium, where it competes with capping protein for barbed ends \citep{bear_antagonism_2002, svitkina_mechanism_2003, barzik_ena/vasp_2005, applewhite_ena/vasp_2007, bear_ena/vasp:_2009, winkelman_ena/vasp_2014} and then facilitates generation of long, straight filaments by remaining processively associated with barbed ends and increasing their elongation rate 2- to 7-fold \citep{breitsprecher_clustering_2008,breitsprecher_molecular_2011,pasic_ena/vasp_2008,hansen_vasp_2010,winkelman_ena/vasp_2014,bruhmann_distinct_2017}. The 10-30 filaments in filopodia are bundled primarily by fascin, a globular crosslinking protein containing $\beta$-trefoil domains \citep{vignjevic_role_2006,jansen_mechanism_2011}. Fascin bundles are composed of parallel filaments with narrow spacing, between 8-10 nm \citep{cant_drosophila_1994,edwards_fascins_1995,jansen_mechanism_2011,yang_molecular_2013}. Ena/VASP continues to localize to the tips of mature filopodia, where fascin-bundled filaments ultimately are the same length \citep{faix_making_2006,gupton_filopodia:_2007}, presumably assuring uniform thickness of filopodia required for protrusive force \citep{svitkina_mechanism_2003,winkelman_ena/vasp_2014}.
 
-The innate immune system provides the first line of defense against
-microbial pathogens. Broadly speaking, innate immune cells recognize
-foreign molecules through pattern recognition receptors (PRRs),
-e.g.~Toll-like receptors (TLRs), which bind to highly-conserved
-pathogenic motifs known as pathogen-associated molecular patterns
-(PAMPs) \citep{Hopkins2005, Mogensen2009}. In addition, innate immune
-cells recognize damage-associated molecular patterns (DAMPs) of host
-molecules released by infected cells \citep{Chen2010}. The initial
-innate response involves the release of proinflammatory cytokines and
-lipids to recruit and activate other immune cells, phagocytosis of the
-pathogen, and apoptosis \citep{Janeway2002}. If the infection
-persists, the phagocytes stimulate the adaptive immune system by
-presenting antigens to activate T and B cells. In contrast to the
-highly specific adaptive immune response, the innate immune response
-has traditionally been viewed as a general response to infection.
+Ena/VASP is a multidomain homotetramer with homologs in all metazoan cells \citep{sebe-pedros_insights_2013}. A few Ena/VASP homologs have been biochemically characterized, including human VASP \citep{bachmann_evh2_1999, chereau_understanding_2006, breitsprecher_clustering_2008, pasic_ena/vasp_2008, hansen_vasp_2010}, Drosophila Enabled \citep{winkelman_ena/vasp_2014}, and Dictyostelium VASP \citep{breitsprecher_clustering_2008}. Ena/VASP proteins contain two conserved Ena/VASP homology domains, EVH1 and EVH2 (Fig. \ref{fig:ena-bundlers}A). The N-terminus EVH1 domain is important for cellular localization and binds to proteins with FPPPP (FP4) repeats, such as lamellipodin, zyxin, and formin \citep{ball_evh1_2001,bilancia_enabled_2014}. The C-terminus EVH2 domain consists of three smaller subdomains: G-actin binding domain (GAB) \citep{bachmann_evh2_1999,ferron_structural_2007}, F-actin binding domain (FAB) \citep{dominguez_actin_2011}, and a C-terminal coiled-coil tetramerization domain \citep{bachmann_evh2_1999,kuhnel_vasp_2004}. Between the EVH1 and EVH2 domains there is a poly-proline rich region that binds profilin as well as SH3 domains \citep{ferron_structural_2007,hansen_vasp_2010}.
 
-Yet, more recent work revealed that the innate immune system also
-produces a pathogen-specific response in addition to the general
-response \citep{Huang2001, Boldrick2002, Nau2002, Jenner2005}.
-Furthermore, this pathogen-specific innate response can in turn affect
-the specificity of the adaptive immune response by directing the
-differentiation of T cells into distinct subtypes \citep{Iwasaki2004}.
-That said, though we developed an appreciation for the importance of
-the specific innate immune response, we still do not know the extent
-to which the innate immune response differs between infections nor
-fully understand the consequences of specific innate immune responses
-for fighting pathogens. One of the first challenges is to distinguish
-the unique immune response to a specific pathogen from the large core
-more general response.
+In addition to the leading edge and tips of filopodia, Ena/VASP proteins also localize to focal adhesions and stress fibers \citep{reinhard_46/50_1992,brindle_focal-adhesion_1996}, which are composed of filaments crosslinked by CH domain superfamily crosslinkers, fimbrin/plastin and $\alpha$-actinin. Fimbrin also localizes to the lamellipodia and base of filopodia, and it bundles both parallel and antiparallel filaments with narrow spacing (10-12 nm), similar to fascin \citep{hanein_atomic_1998}. In comparison, $\alpha$-actinin bundles filaments of mixed polarity with much wider spacing (30-36 nm) \citep{sjoblom_alpha-actinin_2008}.
 
-The pathogen-specific innate immune response is determined, at least
-in part, by the specificity of the PRRs of the host immune cell. Each
-PRR binds to its specific targets and activates certain downstream
-signaling pathways \citep{Kawai2009}. For example, treatment of mouse
-dendritic cells with lipopolysaccharide (LPS), which is found on the
-outer membrane of gram-negative bacteria, or with PAM3CSK4 (PAM),
-which is a synthetic lipoprotein that mimics those found on both
-gram-negative and gram-positive bacteria, induce different
-transcriptional response programs, because the two antigens are bound
-by TLR4 and TLR2, respectively \citep{Amit2009}. Different pathogens
-not only stimulate different PRRs, but they have also evolved
-different evasion mechanisms to manipulate the innate immune response
-\citep{Mogensen2009, Hornef2002, Brodsky2009, Diacovich2010}. These
-evasion strategies likely also contribute to the specificity of the
-response to different pathogens.
+We previously discovered that for F-actin bundles made by human fascin, \textit{Drosophila} Enabled (Ena) remains processively associated with trailing barbed ends (shorter filaments) \mytilde3-fold longer than leading barbed ends (longest filament) (Fig. \ref{fig:ena-bundlers}B) \citep{winkelman_ena/vasp_2014}. However, the underlying molecular mechanisms that facilitate Ena's enhanced processivity on bundled filaments remain unclear. We therefore used a combination of in vitro reconstitution with single-molecule multi-color total internal reflection fluorescence microscopy (TIRFM), kinetic modeling, and analysis of Drosophila culture cells to characterize the dynamics and function of processive elongation of single and bundled filaments by multiple Ena/VASP homologs including Ena, human VASP, and \textit{C. elegans} UNC-34. Together, our experiments and simulations inform our mechanistic understanding of Ena/VASP on single and bundled filaments, demonstrate that avidity of multiple filaments within fascin bundles and multiple Ena arms leads to increased processivity of tetrameric Ena on trailing barbed ends, and reveal a novel regulatory process whereby the particular F-actin bundling protein matters for Ena/VASP processivity.
 
-In the context of evasion strategies, the case of \emph{Mycobacterium
-  tuberculosis} (MTB), the causative agent of tuberculosis (TB), is
-especially interesting. In order to increase its success inside
-alveolar macrophages - the primary cells that target MTB upon
-infection - MTB subverts the immune response through various
-mechanisms. MTB disrupts phagosomal maturation, thus preventing
-acidification by vesicular proton pumps and lysosomal fusion
-\citep{Sturgill-Koszycki1994, Hornef2002, Hestvik2005}, and delays
-stimulation of the adaptive immune system by inducing host expression
-of anti-inflammatory cytokines \citep{VanHeyningen1997,
-  Giacomini2001}. In order to achieve these manipulations, MTB must be
-able to secrete bacterial effectors from the phagosome into the
-cystosol where they can interact with host factors
-\citep{Stanley2013}. For this reason, the ESX-1 secretion system of
-MTB is critical for virulence because it permeabilizes the phagosome
-membrane \citep{VanderWel2007, Simeone2015}. Not only does this
-membrane permeabilization provide a means for bacterial molecules to
-access the cytosol, but at later timepoints MTB has been observed to
-have escaped into the cytosol \citep{Stanley2013}. One well-studied
-consequence of phagosomal permeability is the detection of MTB DNA in
-the cytosol by the host sensor cGAS (\emph{MB21D1}) and subsequent
-activation of the STING (\emph{TMEM173}) pathway \citep{Dey2015,
-  Collins2015, Watson2015, Wassermann2015}. These signaling events
-result in immune responses that are both beneficial and detrimental to
-MTB survival. On the one hand, the expression of anti-viral type I
-interferons are increased, a response which has been observed to
-benefit the growth of MTB and other bacteria \citep{Stanley2007}. On
-the other hand, MTB is targeted for destruction via autophagy, a key
-defense mechanism for fighting intracellular pathogens
-\citep{Watson2012}. Thus the survival or destruction of MTB inside the
-macrophage depends on complex interactions between secreted bacterial
-effectors and host immune factors.
-
-While the adaptive immune system is needed to prevent the spread of
-MTB and subsequent onset of TB, infected individuals do not become
-immunized against future MTB infections. This property may be related
-to the difficulty to develop an effective vaccine for adult TB (the
-current vaccine, bacillus Calmette-Gu\'{e}rin, BCG, is partly
-effective in children, much less so in adults) \citep{Wang2013}.
-
-Interestingly from a human genetics viewpoint, there are large
-inter-individual differences in susceptibility to developing TB. While
-it is estimated that roughly a third of the human population is
-latently infected with MTB, only approximately 10\% of healthy
-infected individuals will develop active TB (immunocompromised
-individuals, e.g.~HIV-infected, develop active TB at a much higher
-frequency) \citep{North2004}. Despite an inference for a strong
-individual genetic component to TB susceptibility, the genetic
-architecture remains largely unknown \citep{Kallmann1943,
-  Comstock1978, Cobat2010, Moller2010}.  There have been quite a few
-reports of candidate-gene associations, but genome wide scans have
-only identified two weak associations with disease susceptibility
-\citep{Thye2010, Yim2010, Thye2012}.
-
-To begin addressing this gap, we have previously investigated genetic
-variation that is associated with inter-individual differences in the
-transcriptional response of human phagocytes to infection with MTB
-\citep{Barreiro2012}. We found 102 and 96 genes that were associated
-with an expression QTL (eQTL) only pre- or post-infection,
-respectively. We refer to these loci as response eQTLs since their
-association with gene expression is affected by MTB
-infection. Interestingly, these response eQTLs were enriched for
-significant signal in a genome wide association study of TB
-susceptibility \citep{Thye2010}. However, it is unknown if the genes
-associated with these response eQTLs are induced specifically in
-response to infection with MTB or are a part of the core innate immune
-response.
-
-In order to characterize the innate immune response specific to MTB
-infection and better understand the role of the response
-eQTL-associated genes in the innate immune response, we infected
-macrophages isolated from a panel of six healthy individuals with a
-variety of bacteria. In addition to MTB, we chose both related
-mycobacteria and more distantly related bacteria.
 
 \section{Results}\label{ch02-results}
 
-\subsection{Bacterial infection induces large changes in gene
-expression}\label{bacterial-infection-induces-large-changes-in-gene-expression}
-
-To learn about the immune response to infection with different
-bacteria, with a particular emphasis on \emph{Mycobacterium
-  tuberculosis} (MTB), we investigated the \emph{in vitro} gene
-regulatory response of macrophages to infection with multiple MTB
-stains, related mycobacterial species, and other bacterial species
-(Table \ref{tab:bacteria}). Specifically, we infected cultured
-macrophages with either MTB H37Rv, which is a common strain often used
-in laboratory experiments \citep{Rivero-Lezcano2012}; MTB GC1237,
-which is a strain of the highly virulent Beijing family
-\citep{Alonso2011}; bacillus Calmette-Gu\'{e}rin (BCG), which is
-attenuated \emph{Mycobacterium bovis} used for vaccinations;
-\emph{Mycobacterium smegmatis}, which is non-pathogenic; or
-heat-killed MTB H37Rv. In order to compare the response to infection
-with mycobacteria to the response to infection with other bacteria, we
-also included infection treatments with \emph{Yersinia
-  pseudotuberculosis} (gram-negative), \emph{Salmonella typhimurium}
-(gram-negative), or \emph{Staphylococcus epidermidis} (gram-positive).
-
-\begin{table}
-\centering
-\begin{tabular}{@{}llll@{}}
-\toprule Abbr. & Name & Description & Gram staining* \\ \midrule none
-& control & Mock infection & N/A \\ Rv & MTB H37Rv & A common
-laboratory strain of MTB & acid-fast \\ Rv+ & heat-inactivated MTB
-H37Rv & Dead MTB H37Rv & acid-fast \\ GC & MTB GC1237 & More virulent
-strain of MTB & acid-fast \\ BCG & bacillus Calmette-Gu\'{e}rin &
-Vaccine (attenuated \emph{M. bovis}) & acid-fast \\ Smeg &
-\emph{Mycobacterium smegmatis} & Non-pathogenic mycobacterium &
-acid-fast \\ Yers & \emph{Yersinia pseudotuberculosis} & Facultative
-intracellular pathogen & Negative \\ Salm & \emph{Salmonella
-  typhimurium} & Facultative intracellular pathogen & Negative
-\\ Staph & \emph{Staphylococcus epidermidis} & Extracellular pathogen
-& Positive \\ \bottomrule
-\end{tabular}
-\caption[Description of bacteria.]{\textbf{Description of bacteria.}
-  *Mycobacteria are unable to be gram stained due to the low
-  permeability of their cell walls. They are more closely related
-  evolutionarily to gram-positive bacteria than
-  gram-negative. However, their thick cells walls share features of
-  gram-negative bacteria, e.g. a ``pseudoperiplasm'' similar to the
-  gram-negative periplasm \citep{Hett2008}.}
-\label{tab:bacteria}
-\end{table}
-
-We infected monocyte-derived macrophages from six individuals with the
-bacteria described above (including a non-infected control) and
-extracted RNA at 4, 18, and 48 hours post-infection (see Methods;
-Supplementary Fig. \ref{fig:ch02-study-design}). We assessed RNA
-quality using the Agilent Bioanlyzer (Supplementary Table
-\ref{tab:ch02-s6}) and sequenced the RNA to estimate gene expression
-levels. Detailed descriptions of our data processing, quality control
-analyses, and statistical modeling are available in the Methods
-section. Briefly, we mapped the short RNA-seq reads to the human
-genome (hg19) using the Subread algorithm \citep{Liao2013}, discarded
-reads that mapped non-uniquely, and counted the number of reads mapped
-to each protein-coding gene. We normalized the read counts using the
-weighted trimmed mean of M-values algorithm (TMM)
-\citep{Robinson2010}, corrected for confounding ``batch'' effects
-(Supplementary Fig. \ref{fig:pca}), and used limma+voom
-\citep{Smyth2004, Smyth2005, Law2014} to test for differential
-expression (DE) between cultures infected with each bacteria and their
-time-matched controls (Supplementary Table \ref{tab:ch02-s2}). Using
-this approach we initially observed the following general patterns: at
-four hours post-infection, only \emph{Y. pseudotuberculosis} and
-\emph{S. typhimurium} elicitepd a strong transcriptional response
-(Fig.  \ref{fig:differential-expression}A); at 18 hours
-post-infection, all the bacteria had elicitepd a strong immune
-response (Fig. \ref{fig:differential-expression}A-B); and at 48 hours
-post-infection, all the bacteria continued stimulating the immune
-response (Fig. \ref{fig:differential-expression}A), however, many of
-the DE genes were not shared between the 18 and 48 hour timepoints
-(Fig. \ref{fig:differential-expression}C). Of note, at 48 hours
-post-infection we were unable to collect RNA from macrophages infected
-with \emph{S.  epidermidis} (see Methods).
+\subsection{Ena is more processive on trailing barbed ends of both human and fly fascin (Singed) bundles}\label{ena-processive-fascin-singed}
+To understand what features are important for Drosophila Ena's enhanced processivity on trailing barbed ends within human fascin bundles (Fig. \ref{fig:ena-bundlers}B) \citep{winkelman_ena/vasp_2014}, we first tested if a different fascin homolog also facilitates enhanced residence times. We used two-color TIRFM to directly visualize the assembly of 1.5 $\mu$M Mg-ATP-actin monomers (15\% Oregon green-labeled) with 15 pM fluorescently labeled SNAP(549)-Ena$\Delta$L (referred to as Ena) (Fig. \ref{fig:ena-bundlers}A) and human fascin or fly fascin, Singed. TIRFM allows direct visualization of individual Ena molecule dynamics on single and bundled actin filament barbed ends. Ena processive run lengths were measured for leading and single filament barbed ends (collectively referred to as leading) as well as trailing barbed ends (Fig. \ref{fig:ena-bundlers}C-D, Movie S1). Kaplan Meier survival curves were calculated from individual Ena processive runs (Fig. \ref{fig:ena-bundlers}E-F), revealing that Ena remains associated with trailing barbed ends ($\tau_{fascin}$ = 23.7 s, $\tau_{Singed}$ = 28.1 s) ~3-fold longer than leading barbed ends ($\tau_{fascin}$ = 8.4 s, $\tau_{Singed}$ = 10.1 s) for both human fascin and fly Singed (Fig. \ref{fig:ena-bundlers}I, Table \ref{tab:ena-processive}), consistent with our previous findings \citep{winkelman_ena/vasp_2014}. Therefore, enhancement of Ena's processive elongation on trailing barbed ends is not specific to a particular fascin homolog.
 
 \begin{figure}
 \centering
-\includegraphics[width=5in]{img/ch02/fig-01-differential-expression.pdf}
-\caption[Differential expression analysis.]{\textbf{Differential
-    expression analysis.} We tested for differentially expressed genes
-  for each bacterial infection by comparing it to its time-matched
-  control. (A) We classified genes with q-value \textless{} 5\% as
-  differentially expressed. The mycobacteria are labeled in shades of
-  green. (B) As expected, there were large transcriptional changes 18
-  hours post-infection with MTB H37Rv. Genes with q-value \textless{}
-  5\% and absolute log\textsubscript{2} fold change greater than 0.5
-  are labeled green, those with q-value \textless{} 5\% and absolute
-  log 2 fold change less than 0.5 are labeled grey, and
-  non-differentially expressed genes are labeled black. (C) The
-  overlap in differentially expressed genes identified at 4, 18, and
-  48 hours post-infection with MTB H37Rv.  }
-\label{fig:differential-expression}
-\end{figure}
-
-
-\subsection{Joint analysis identifies bacteria-specific response
-genes}\label{joint-analysis-identifies-bacteria-specific-response-genes}
-
-In order to learn about variation in the innate immune response to
-bacterial infection, we identified genes whose regulation was altered
-by treatment with specific bacteria at specific timepoints. We first
-used a naïve approach whereby we determined all the pairwise overlaps
-between lists of DE genes across treatments (Supplementary Table
-\ref{tab:ch02-s7}). The caveat of this strategy is that incomplete
-power can result in overestimating the difference between
-treatments. In order to account for incomplete power to detect DE
-genes when performing multiple pairwise comparisons, we performed a
-joint Bayesian analysis, which we implemented using the R/Bioconductor
-package Cormotif \citep{Wei2015} (see Methods for more details). Using
-this approach, we classified genes into regulatory patterns based on
-their expression levels following each of the bacterial infections.
-
-First, we examined the data across all the bacteria-time combinations.
-Initially we built a model that classified genes into one of 14
-separate patterns based on their expression levels after each
-infection relative to their expression level in the non-infected
-control (Supplementary Fig. \ref{fig:joint-all-k14}). However, we
-found that a model with only six expression patterns
-(Fig. \ref{fig:joint-all}; Supplementary Tables
-\ref{tab:ch02-s3},\ref{tab:ch02-s4}), where a subset of the original
-14 patterns are combined, is more intuitive from a biological
-perspective; thus we proceeded with the reduced model. Broadly
-speaking, we classified genes as responding in the early, middle, or
-late stages of infection, and we characterized the response as
-temporary or sustained. Pattern ``non-DE'' includes 4,245 genes whose
-expression levels were unchanged in all the experiments. Pattern
-``Yers-Salm'' includes 1,414 early response genes whose expression
-levels changed at four hours post-infection with either
-\emph{Y. pseudotuberculosis} or \emph{S. typhimurium}, but not after
-infection with other bacteria. The genes in this pattern are enriched
-for gene ontology (GO) annotations related to type I interferon
-signaling (e.g. \emph{SP100}, \emph{IFI35}, \emph{STAT2}), antigen
-presentation (\emph{HLA-A}, \emph{PSME1}, \emph{CTSS}), and apoptosis
-(\emph{CASP8}, \emph{TRADD}, \emph{FADD}) (Supplementary Table
-\ref{tab:ch02-s5}). Pattern ``18 h'' includes 3,201 middle response
-genes whose expression levels changed exclusively at 18 hours
-post-infection in response to all bacteria and is enriched for GO
-annotations related to apoptosis (e.g. \emph{E2F1}, \emph{TP53},
-\emph{WWOX}). Pattern ``48 h'' includes 1,204 late response genes
-whose expression levels changed at 48 hours and is enriched for GO
-annotations related to phagocytosis (e.g. \emph{MFGE8},
-\emph{COLEC12}) and tumor necrosis factor-mediated signaling
-(e.g. \emph{STAT1}, \emph{TRAF2}, \emph{TNFRSF14}). Pattern ``18 \& 48
-h'' includes 1,926 middle-sustained response genes whose expression
-levels changed at 18 and 48 hours and is enriched for GO annotations
-related to the regulation of phagocytosis (e.g. \emph{CD36}) and TLR
-signaling (\emph{TLR1}, \emph{TLR2}, \emph{MYD88}). Lastly, pattern
-``All'' includes 738 early-sustained genes whose expression levels
-changed after infection with all the bacteria across all three
-timepoints and is enriched for GO annotations related to type I
-interferon signaling (e.g. \emph{IRF1}, \emph{SOCS1}, \emph{IFIT3}),
-cytokine secretion (\emph{TNF}, \emph{IL10}, \emph{LILRB1}), and
-apoptosis (e.g. \emph{IRF7}, \emph{BCL2A1}, \emph{MCL1}).
-
-\begin{figure}
-\centering \includegraphics[width=5in]{img/ch02/fig-02-joint-all.pdf}
-\caption[Joint Bayesian analysis.]{\textbf{Joint Bayesian analysis.}
-  (A) Joint analysis of gene expression data from all three timepoints
-  with Cormotif \citep{Wei2015} identified six expression patterns:
-  ``non-DE'', ``Yers-Salm'', ``18 h'', ``48 h'', ``18 \& 48 h'', and
-  ``All''. The shading of each box represents the posterior
-  probability that a gene assigned to the expression pattern (row) is
-  differentially expressed in response to infection with a particular
-  bacteria (column), with black representing a high posterior
-  probability and white a low posterior probability. (B) Each data
-  point is the mean log\textsubscript{2} fold change in expression
-  (absolute value) in response to infection with the given bacteria
-  for all the genes assigned to the particular expression pattern.}
-\label{fig:joint-all}
-\end{figure}
-
-Next, we tested for more specific patterns by performing Cormotif
-separately on the data from the middle (18 h) and late (48 h) stages
-of infection. At 18 hours post-infection, we identified five separate
-expression patterns (Fig. \ref{fig:joint-18h}; Supplementary Tables
-\ref{tab:ch02-s3},\ref{tab:ch02-s4}). Pattern ``non-DE'' includes
-5,268 genes whose expression levels were unchanged across all
-infections. Pattern ``All'' includes 4,424 genes whose expression
-levels were affected by all infections (e.g. \emph{IL24}, \emph{IRF2},
-\emph{TLR2}). Pattern ``MTB'' includes 177 genes whose expression
-levels changed specifically in response to infection with mycobacteria
-(e.g. \emph{NCF2}, \emph{TNFSF13}, \emph{CSF1}). These genes had a
-high posterior probability of being DE 18 hours after infection with
-MTB H37Rv, heat-killed H37Rv, MTB GC1237, and BCG.  Furthermore, the
-gray shading for \emph{M. Smegmatis} (Fig. \ref{fig:joint-18h}A)
-signified an intermediate posterior probability for DE. In essence,
-this pattern is a merger of two sets of genes that were not large
-enough to be separated: one set that was DE across all five
-mycobacteria and another that was only DE after infection with the MTB
-strains and the closely-related BCG, but not
-\emph{M. Smegmatis}. Pattern ``Virulent'', in contrast, includes 1,165
-genes whose expression levels were less strongly changed after
-infection with heat-inactivated MTB H37Rv or the attenuated vaccine
-strain BCG compared to the other bacteria (e.g.  \emph{IL1R1},
-\emph{IRF1}, \emph{PILRB}). Also the genes in this category only have
-an intermediate probability of responding to the non-pathogenic
-\emph{M. smegmatis}. Lastly, pattern ``Yers-Salm'' includes 1,694
-genes whose expression levels changed preferentially after infection
-with \emph{Y. pseudotuberculosis} or \emph{S.  typhimurium}
-(e.g. \emph{TLR8}, \emph{TGFB1}, \emph{IL18}).
-
-\begin{figure}
-\centering \includegraphics[width=5in]{img/ch02/fig-03-joint-18h.pdf}
-\caption[Joint Bayesian analysis - 18 hours
-  post-infection.]{\textbf{Joint Bayesian analysis - 18 hours
-    post-infection.} (A) Joint analysis of gene expression data from
-  18 hours post-infection with Cormotif identified five expression
-  patterns: ``Yers-Salm'', ``Virulent'', ``MTB'', ``non-DE'', and
-  ``All''. (B) Example genes from the different expression patterns.}
-\label{fig:joint-18h}
-\end{figure}
-
-At 48 hours post-infection, we also discovered five expression
-patterns (Fig. \ref{fig:joint-48h}; Supplementary Tables
-\ref{tab:ch02-s3},\ref{tab:ch02-s4}). While many of the patterns have
-similar specificities to those observed at 18 hours post-infection,
-there is only little overlap across timepoints with respect to the
-genes comprising the patterns. For example, pattern ``Yers-Salm'' at
-48 hours includes 1,582 genes whose expression levels changed strongly
-after infection with \emph{Y. pseudotuberculosis} or
-\emph{S. typhimurium} (e.g. \emph{HLA-DPB1}, \emph{IL10RB},
-\emph{CD248}), but only 263 of these genes are also in the
-corresponding pattern when we considered the data from the 18 hour
-timepoint. Similarly, at the 48 hour timepoint, pattern ``MTB''
-includes 288 genes whose expression levels changed preferentially
-after infection with mycobacteria (e.g. \emph{CCL1}, \emph{ATP6V1A},
-\emph{IL27RA}), but only 33 of these genes are in the corresponding
-pattern at the 18 hour timepoint. Pattern ``Virulent'' includes 14
-genes whose expression levels were not changed after infection with
-heat-inactivated MTB H37Rv or the attenuated vaccine strain BCG
-(e.g. \emph{MAP3K4}, \emph{SEMA4G}, \emph{BTG1}), and only one of
-these also belongs to the pattern ``Virulent'' at 18 hours
-post-infection.
-
-\begin{figure}
-\centering \includegraphics[width=5in]{img/ch02/fig-04-joint-48h.pdf}
-\caption[Joint Bayesian analysis - 48 hours
-  post-infection.]{\textbf{Joint Bayesian analysis - 48 hours
-    post-infection.} (A) Joint analysis of gene expression data from
-  48 hours post-infection with Cormotif identified five expression
-  patterns: ``Yers-Salm'', ``Virulent'', ``MTB'', ``non-DE'', and
-  ``All''. (B) Example genes from the different expression patterns.}
-\label{fig:joint-48h}
-\end{figure}
-
-\subsection{Infection-induced response eQTLs are shared across
-bacterial
-infections}\label{infection-induced-response-eqtls-are-shared-across-bacterial-infections}
-
-Using the gene expression patterns we identified by applying the joint
-analysis approach, we investigated the specificity of previously
-identified response eQTLs to infection with MTB H37Rv
-\citep{Barreiro2012}. Since the response eQTLs were identified at 18
-hours post-infection, we investigated the distribution of genes
-associated with response eQTLs among the five patterns we found at
-that timepoint (Fig. \ref{fig:response-eqtl}A). Only one gene
-associated with a response eQTL was also DE specifically in response
-to MTB (\emph{CMAS}). Otherwise, most of the response eQTL-associated
-genes were classified as either DE following infection with all
-bacteria or not DE in any infection. That a large proportion of the
-genes associated with response eQTLs were not DE in any of these
-experiments is likely due to the fact that the eQTL study was
-performed in dendritic cells whereas our data were collected from
-macrophages. Overall, our observations suggest that most of the
-previously identified response eQTLs are genetic variants that affect
-the human innate immune response to bacterial infection in general,
-and not specifically the response to MTB H37Rv.
-
-To provide further broad support for the interpretation that the
-response eQTL genes are important for the innate response to bacterial
-nfection in general, we considered the log\textsubscript{2} fold
-change in expression values following infection
-(Fig. \ref{fig:differential-expression}). For each gene, we calculated
-the mean log\textsubscript{2} fold change in expression level across
-the eight bacterial infections at the 18 hour timepoint. Next, we
-compared the absolute values of the log\textsubscript{2} fold change
-in expression between genes associated with response eQTLs, genes
-associated with general eQTLs (i.e.~genes associated with an eQTL pre-
-and post-infection), and genes not found to be associated with an
-eQTL.  Since there was a large difference in the number of genes in
-these three classes, we subsampled genes from each and calculated the
-mean of the absolute values (and repeated this process 1000 times). We
-found that the expression level of genes associated with response
-eQTLs is altered to a larger degree (significantly higher effect size;
-\emph{P} \textless{} 2.2 x e\textsuperscript{-16};
-Fig. \ref{fig:response-eqtl}B) following infection compared to the
-genes in the other two classes.
-
-\begin{figure}
-\centering
-\includegraphics[width=5in]{img/ch02/fig-05-response-eqtl.pdf}
-\caption[Response eQTLs at 18 hours post-infection.]{\textbf{Response
-    eQTLs at 18 hours post-infection.} (A) We counted the number of
-  response eQTLs from Barreiro et al. \citep{Barreiro2012} (179 out of
-  the 198 were also expressed in our study) in each of the five gene
-  expression patterns at 18 hours post-infection
-  (Fig. \ref{fig:joint-18h}).  (B) We compared the mean
-  log\textsubscript{2} fold change in expression across the 8
-  bacterial infections at the 18 hour timepoint for three classes of
-  genes: response eQTL genes (red), general eQTL genes (purple), and
-  non-eQTL genes (yellow) (see Methods for details).  }
-\label{fig:response-eqtl}
-\end{figure}
-
-\section{Discussion}\label{ch02-discussion}
-
-\subsection{Bayesian analysis identified mycobacteria-specific
-response
-genes}\label{bayesian-analysis-identified-mycobacteria-specific-response-genes}
-
-In order to identify general and treatment-specific gene regulatory
-responses, we performed a joint Bayesian analysis of the data using
-Cormotif \citep{Wei2015}. By jointly analyzing the data, as opposed to
-comparing overlaps between independent lists of differentially
-expressed genes generated using an arbitrary cutoff, we minimized the
-identification of specific responses due to false negatives
-(i.e.~genes that appear to be differentially expressed in response to
-a subset of bacterial infections when in reality the response is
-similar across all the infections). Similar to previous observations
-\citep{Huang2001, Boldrick2002}, we found a large core transcriptional
-response to infection. However, we also identified a novel subset of
-genes whose regulation is preferentially altered in response to
-infection with mycobacteria but not to the other bacteria we
-tested. Since these responses are unique to infection with
-mycobacteria (at least in the context of our study design), they may
-be promising candidates for future studies that focus on the
-mechanisms by which mycobacteria successfully subvert the human innate
-immune response. Since this study does not extend to investigation of
-mechanisms, we do not have empirical data with which to prioritize
-such possible candidate genes. Yet, the reported functions of many of
-these genes often suggest mechanisms that are relevant, and often
-quite specific, to MTB infection. Prioritizing candidate genes in this
-way is not statistically valid, and one can argue (and indeed, this
-has been shown \citep{Pavlidis2012}) that any list of genes can be
-scrutinized to yield ``interesting relevant stories''. We therefore
-offer these details in the context of a discussion (rather than
-``results''), to provide one set of alternative explanations for our
-findings, and generate ideas for further investigations.
-
-For example, when we focused on the mycobacteria-specific regulatory
-response 18 hours post-infection, we noticed an intriguing number of
-genes that are involved in phagosome maturation (Supplementary
-Fig. \ref{fig:phago}). Broadly speaking, phagocytosed bacteria are
-killed by vesicular proton pumps, which lower the pH inside the
-phagosome, and lysosomal fusion. This process occurs once a phagosome
-has matured through a series of steps mediated by the exchange of Rab
-GTPases \citep{Vergne2004, Mortellaro2009}. A unique property of
-mycobacteria is their ability to survive inside the macrophage by
-inhibiting phagosome maturation \citep{Hestvik2005}. As part of this
-strategy, the bacterium recruits \emph{RAB22A} to MTB-containing
-phagosomes \citep{Roberts2006}. Indeed, we found the \emph{RAB22A}
-gene to be upregulated in response to infection with mycobacteria
-(Supplementary Table \ref{tab:ch02-s4}). Similar GTPases whose
-regulation was altered following mycobacterial infections include
-\emph{RAP2A} (upregulated), \emph{RAB3A} and \emph{RAB33A} (both
-downregulated). In addition, the vesicular (v)-ATPase subunit
-\emph{ATP6V1D} was exclusively upregulated in response to
-mycobacterial infection. Thus, the mycobacteria-specific response we
-identified includes genes putatively involved in mycobacteria-specific
-survival mechanisms.
-
-An additional intriguing example involves the \emph{NCF2} gene. This
-is a potential candidate gene whose expression level was affected
-specifically by infection with mycobacteria at 18 hours
-post-infection.  Neutrophil cytosolic factor 2 (\emph{NCF2}, also
-known as \emph{p67phox}) is a subunit of the phagocyte NAPDH oxidase,
-which is responsible for generating reactive oxygen species used to
-fight intracellular pathogens \citep{Ehrt2001, Myers2003, Babior2004,
-  Bustamante2011, Kim2011c, Deffert2014}. These reactive oxygen
-species may also serve a signaling role in activating other immune
-cell types to ensure proper granuloma formation and killing of
-mycobacteria \citep{Deffert2014a}. Loss-of-function mutations in
-subunits of the NAPDH oxidase cause chronic granulomatous disease
-(CGD) \citep{Deffert2014}, which is characterized by the formation of
-granulomas throughout the body due to the inability of phagocytes to
-kill the ingested pathogens.  In contrast to wild type animals, mice
-with mutations in subunits of the phagocyte NAPDH oxidase develop
-tuberculosis after infection with the vaccine strain, BCG
-\citep{Deffert2014a}. Humans who are administered the vaccine before
-being diagnosed with CGD also develop the disease \citep{Deffert2014}.
-
-At 48 hours post-infection (Fig. \ref{fig:joint-48h}), the
-mycobacteria-specific response was enriched with genes annotated
-(based on GO) as having a role in ``response to vitamin D''
-(Supplementary Table \ref{tab:ch02-s5}; Supplementary
-Fig. \ref{fig:vitD}). Individuals with low circulating levels of
-vitamin D are more susceptible to developing tuberculosis
-\citep{Zodpey2007, Nnoaham2008}, and vitamin D has been investigated
-as a supplemental therapy for the treatment of tuberculosis, though
-with mixed results \citep{Martineau2007, Lucas2014, Xia2014,
-  Kearns2015}. Vitamin D has been found to be important for innate
-immune cells to fight MTB \citep{Liu2006, Verway2013, Xu2014};
-however, it is also an important pathway for generic bactericidal
-activity \citep{Hewison2011}. Consistent with its role in the innate
-immune response, both the enzyme that converts vitamin D to its active
-form (\emph{CYP27B1}) and its receptor (\emph{VDR}) are upregulated in
-response to any of the infections (pattern ``All'';
-Fig. \ref{fig:joint-48h}). Yet, the regulation of other genes involved
-in the response to vitamin D was only affected by infection with MTB.
-\emph{PIM1}, a serine/threonine kinase that binds the VDR and enhances
-transcription of its target genes \citep{Maier2012}, is upregulated in
-response to the mycobacteria (pattern ``MTB'',
-Fig. \ref{fig:joint-48h}). Interestingly, the increased expression
-level of \emph{PIM1} in T-cells was successfully used in a six-gene
-classifier of patients with active versus latent TB infections
-\citep{Jacobsen2011}. Another gene, the chemokine \emph{CXCL10} (also
-known as interferon gamma-induced protein 10 or IP-10), is also
-upregulated in response to mycobacterial infection (pattern ``MTB'',
-Fig. \ref{fig:joint-48h}). Discordant with the observed increase in
-expression of \emph{CYP27B1}, \emph{VDR}, and \emph{PIM1} in response
-to infection, treatment with vitamin D usually leads to the reduction
-of \emph{CXCL10} expression and secretion in multiple cell types
-\citep{Gysemans2005, Adorini2005, Scolletta2013}. In fact,
-supplementation with vitamin D decreased serum levels of CXCL10 in TB
-patients \citep{Coussens2012}. This suggests that the immunosuppresive
-effect of vitamin D signaling is insufficient to overcome the
-pro-inflammatory response to mycobacterial infection. This observation
-is in concordance with past studies which found increased expression
-of \emph{CXCL10}, as well as increased secretion level from
-macrophages, following infection with MTB \citep{Zhu2006,
-  Verway2013}. Interestingly, a polymorphism in \emph{CXCL10} was
-found to be associated with susceptibility to tuberculosis in a
-Chinese population \citep{Tang2009, Azad2012}. Overall, these
-observations provide support for the importance of vitamin D signaling
-for specifically fighting mycobacterial infections.
-
-Another gene of interest from the mycobacteria-specific expression
-pattern at 48 hours post-infection is chemokine (C-C motif) ligand 1
-(\emph{CCL1}), which stimulates migration of human monocytes
-\citep{Miller1992} (Fig. \ref{fig:joint-48h}B). Thuong et
-al. identified \emph{CCL1} as being induced to a greater extent in
-MTB-infected macrophages (4 hours post-infection) isolated from
-individuals with pulmonary TB compared to macrophages from individuals
-with latent TB infections \citep{Thuong2008}. Put together, our
-observations and those of Thuong and colleagues suggest that
-\emph{CCL1} is involved in the pathogenesis of TB. Further supporting
-this notion, Thuong et al. also found a genetic association between
-variants in the \emph{CCL1} region and TB susceptibility
-\citep{Thuong2008}. However to date, subsequent genetic association
-studies investigating \emph{CCL1} have reported mixed results
-\citep{Tang2011, Ozdemir2013}.
-
-One caveat of the joint Bayesian analysis is that we were not able to
-classify genes into unusual patterns (because this approach can only
-discover expression patterns shared by a large number of genes and, by
-definition, only few genes fall into ``unusual'' patterns). For
-example, unusual patterns of interest include changes in expression
-specifically in response to some but not all of the mycobacterial
-infections. One gene that satisfied this pattern is the dual
-specificity phosphatase 14 (\emph{DUSP14}). We specifically examined
-the expression data for this gene because it was previously associated
-with an MTB infection response eQTL in dendritic cells
-\citep{Barreiro2012}, and consequently when the eQTL results were used
-as a prior - \emph{DUSP14} was found to be significantly associated
-with TB susceptibility. Moreover, knocking down \emph{DUSP14}
-expression via siRNA in murine macrophages resulted in a lower
-bacterial load 90 hours post-infection with MTB H37Rv
-\citep{Jayaswal2010}. In our joint Bayesian analysis, \emph{DUSP14}
-was not classified as one of the genes whose regulation was altered in
-response to infection with mycobacteria. Yet, \emph{DUSP14} was
-upregulated at 18 hours post-infection with MTB H37Rv (q-value: 16\%),
-MTB GC1237 (q-value: 3\%), and BCG (q-value: 9\%); and downregulated
-post-infection with \emph{S. typhimurium} (q-value: 9\%)
-(Supplementary Fig. \ref{fig:dusp14}). Thus, our data lends further
-support for the role of \emph{DUSP14} as a TB susceptibility gene.
-
-\subsection{Little evidence for strain-specific transcriptional
-response to
-infection}\label{little-evidence-for-strain-specific-transcriptional-response-to-infection}
-
-There are six major families of MTB that differ in their geographic
-distribution and virulence \citep{Gagneux2006, Comas2009}. Strains
-from these families are known to differ in their growth rates inside
-macrophages \citep{Li2002}, expression levels of bacterial genes
-\citep{Homolka2010, Rose2013}, and cell wall lipid composition
-\citep{Krishnan2011}. Previous studies have found that different MTB
-strains induce different innate immune responses in human cell lines
-and other infection models \citep{Coscolla2010}. A dominate narrative
-is that MTB strains from East Asia, referred to as the Beijing family
-(Gagneux et al. classified it as MTB lineage 2 \citep{Gagneux2006}),
-are more virulent because they induce a lower proinflammatory immune
-response compared to the common laboratory strains \citep{Manca2001,
-  Manca2004, Reed2004, Tanveer2009, Wang2010}. However, other studies
-have reported the opposite, namely that Beijing strains induce a
-larger proinflammatory response \citep{Chacon-Salinas2005}, or a
-conflicting response in which various pro- and anti-inflammatory
-cytokines are differentially regulated \citep{Rocha-Ramirez2008,
-  Koo2012} compared to laboratory strains.
-
-In our study, albeit with a small sample size, we found no marked
-differences between the transcriptional response to infection with MTB
-H37Rv or MTB GC1237, a Beijing strain (Supplementary
-Fig. \ref{fig:Rv-v-GC}; Supplementary Table
-\ref{tab:ch02-s8}). Furthermore, the pro-inflammatory cytokines
-\emph{TNF} and \emph{IL6} and the anti-inflammatory cytokine
-\emph{IL10} were strongly upregulated in response to both strains of
-MTB (Supplementary Fig. \ref{fig:ex-cytokines}). This observation is
-in concordance with Wu et al., who also reported no apparent
-difference in the transcriptional response of THP-1 cells to infection
-with MTB H37Rv versus multiple Beijing strains \citep{Wu2012}. Thus
-the increased virulence of the Beijing family of MTB strains may be
-due to mechanisms not assayed in this study such as
-post-transcriptional effects, cell-cell signaling, and environmental
-stimuli. It should be noted, however, that not all Beijing strains are
-equally virulent \citep{Dormans2004, Sinsimer2008} and that MTB H37Rv
-is a laboratory-adapted strain that has evolved independently in
-different laboratories \citep{Ioerger2010}.
-
-\subsection{Differences in response to virulent versus attenuated
-pathogens are not
-mycobacteria-specific}\label{differences-in-response-to-virulent-versus-attenuated-pathogens-are-not-mycobacteria-specific}
-
-To better understand the interaction between MTB and macrophages, we
-included in our study both virulent mycobacteria (MTB strains H37Rv
-and GC1237) and attenuated mycobacteria (heat-inactivated MTB H37Rv
-and the vaccine strain BCG). Overall, the response to infection with
-either virulent or attenuated mycobacteria was similar
-(Fig. \ref{fig:joint-18h},\ref{fig:joint-48h}). This observation was
-unsurprising because it has been previously demonstrated that
-infections with inactivated pathogens (in fact, even individual
-pathogen components) are able to largely recapitulate the
-transcriptional response to infection \citep{Huang2001, Boldrick2002,
-  Nau2002, Jenner2005}. In other words, as expected, the
-transcriptional response to infection is largely driven by the
-antigens present.
-
-Yet, the responses to inactivated pathogens or individual pathogen
-components in past studies were not identical to the responses to live
-pathogens, suggesting a potential role for bacterial manipulation of
-the immune response. For example, it is known that BCG lacks the locus
-containing the ESX-1 secretion system, which is critical for MTB
-virulence \citep{Behr1999, Pym2002, Hsu2003, Simeone2009}. In our
-study we also observed differences between the response to virulent
-and attenuated mycobacteria. Specifically, there are 1,165 genes in
-the expression pattern ``Virulent'' at 18 hours post-infection
-(Fig. \ref{fig:joint-18h}) and 14 genes that comprise of the
-``Virulent'' pattern at 48 hours post-infection
-(Fig. \ref{fig:joint-48h}). Importantly, these genes are also
-differentially expressed in response to the other virulent infections
-in our study, and thus they are not specifically due to the
-manipulations of the host cell by virulent mycobacteria.
-
-We attempted to identify a gene expression pattern that specifically
-represented differences in virulence only in the mycobacteria, yet we
-never saw such a pattern. It is important to note that had we simply
-performed a simple pairwise analysis of the overlap of DE genes
-between MTB and BCG infections, our results would be quite different
-(Supplementary Table \ref{tab:ch02-s7}). Yet, a pairwise analysis is
-misleading in the context of the entire study. Indeed, by accounting
-for incomplete power by using the joint Bayesian model and including
-other bacterial species, we avoided attributing many differentially
-expressed genes specifically to the differences in the immune evasion
-mechanisms used by MTB and BCG.  We conclude that either a larger
-sample size or a different experimental system is required to find
-specific differences between the response to infection with MTB and
-BCG.
-
-\subsection{Previously identified response eQTLs affect response to
-bacterial infection in
-general}\label{previously-identified-response-eqtls-affect-response-to-bacterial-infection-in-general}
-
-In a previous study, we identified response eQTLs that were associated
-with gene expression levels in MTB-infected human dendritic cells. We
-investigated the expression pattern of genes associated with the
-response eQTLs in our study. Using the five expression patterns
-identified by the joint Bayesian analysis at 18 hours post-infection,
-we examined the distribution of response eQTL genes and discovered
-that these genes were not enriched in the mycobacteria-specific
-expression pattern (Fig. \ref{fig:response-eqtl}A). Instead, many were
-differentially expressed across all the infections (pattern
-``All''). Thus, response eQTLs modulate the inter-individual response
-to infection with diverse types of bacteria.  That said, one gene was
-both associated with a response eQTL and specifically differentially
-expressed following mycobacterial infection.  Though this result does
-not represent a significant enrichment of response eQTL genes among
-those whose regulation was affected specifically by infection with
-MTB, the identity of the gene renders the observation
-intriguing. \emph{CMAS} (cytidine monophosphate N-acetylneuraminic
-acid synthetase), is an enzyme that is involved in the processing of
-sialic acid, which is then added to cell surface glycoproteins and
-glycolipids. Glycoproteins are known to be important in many functions
-of the immune response, including initial pathogen detection
-(e.g.~TLRs) and antigen presentation (e.g.~major histocompatibility
-complex (MHC) molecules) \citep{Wolfert2013, Johnson2013,
-  Crespo2013}. We suggest that this gene is an interesting candidate
-for further understanding both MTB pathogenesis and inter-individual
-susceptibility to tuberculosis.
-
-\subsection{Conclusions}\label{ch02-conclusions}
-
-By jointly considering data from multiple infection treatments, using
-a variety of bacteria, we have classified distinct innate immune
-transcriptional response patterns. The most inclusive pattern was a
-response to all the bacterial infections, indicating that the
-receptors that bind the diverse antigens present on the different
-bacteria converge to largely similar signaling pathways. We also found
-an expression response pattern specific to mycobacterial infections,
-the main focus of the current study. At 18 hours post-infection, the
-mycobacteria response pattern includes genes involved in phagosome
-maturation and the NAPDH oxidase subunit \emph{NCF2}. At 48 hours
-post-infection, it includes genes involved in the response to vitamin
-D and the chemokine \emph{CCL1}. We found that the response to
-infection with different MTB strains was highly similar. Furthermore,
-the differences we identified between the response to MTB and the
-vaccine strain BCG were not mycobacteria-specific, but likely
-represent a difference between the innate immune response to virulent
-and non-virulent (or attenuated) pathogens. Lastly, we identified a
-single gene, \emph{CMAS}, which is both associated with a response
-eQTL to MTB infection, and whose regulation is altered specifically
-when we infected the cells with mycobacteria. This gene is thus an
-especially promising candidate for future studies of TB
-susceptibility.
-
-\section{Methods}\label{ch02-methods}
-
-\subsection{Ethics Statement}\label{ch02-ethics-statement}
-
-Buffy coats were obtained from healthy donors after informed consent.
-The blood collection protocols were approved by both the French
-Ministry of Research and a French Ethics Committee under the reference
-DC-2008-68 collection 2. The blood collection was carried out in
-accordance with these approved protocols by the Etablissement Français
-du Sang.
-
-\subsection{Sample collection and macrophage
-differentiation}\label{sample-collection-and-macrophage-differentiation}
-
-We collected buffy coats (\mytilde50 mL) from six healthy donors. Next
-we isolated peripheral blood mononuclear cells (PBMCs) via
-Ficoll-Paque centrifugation \citep{Rivero-Lezcano2012} and enriched
-for monocytes via positive selection with beads containing CD14
-antibodies \citep{Barreiro2012}. Then we differentiated the monocytes
-into macrophages by culturing for 6-7 days in RPMI buffer supplemented
-with macrophage colony-stimulating factor (M-CSF)
-\citep{Tailleux2003}.
-
-\subsection{Bacterial infection}\label{bacterial-infection}
-
-For each bacterial infection (Table \ref{tab:bacteria}), we treated
-the macrophages with a multiplicity of infection (MOI) of 2:1. After
-one hour, we washed the macrophages five times with phosphate-buffered
-saline (PBS) and treated them with gentamycin (50 $mu$g/$mu$L) to kill
-all extracellular bacteria.  After one hour of antibiotic treatment,
-we changed the medium to a lower concentration of gentamycin (5
-$mu$g/$mu$L), which marked the zero timepoint of the study. We allowed
-the cells to grow for 4, 18, or 48 hours before lysing them with
-QIAzol Lysis Reagent and then storing them at -80° C.  We chose these
-timepoints based on a previous analysis of the human transcriptional
-response to infection with MTB \citep{Tailleux2008}. No data is
-available for 48 hours post-infection with \emph{S.
-  epidermidis}. After escaping the macrophages upon cell death,
-sufficient \emph{S. epidermidis} were able to proliferate in the
-gentmycin-supplemented medium to contiminate the entire well by 48
-hours post-infection.
-
-\subsection{RNA extraction, library preparation, and
-sequencing}\label{rna-extraction-library-preparation-and-sequencing}
-
-We extracted RNA using the QIAgen miRNeasy kit. There were a total of
-13 batches of 12 samples each (6 individuals x 9 conditions x 3
-timepoints, minus 48 hours post-infection with
-\emph{S. epidermidis}). We designed the batches to maximally partition
-the variables of interest (individual, condition, timepoint) in order
-to minimize the introduction of biases due to batch processing
-\citep{Auer2010}. To assess RNA quality, we measured the RNA Integrity
-Number (RIN) with the Agilent Bioanalyzer (Supplementary Table
-\ref{tab:ch02-s6}). Importantly, there were no significant differences
-in the RIN (mean of 7.8 $\pm$ 2.0) between the bacterial infections or
-between the timepoints (Supplementary
-Fig. \ref{fig:rin-and-reads}B). In batches of 12 samples, we added
-barcoded adapters (Illumina TruSeq RNA Sample Preparation Kit v2) and
-sequenced 50 base pairs single end over multiple flow cells on the
-Illumina HiSeq 2500.
-
-\subsection{Mapping, counting, and
-normalization}\label{mapping-counting-and-normalization}
-
-We mapped the short reads to the human genome (hg19) using the Subread
-algorithm \citep{Liao2013} and discarded those that mapped
-non-uniquely.  Next, we obtained the read counts for each Ensembl
-protein-coding gene (biotype: ``protein\_coding'') with the
-featureCounts algorithm, which sums the reads falling in the union of
-all exons of a gene and discards reads mapping to more than one gene
-\citep{Liao2014}. There were no significant differences in the number
-of mapped exonic reads (mean of 41.8 $\pm$ 21.2 million per sample)
-between the bacterial infections or between the timepoints
-(Supplementary Fig. \ref{fig:rin-and-reads}A). We removed genes with
-fewer than one count per million exonic reads in fewer than six
-samples.  To account for differences in the read counts at the
-extremes of the distribution, we normalized the samples using the
-weighted trimmed mean of M-values algorithm (TMM)
-\citep{Robinson2010}.
-
-\subsection{Differential expression
-analysis}\label{differential-expression-analysis}
-
-To assess the quality of the data, we performed principal components
-analysis (PCA) of the TMM-normalized log\textsubscript{2}-transformed
-counts per million (CPM). PC2 separated the samples by timepoint, but
-PC1 was associated with the RIN score and the processing batch
-(Supplementary Fig. \ref{fig:pca}A). After the effects of RIN score
-and processing batch were removed with the function removeBatchEffect
-from the limma package \citep{Ritchie2015}, PC1 separated the samples
-by timepoint and PC2 separated the infected and control samples
-(Supplementary Fig. \ref{fig:pca}B). We protected the variables of
-interest (individual, bacteria, timepoint) when regressing the effects
-of RIN score and processing batch by including them in the linear
-model used by removeBatchEffect. However, the result was similar if
-they were not protected since the variables of interest were
-partitioned across the processing batches (Supplementary
-Fig. \ref{fig:pca}C). All figures displaying expression data were
-generated using the batch-corrected data.
-
-To confirm that the transcriptional response to MTB infection in our
-study was consistent with previous observations, we compared our MTB
-infected samples and their time-matched controls to the MTB infected
-samples and zero timepoint control from Tailleux et al., 2008
-\citep{Tailleux2008}. Despite differences in the technology used to
-assay gene expression (RNA-seq versus microarray) and the method used
-to isolate the macrophages (positive versus negative selection), we
-still observed a common transcriptional signature of infection using
-PCA (Supplementary Fig. \ref{fig:tailleux2008}).
-
-For the standard analysis, we tested for differential expression using
-limma+voom \citep{Smyth2004, Smyth2005, Law2014} because it has been
-shown to perform well with sufficient sample size (n \textgreater{}= 3
-per condition) \citep{Rapaport2013, Soneson2013}. Based on the PCA
-results, we included RIN score and processing batch as covariates in
-the model. We corrected for multiple testing with the Benjamini \&
-Hochberg false discovery rate (FDR) \citep{Benjamini1995} and
-considered genes with q-value less than 5\% to be differentially
-expressed.
-
-Since we were interested in the shared and differential response to
-infection with the different bacteria, we performed a joint Bayesian
-analysis using the Cormotif algorithm \citep{Wei2015}. Cormotif shares
-information across experiments, in this case infections, to identify
-the main patterns of differential gene expression (which it refers to
-as \emph{correlation motifs}) and assigns each gene to one of these
-gene expression patterns. One caveat of the Cormotif algorithm is that
-is does not distinguish the direction of the effect across
-infections. In other words, a gene that is assigned to an expression
-pattern could be differentially expressed in different directions
-across the infections.  However, in this data set, this was rarely
-observed (Supplementary Table \ref{tab:ch02-s9}).
-
-In practice, we had to make several modifications when using Cormotif.
-First, since the method was developed for microarray data, we used the
-batch-corrected TMM-normalized log\textsubscript{2}-transformed CPM as
-input. Second, the method assumes independence between the
-experiments, and we only have one control per timepoint. However,
-since this dependence will cause genes to be more likely to be either
-uniformly differentially expressed across all the infections or
-uniformly unchanged, this caveat is conservative to our results of
-gene expression patterns that are specific to subgroups of the
-bacterial infections.  Third, the current version of the method
-(v1.14.0) does not return the cluster likelihoods, i.e.~the likelihood
-that a gene belongs to each of the gene expression patterns. To
-facilitate downstream analyses with these sets of genes, we modified
-the original code to additionally return this information. Lastly,
-Cormotif is non-deterministic. Thus to obtain consistent results, we
-ran each test 100 times and kept the result with the largest maximum
-likelihood estimate.
-
-We tested for enrichment of gene ontology (GO) biological processes
-among the genes in the gene expression patterns using topGO
-\citep{Alexa2006}. We tested for significance with the Fisher's Exact
-Test, used the weight01 algorithm from topGO to account for the
-correlation among GO categories due to its graph structure, and
-considered significant any category with p-value less than 0.01.
-
-\subsection{Analysis using previously identified response
-eQTLs}\label{analysis-using-previously-identified-response-eqtls}
-
-We downloaded the list of response eQTL genes from Supplementary Table
-3 from Barreiro et al. \citep{Barreiro2012}. Of the 198 response eQTL
-genes discovered in the dendritic cells in that study, 179 of the
-genes were also expressed in the macrophages from this study. In order
-to compare the differential expression results of the response eQTL
-genes to other genes, we used the log\textsubscript{2} fold changes in
-expression estimated by limma \citep{Ritchie2015}. First, we
-calculated the mean log\textsubscript{2} fold change at 18 hours
-post-infection for each gene across the eight bacteria. Second, we
-converted these mean estimates to their absolute values. Third, we
-subsampled 100 genes from each of the three categories (response eQTL,
-general eQTL, and non-eQTL genes) and calculated the mean of the
-absolute values. We performed this subsampling 1000 times
-(Fig. \ref{fig:response-eqtl}B). Fourth, we performed t-tests to
-compare the distribution of response eQTL genes to either that of the
-general eQTL genes or the non-eQTL genes.
-
-\subsection{Data and code
-availability}\label{ch02-data-and-code-availability}
-
-The data have been deposited in NCBI's Gene Expression Omnibus
-\citep{Edgar2002} and are accessible through GEO Series accession
-number GSE67427
-(\url{http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE67427}).
-Supplementary Table \ref{tab:ch02-s1}, which contains the gene
-expression data, and Supplementary Table \ref{tab:ch02-s2}, which
-contains the differential expression results from limma, are available
-from our lab website: \url{http://giladlab.uchicago.edu}. The code is
-available at \url{https://bitbucket.org/jdblischak/tb}.
-
-\section{Acknowledgments}\label{ch02-acknowledgments}
-
-We thank Matthew Stephens and Bryce van de Geijn for advice on the
-statistical analyses, and all members of the Gilad lab for helpful
-discussions. This work was supported by grant AI087658 to YG and
-LT. JDB was partially supported by National Institutes of Health Grant
-T32 GM007197.
-
-\section{Author Contributions}\label{ch02-author-contributions}
-
-YG, LT, and LBB conceived of the study and designed the
-experiments. LT performed the infection experiments. JDB extracted the
-RNA and analyzed the data. AM prepared the sequencing libraries. LBB
-and YG supervised the project. JDB and YG wrote the paper with input
-from all authors.
-
-\section{Supplementary Information}\label{ch02-supplementary-information}
-
-\subsection{Supplementary Figures}\label{ch02-supplementary-figures}
-\clearpage
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=5in]{img/ch02/fig-S01-study-design.png}
-\caption[Study design.]{\textbf{Study design.} We infected
-  monocyte-derived macrophages isolated from six healthy donors with
-  the bacteria described in Table \ref{tab:bacteria}. We isolated RNA
-  for sequencing at 4, 18, and 48 hours post-infection.}
-\label{fig:ch02-study-design}
-\end{figure}
-
-\begin{figure}[!htb]
-\centering \includegraphics[width=5in]{img/ch02/fig-S02-pca.pdf}
-\caption[Principal components analysis (PCA) of uncorrected and
-  batch-corrected expression values.]{\textbf{Principal components
-    analysis (PCA) of uncorrected and batch-corrected expression
-    values.} (A) PCA of the TMM-normalized
-  log\textsubscript{2}-transformed counts per million (CPM). Infected
-  and control samples are not well separated.  PC2 separates the
-  samples by timepoint. (B) PCA of the TMM-normalized
-  log\textsubscript{2}-transformed CPM after removing the effects of
-  RIN score and processing batch. PC1 separates the samples by
-  timepoint. PC2 separates the infected and control samples. (C) PCA
-  of the TMM-normalized log\textsubscript{2}-transformed CPM after
-  removing the effects of RIN score and processing batch without
-  protecting the variables of interest (individual, bacteria,
-  timepoint).}
-\label{fig:pca}
-\end{figure}
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=5in]{img/ch02/fig-S03-joint-all-k14.pdf}
-\caption[Joint Bayesian analysis with 14 expression
-  patterns.]{\textbf{Joint Bayesian analysis with 14 expression
-    patterns.} (A) Cormotif \citep{Wei2015} estimates the number of
-  expression patterns (i.e.~motifs, using their terminology) to use by
-  calculating the Bayesian information criterion (BIC) and the Akaike
-  information criterion (AIC). These criteria penalize models for
-  additional parameters to avoid overfitting. The model with the
-  lowest BIC/AIC is considered the best fit, which in this context is
-  the model with 14 expression patterns. (B) Joint analysis with
-  Cormotif. The shading of each box represents the posterior
-  probability that a gene assigned to the expression pattern (row) is
-  differentially expressed in response to infection with a particular
-  bacteria (column), with black representing a high posterior
-  probability and white a low posterior probability.}
-\label{fig:joint-all-k14}
+\includegraphics[width=\textwidth]{img/ch02/Figure_1_elife.pdf}
+\caption[Ena has enhanced processivity on F-actin bundles formed specifically by fascin.]{\textbf{Ena has enhanced processivity on F-actin bundles formed specifically by fascin.} (A) Ena/VASP domain organization and constructs used for Ena, UNC-34, and VASP: Self-labeling tag (SNAP), Ena/VASP homology domain 1 (EVH1), polyproline region (PPR), Ena/VASP homology domain 2 (EVH2) includes G-actin binding domain (G), F-actin binding domain (F), coiled coil region (CC). *Putative domain. Two-color TIRFM visualization of 1.5 $\mu$M Mg-ATP-actin (15\% Oregon green-actin) with 15 pM SNAP(549)-Ena$\Delta$L and unlabeled 130 nM human fascin, 250 nM fly fascin Singed, 125 nM $\alpha$-actinin, or 100 nM fimbrin.  (B) Cartoon Ena/VASPs bound to leading and trailing barbed ends in a fascin bundle. (C and D) Representative experiment of OG-actin with SNAP(549)-Ena$\Delta$L and fascin. Arrows indicate leading (orange), 1st trailing (white), 2nd trailing (yellow) and 3rd trailing (blue) barbed ends. (C) Merged time-lapse micrographs. Scale bar, 5 $\mu$m. (D) Merged kymograph of filament length (scale bar, 5 $\mu$m) over time (time bar, 10 s).}
+\label{fig:ena-bundlers}
 \end{figure}
 
 % Continues caption on next page. Requires package ccaption.
 \begin{figure}[!htb]
-  \contcaption{(continued) The expression patterns have the following
-    interpretations: ``non-DE'' - Genes that do not respond to
-    infection; ``Yers-Salm-4h'' - Genes that respond 4 hours
-    post-infection with \emph{Y. pseudotuberculosis} or
-    \emph{S. typhimurium}; ``Yers-Salm-18h'' - Genes that respond 18
-    hours post-infection with \emph{Y. pseudotuberculosis} or
-    \emph{S. typhimurium}; ``4h'' - Genes that respond to 4 hours
-    post-infection with any bacteria; ``non-MTB'' - Genes that respond
-    at 4, 18, and 48 hours post-infection to bacteria that are not MTB
-    or BCG (attenuated \emph{M. bovis}); ``Virulent-18h'' - Genes that
-    respond 18 hours post-infection with virulent bacteria;
-    ``Virulent-18h+Yers-Salm-4h'' - Genes that respond 18 hours
-    post-infection with virulent bacteria and 4 hours post-infection
-    with \emph{Y. pseudotuberculosis} or \emph{S. typhimurium};
-    ``18h+Yers-Salm-48h'' - Genes that respond 18 hours post-infection
-    with any bacteria and 48 hours post-infection with \emph{Y.
-      pseudotuberculosis} or \emph{S. typhimurium}; ``48h'' - Genes
-    that respond 48 hours post-infection with any bacteria;
-    ``48h+Yers-Salm-4h'' - Genes that respond 48 hours post-infection
-    with any bacteria and 4 hours post-infection with \emph{Y.
-      pseudotuberculosis} or \emph{S. typhimurium}; ``4\&18h'' - Genes
-    that respond 4 and 18 hours post-infection with any bacteria;
-    ``18\&48h'' - Genes that respond 18 and 48 hours post-infection
-    with any bacteria; ``18\&48h+Yers-Salm-4h'' - Genes that respond
-    18 and 48 hours post-infection with any bacteria and 4 hours
-    post-infection with \emph{Y. pseudotuberculosis} or
-    \emph{S. typhimurium}; ``All'' - Genes that respond at 4, 18, and
-    48 hours post-infection with any bacteria.}
+  \contcaption{(continued) (E-H) Kaplan-Meier curves representing average processive run lengths ($\tau$) for Ena with (E) fascin, (F) Singed, (G) $\alpha$-actinin, or (H) fimbrin on leading (red) and trailing (blue) barbed ends. Error bars, 95\% CI. n $\geq$ 127. (I) Average processive run lengths for leading (red) and trailing (blue) barbed ends shown in E-H for 2-filament bundles with fascin, Singed, $\alpha$-actinin, or fimbrin. P values (*$<$0.0001). Error bars, 95\% CI. (J) Average processive run lengths for antiparallel and parallel 2-filament $\alpha$-actinin (green) or fimbrin (purple) bundles. Error bars, 95\% CI. n $\geq$ 64. (K) Fold increase of barbed end elongation rates of Ena on fascin (yellow), Singed (blue), $\alpha$-actinin (green), or fimbrin (purple) bundled filaments. Error bars, SEM. n $\geq$ 5 barbed ends from at least 2 movies.}
 \end{figure}
 
-\begin{figure}[!htb]
-\centering \includegraphics[width=5in]{img/ch02/fig-S04-phago.pdf}
-\caption[Expression of genes involved in phagosome
-  maturation.]{\textbf{Expression of genes involved in phagosome
-    maturation.} \emph{RAB22A}, \emph{RAP2A}, and \emph{ATP6V1D} are
-  upregulated in response to infection with mycobacteria at 18 hours;
-  whereas, \emph{RAB3A} and \emph{RAB33A} are downregulated (pattern
-  ``MTB'' in Fig. \ref{fig:joint-18h}).}
-\label{fig:phago}
-\end{figure}
+\subsection{Ena's residence time is not enhanced on trailing barbed ends of fimbrin and \texorpdfstring{$\alpha$}{a}-actinin bundles}\label{ena-processive-fimbrin-aact}
 
-\begin{figure}[!htb]
-\centering \includegraphics[width=5in]{img/ch02/fig-S05-vitD.pdf}
-\caption[Expression of genes involved in vitamin D
-  signaling.]{\textbf{Expression of genes involved in vitamin D
-    signaling.}  \emph{VDR} and \emph{CYP27B1} are upregulated at 48
-  hours post-infection with all bacteria (pattern ``All'' in Fig.
-  \ref{fig:joint-48h}). \emph{PIM1} and \emph{CXCL10} are upregulated
-  at 48 hours post-infection with the mycobacteria (pattern ``MTB'' in
-  Fig. \ref{fig:joint-48h}).}
-\label{fig:vitD}
-\end{figure}
+To determine if diverse bundle architectures are similarly sufficient to enhance Ena's processivity on trailing barbed ends, we tested the effect of bundling proteins with distinct properties (fimbrin and $\alpha$-actinin, see introduction). First, we measured elongation rates of Ena-bound leading and trailing barbed ends of filaments bundled by human fascin, fly fascin Singed, $\alpha$-actinin, or fimbrin. Two-color TIRFM visualization of control and Ena-bound barbed ends revealed a similar fold increase in Ena-mediated actin elongation for leading (\mytilde2.2- to 3-fold) and trailing (\mytilde2- to 2.5-fold) barbed ends with all four bundling proteins (Fig. \ref{fig:ena-bundlers}K, Tables \ref{tab:ena-elongation}, \ref{tab:ena-p-elongation-bundlers}). Therefore, Ena's barbed end elongation enhancement is bundling protein independent. 
 
-\begin{figure}[!htb]
-\centering \includegraphics[width=5in]{img/ch02/fig-S06-dusp14.pdf}
-\caption[Expression of \emph{DUSP14} at 18 hours
-  post-infection.]{\textbf{Expression of \emph{DUSP14} at 18 hours
-    post-infection.} \emph{DUSP14} is an example of an interesting
-  gene not identified with our approach. At 18 hours, it is
-  upregulated after infection with MTB H37Rv (q-value: 16\%), MTB
-  GC1237 (q-value: 3\%), and BCG (q-value: 9\%) (the change in
-  heat-inactivated MTB H37Rv had a q-value of 26\%); and downregulated
-  post-infection with \emph{S. typhimurium} (q-value: 9\%).  Because
-  it did not fit well into one of the main patterns of gene expression
-  identified at 18 hours post-infection, it was classified as the
-  ``non-DE'' pattern.}
-\label{fig:dusp14}
-\end{figure}
+Conversely, Ena's enhanced processivity on trailing barbed ends is specific to fascin bundles. The average processive run length on leading barbed ends with all four bundling proteins is similar, \mytilde10 sec (Fig. \ref{fig:ena-bundlers}I). However, there is no enhancement of Ena's average residence time on trailing barbed ends of $\alpha$-actinin ($\tau$ = 9.4 s) or fimbrin ($\tau$ = 8.7 s) bundles (Fig. \ref{fig:ena-bundlers}G-I, Table \ref{tab:ena-processive}). Therefore, F-actin bundling proteins are not universally sufficient to enhance Ena's processivity on trailing barbed ends. Although fascin exclusively forms parallel bundles, $\alpha$-actinin and fimbrin form bundles composed of filaments with mixed polarities. We therefore compared Ena's residence time on trailing barbed ends in parallel and antiparallel two-filament bundles. For both fimbrin and $\alpha$-actinin bundles, the average residence time for trailing parallel and antiparallel barbed ends is equivalent; thus, neither bundler enhances Ena's processivity (Fig. \ref{fig:ena-bundlers}J, Table \ref{tab:ena-parallel}). Therefore, neither 'fascin-like' filament spacing (8-10 nm) nor polarity (parallel) of actin filaments within bundles is sufficient to facilitate increased processivity on trailing barbed ends. Given that Ena's \mytilde3-fold enhancement of processivity on trailing barbed ends is specific to fascin, different bundling proteins could regulate Ena's specific activity for different F-actin networks. 
 
-\begin{figure}[!htb]
-\centering \includegraphics[width=5in]{img/ch02/fig-S07-Rv-v-GC.pdf}
-\caption[Little difference in transcriptional response to infections
-  with different MTB strains.]{\textbf{Little difference in
-    transcriptional response to infections with different MTB
-    strains.} Few statistically significant differences were
-  identified when explicitly testing gene expression levels
-  post-infection with MTB H37Rv and MTB GC1237 at 4, 18, or 48 hours
-  post-infection (top, middle, and bottom panels, respectively). The
-  volcano plots (left) display the -log\textsubscript{10} transformed
-  p-value versus the log\textsubscript{2} fold change in expression
-  level. The MA plots (right) display the log\textsubscript{2} fold
-  change in expression level versus the average expression level. Most
-  of the genes are labeled black indicating that their FDR value is
-  greater than 5\%. Two genes (labeled green) at 4 hours
-  post-infection had a q-value \textless{} 0.05 and
-  log\textsubscript{2} fold change greater than 0.5 (see Supplementary
-  Table \ref{tab:ch02-s8}).}
-\label{fig:Rv-v-GC}
-\end{figure}
+\subsection{Ena's processive run length increases with bundle size}\label{ena-bundle-size}
 
-\begin{figure}[!htb]
+Filopodia are composed of \mytilde10-30 actin filaments bundled by fascin \citep{svitkina_mechanism_2003,faix_making_2006}, suggesting an avidity mechanism where enhanced processivity depends on Ena simultaneously associating with a barbed end and sides of neighboring filaments. To test whether the number of filaments in a fascin bundle positively correlates with processive run length, we determined the dependence of Ena's enhanced processivity on fascin bundle size (Fig. \ref{fig:ena-filaments}A). Average run lengths on trailing barbed ends (Fig. \ref{fig:ena-bundlers}E-F) was thereby parsed into 2-filament bundles or 3- or more filament bundles for both human and fly fascin (Fig. \ref{fig:ena-filaments}B-D, Table \ref{tab:ena-processive}). Ena's average residence time on trailing barbed ends of a 2-filament bundle ($\tau_{fascin}$ = 16.8 s, $\tau_{Singed}$ = 21.7 s) is \mytilde2-fold longer than on single filament barbed ends ($\tau_{fascin}$ = 8.9 s, $\tau_{Singed}$ = 10.0 s). Furthermore, there is an additional \mytilde1.5-fold increase in processivity when Ena is bound to trailing barbed ends of 3- or more filament bundles ($\tau_{fascin}$ = 26.0 s, $\tau_{Singed}$ = 32.2 s) (Fig. \ref{fig:ena-filaments}D). Therefore, consistent with an avidity effect, Ena's processivity increases with the number of fascin-bundled filaments. 
+
+\begin{figure}
 \centering
-\includegraphics[width=5in]{img/ch02/fig-S08-ex-cytokines.pdf}
-\caption[Response of example cytokines to infection with different MTB
-  strains.]{\textbf{Response of example cytokines to infection with
-    different MTB strains.} The log\textsubscript{2} fold change in
-  expression of the pro-inflammatory cytokines \emph{TNF} and
-  \emph{IL6} and the anti-inflammatory cytokine \emph{IL10} is similar
-  post-infection with MTB H37Rv or MTB GC1237. \emph{TNF} and
-  \emph{IL6} are upregulated at all three timepoints; whereas,
-  \emph{IL10} is upregulated only at 4 hours post-infection.}
-\label{fig:ex-cytokines}
+\includegraphics[width=\textwidth]{img/ch02/Figure_2_elife.pdf}
+\caption[Ena/VASP's processive run length increases with the number of filaments in a fascin bundle.]{\textbf{Ena/VASP's processive run length increases with the number of filaments in a fascin bundle.} (A) Cartoons of Ena/VASP on a single filament and 2- and 3-filament fascin bundles. (B-G) Two-color TIRFM visualization of 1.5 $\mu$M Mg-ATP-actin (15\% Oregon green-actin) with fly SNAP(549)-Ena$\Delta$L (red), human SNAP(549)-VASP or worm SNAP(549)-UNC-34 and unlabeled 130 nM human fascin or 250 nM Singed as indicated. (B and C) Kaplan-Meier curves representing average processive run lengths ($\tau$) for 15 pM Ena with (B) fascin or (C) Singed on single filaments (red), or bundles with 2 (blue) and $\geq$3 (green)  filaments. Error bars, 95\% CI. n $\geq$ 98. (D) Average processive run lengths for increasing number of filaments in fascin (yellow) or Singed (blue) bundles shown in B and C. Error bars, 95\% CI. P values (*$<$0.0001). (E and F) Kaplan-Meier curves representing run lengths ($\tau$) for (E) 25 pM VASP or (F) 18 pM UNC-34 with fascin on single filaments (red), or bundles with 2 (blue) and $\geq$3 (green) filaments. Error bars, 95\% CI. n $\geq$ 60. (G) VASP and UNC-34 average processive run lengths for increasing number of filaments in fascin bundles shown in E and F. Error bars, 95\% CI. P values (*$<$0.0001).}
+\label{fig:ena-filaments}
 \end{figure}
 
-\begin{figure}[!htb]
+\subsection{Human VASP and worm UNC-34 also have enhanced processive properties on fascin bundles}\label{vasp-unc34-processive}
+
+To determine whether enhanced processivity on fascin-bundled trailing filament barbed ends is conserved among Ena/VASP family members, we extended our analysis to human VASP and worm UNC-34 (Fig. \ref{fig:ena-bundlers}A). Human VASP is a well-characterized Ena/VASP protein \citep{bachmann_evh2_1999,chereau_understanding_2006,breitsprecher_clustering_2008,pasic_ena/vasp_2008,hansen_vasp_2010}, whereas UNC-34 had not yet been biochemically characterized in vitro despite multiple in vivo studies \citep{sheffield_c._2007,fleming_role_2010,havrylenko_wave_2015}. 
+
+For our initial characterization of the three homologs, we measured the affinity for barbed ends and effect on actin elongation for Ena, VASP, and UNC-34. Initially, the effect of Ena/VASP homologs on actin elongation rates and their apparent affinity (Kd, app) for barbed ends was determined by single-color TIRFM visualization of spontaneous assembly of 1.5 $\mu$M Mg-ATP-actin (15\% Oregon Green) over a range of concentrations for each unlabeled Ena/VASP homolog (Fig. \ref{fig:ena-homologs}A-F). All three Ena/VASP homologs increase actin elongation by a similar amount, \mytilde1.6- to \mytilde2.7-fold, at or near saturating conditions but have somewhat varying affinities for actin filament barbed ends ranging from 3.2 nM (Ena) to 6.7 nM (UNC-34) to 12.2 nM (VASP) (Fig. \ref{fig:ena-homologs}F). Likewise, bulk seeded pyrene actin assembly assays also show that all three Ena/VASP homologs increase actin elongation rates by similar amounts, and fits of assembly rate over a range of Ena/VASP concentrations revealed apparent affinities for barbed ends ranging from 0.7 nM (Ena) to 10.2 nM (UNC-34) to 10.8 nM (VASP) (Fig. \ref{fig:ena-homologs}G-H). We then used two-color TIRFM visualizations of red-labeled Ena, VASP, and UNC-34 on fascin bundles to measure actin elongation rates of Ena/VASP-bound leading and trailing barbed ends (Fig. \ref{fig:ena-homologs}I, Movie S2). All three Ena/VASP homologs similarly increase actin elongation \mytilde2- to 3-fold on both leading and trailing barbed ends (Fig. \ref{fig:ena-homologs}J, Tables \ref{tab:ena-p-elongation-bundlers}, \ref{tab:ena-p-elongation-homologs}). Enhancement of actin elongation rates by Ena and VASP are similar to previously reported values \citep{hansen_vasp_2010,winkelman_ena/vasp_2014,bruhmann_distinct_2017} and the actin elongation properties of UNC-34 are in good agreement with the other homologs. Therefore, though Ena, VASP, and UNC-34 vary in their barbed end affinity, they all similarly increase the actin elongation rate of both leading and trailing barbed ends of fascin-bundled filaments.
+
+To test if different Ena/VASP homologs have similarly enhanced processive properties on fascin bundles, two-color TIRFM visualization of 1.5 $\mu$M Mg-ATP-actin (15\% Oregon Green) was used to quantify the processive run lengths of fluorescently labeled VASP and UNC-34 on fascin bundles (Fig. \ref{fig:ena-filaments}E-G, Movie S2). The average residence time of both VASP (1.0 s) and UNC-34 (1.2 s) on single filament barbed ends is \mytilde9-fold shorter than Ena (8.9 s), as expected from lower apparent affinities for barbed ends and previously reported values \citep{hansen_vasp_2010}. Yet, like Ena, both VASP and UNC-34 have \mytilde2.5-fold longer processive run lengths on trailing barbed ends of 2-filament bundles ($\tau_{VASP}$ = 2.6 s, $\tau_{UNC-34}$ = 2.9 s), with an additional \mytilde1.5-fold increase on trailing barbed ends of 3- or more filament bundles ($\tau_{VASP}$ = 4.2 s, $\tau_{UNC-34}$ = 3.9 s) (Fig. \ref{fig:ena-filaments}E–G, Table \ref{tab:ena-processive}). Therefore, enhanced processivity on fascin-bundled trailing barbed ends is conserved from worms to flies to humans, suggesting that enhanced processivity is important for Ena/VASP's activity in cells. 
+
+\begin{figure}
 \centering
-\includegraphics[width=5in]{img/ch02/fig-S09-rin-and-reads.pdf}
-\caption[Distribution of the number of exonic reads and RNA quality
-  scores (RIN) across variables of interest.]{\textbf{Distribution of
-    the number of exonic reads and RNA quality scores (RIN) across
-    variables of interest.} (A) The number of exonic reads is evenly
-  distributed across the bacterial infections, timepoints, and
-  individuals. (B) The RIN scores are evenly distributed across the
-  bacterial infections and timepoints; however, the RIN does vary
-  between the individuals.  The p-values are from an F-test.}
-\label{fig:rin-and-reads}
+\includegraphics[width=\textwidth]{img/ch02/Figure_3_elife.pdf}
+\caption[Ena's processive run length increases with the number of Ena ‘arms'.]{\textbf{Ena's processive run length increases with the number of Ena ‘arms'.} (A) Cartoon and domain organizations of Ena\textsubscript{Tetramer}, Ena\textsubscript{Trimer}, and Ena\textsubscript{Dimer}. (B-E) Two-color TIRFM visualization of 1.5 $\mu$M Mg-ATP-actin (15\% Alexa488-actin) with indicated SNAP(549)-Ena construct and 130 nM fascin. (B) Fold increase of barbed end elongation rates of Ena\textsubscript{Dimer} (orange), Ena\textsubscript{Trimer} (purple), and Ena\textsubscript{Tetramer} (yellow). Error bars, SEM. n $\geq$ 5 barbed ends from at least 2 movies. P values (*$\leq$0.05) (C and D) Kaplan-Meier curves representing average processive run lengths ($\tau$) for (C) 50 pM MBP-SNAP(549)-Ena$\Delta$L$\Delta$CC-GCN4 or (D) 70 pM MBP-SNAP(549)-Ena$\Delta$L$\Delta$CC-Foldon with fascin on single filaments (red), or bundles with 2 (blue) and $\geq$3 (green) filaments. Error bars, 95\% CI. n $\geq$ 93. (E) Average processive run length for increasing number of Ena ‘arms' on single filaments (red), or fascin bundles with 2 (blue) and $\geq$3 (green) filaments shown in C and D. Error bars, 95\% CI. P values (*$<$0.05, **$<$0.0001). Ena\textsubscript{Tetramer} data in (B) and (E) was also reported in \ref{fig:ena-bundlers}K and \ref{fig:ena-filaments}D respectively. }
+\label{fig:ena-arms}
 \end{figure}
 
-\begin{figure}[!htb]
+\subsection{Enhanced elongation and processive run length increases with the number of Ena arms}\label{ena-processive-arms}
+
+Wildtype Ena is a tetrameric protein \citep{kuhnel_vasp_2004, winkelman_ena/vasp_2014}, with four arms that could facilitate simultaneous associations with a barbed end, neighboring actin filaments, and/or actin monomers for processive elongation. Since we observed that Ena's average processive run length increases with number of fascin-bundled filaments (Fig. \ref{fig:ena-filaments}), we investigated the importance of Ena's oligomeric state by measuring actin elongation and processive properties of dimeric and trimeric Ena. Dimer and trimer constructs were formed by replacing Ena's coiled-coil tetramerization domain with a GCN4 dimerization domain \citep{harbury_switch_1993} or a Foldon trimerization domain (Fig. \ref{fig:ena-arms}A) \citep{guthe_very_2004, papanikolopoulou_formation_2004}; and the oligomeric state was verified by gel filtration and multi-angle light scattering (Fig. \ref{fig:ena-sizes}A-C). Two-color TIRFM was used to visualize 1.5 $\mu$M Mg-ATP-actin (15\% Alexa-488 labeled) with SNAP(549)-Ena$\Delta$L$\Delta$CC-GCN4 (referred to as Ena\textsubscript{Dimer}) or SNAP(549)-Ena$\Delta$L$\Delta$CC-Foldon (referred to as Ena\textsubscript{Trimer}) on fascin bundles. First, we measured actin elongation rates of Ena-bound leading and trailing barbed ends (Fig. \ref{fig:ena-arms}B, Tables \ref{tab:ena-elongation}, \ref{tab:ena-p-elongation-homologs}). While all constructs increase actin's elongation rate on both leading and trailing filaments, the fold increase is positively correlated with the number of Ena arms. Ena\textsubscript{Tetramer} has the largest enhancement of actin elongation (2.56-fold leading, 2.1-fold trailing), followed by Ena\textsubscript{Trimer} (1.74-fold leading, 1.62-fold trailing), and then Ena\textsubscript{Dimer} (1.45-fold leading, 1.46-fold trailing). 
+
+Similar to actin elongation rates, average processive run length is also positively correlated with number of Ena arms (Fig. \ref{fig:ena-arms}C-E). Remarkably, although reduced \mytilde10-fold compared to Ena\textsubscript{Tetramer}, Ena\textsubscript{Dimer} does remain processively associated with single filament ($\tau$ = 1.2 s), 2-filament trailing ($\tau$ = 1.5 s), and 3- or more filament trailing ($\tau$ = 2.5 s) barbed ends (Fig. \ref{fig:ena-arms}C,E, Movie S3, Table \ref{tab:ena-processive}). Ena\textsubscript{Trimer} has intermediate processivity on single filament ($\tau$ = 5.3 s), 2-filament trailing ($\tau$ = 8.9 s), and 3- or more filament trailing ($\tau$ = 11.2 s) barbed ends (Fig. \ref{fig:ena-arms}D,E, Table \ref{tab:ena-processive}). For each construct, the fluorescence intensity was not correlated with run length (Fig. \ref{fig:ena-sizes}D-G), indicating that processive activity is not affected by Ena construct multimerization. Ena\textsubscript{Trimer}'s processive run lengths are similar to the residence time of Ena\textsubscript{Tetramer} on single filaments but are not comparably enhanced on trailing barbed ends (Fig. \ref{fig:ena-arms}E). Therefore, Ena\textsubscript{Dimer} is sufficient for processive elongation, Ena\textsubscript{Trimer} is necessary for longer processive runs on single filaments, but Ena\textsubscript{Tetramer} is necessary for the longest processive runs on trailing barbed ends of fascin bundles (Fig. \ref{fig:ena-arms}E). Interestingly, the avidity effect of multiple filaments in a fascin bundle is apparent even with fewer arms than the wildtype tetramer. The positive correlation between processive elongation and Ena arms is consistent with a recent study on chimeric human VASP with \textit{Dictyostelium} GAB domains on single actin filaments \citep{bruhmann_distinct_2017}. 
+
+\begin{figure}
 \centering
-\includegraphics[width=5in]{img/ch02/fig-S10-tailleux2008.pdf}
-\caption[Comparison to Tailleux et al., 2008.]{\textbf{Comparison to
-    Tailleux et al., 2008.} We compared our RNA-seq data to the
-  microarray data of Tailleux et al., 2008 \citep{Tailleux2008} to
-  confirm a consistent signature of infection.  From our experiment,
-  we used the batch-corrected TMM-normalized
-  log\textsubscript{2}-transformed counts per million (CPM) from the
-  MTB H37Rv infected macrophages at 4, 18, and 48 hours post-infection
-  and their time-matched controls. From their experiment, we used the
-  log\textsubscript{2}-transformed quantile-normalized data from the
-  MTB H37Rv infected macrophages at 4, 18, and 48 hours post-infection
-  as well as the zero timepoint non-infection control. In addition to
-  the difference in technology, the macrophages were isolated via
-  positive selection in our study and negative selection in
-  theirs. Despite these differences, we still observe a common
-  transcriptional signature of infection when performing principal
-  components analysis (PCA). (A) PC1 is the expected batch effect
-  between the two experiments. (B) Plotting PC2 versus PC3, the
-  infected samples at 18 and 48 hours (when there is a strong
-  transcriptional response; see
-  Fig. \ref{fig:differential-expression}A) from the two different
-  studies cluster together. The quantile-normalized data from Tailleux
-  et al., 2008 \citep{Tailleux2008} is available at
-  \url{https://bitbucket.org/jdblischak/tb-data}.}
-\label{fig:tailleux2008}
+\includegraphics[width=5in]{img/ch02/Figure_4_elife.pdf}
+\caption[Tetrameric Ena is necessary for proper filopodia density.]{\textbf{Tetrameric Ena is necessary for proper filopodia density.} (A-C) Representative fluorescent micrographs of D16 cells with GFP-actin for (A) Control treatment, (B) Ena 3' UTR RNAi, and (C) RNAi with transfection of mCherry-Ena\textsubscript{Tetramer}. White arrows indicate representative filopodia. (D) Boxplot of filopodia density, number of filopodia per micron of cell perimeter, for control cells, Ena 3'UTR RNAi, and RNAi transfected with mCherry-Ena$\Delta$CC-GCN4 (Ena\textsubscript{Dimer}), mCherry-Ena$\Delta$CC-Foldon (Ena\textsubscript{Trimer}), and mCherry-Ena\textsubscript{Tetramer}. n = 3 with at least 10 cells for each experiment. P values (*$<$0.0005).}
+\label{fig:ena-cells}
+\end{figure}
+
+\subsection{Tetrameric Ena is more efficient at forming filopodia in \textit{Drosophila} culture cells}\label{ena-fly-cells}
+
+Ena\textsubscript{Tetramer} is significantly better at processive actin filament assembly than either Ena\textsubscript{Dimer} or Ena\textsubscript{Trimer}, where Ena\textsubscript{Tetramer} increases the actin elongation rate \mytilde2- to 2.5-fold and remains processively associated with trailing barbed ends of fascin bundles for \mytilde25 sec (Fig. \ref{fig:ena-arms}B,E). To determine whether WT Ena\textsubscript{Tetramer} is therefore necessary for proper function in cells, we evaluated the ability of Ena oligomerization constructs to facilitate filopodia in ML-DmD16-c3 Drosophila culture cells, derived from third instar larval wing discs (Fig. \ref{fig:ena-cells}). We knocked down endogenous Ena with dsRNAi against the 3'UTR and then expressed mCherry-Ena (referred to as mCherry-Ena\textsubscript{Tetramer}), mCherry-Ena$\Delta$CC-GCN4 (referred to as mCherry-Ena\textsubscript{Dimer}) or mCherry-Ena$\Delta$CC-Foldon (referred to as mCherry-Ena\textsubscript{Trimer}) constructs from a constitutive pIZ plasmid (Fig. \ref{fig:ena-cells}A-C). The activity of the different Ena constructs was determined by quantifying filopodia density, the number of filopodia per perimeter of the cell (Fig. \ref{fig:ena-cells}D). Compared to control cells (0.19 $\pm$ 0.06 filopodia/micron), RNAi treated cells without exogenous Ena have a 2.7-fold decrease in filopodia density (0.07 $\pm$ 0.03 filopodia/micron). Strikingly, mCherry-Ena\textsubscript{Tetramer} forms significantly more filopodia (0.24 $\pm$ 0.05 filopodia/micron) compared to mCherry-Ena\textsubscript{Trimer} (0.15 $\pm$ 0.05 filopodia/micron) and mCherry-Ena\textsubscript{Dimer} (0.15 $\pm$ 0.04 filopodia/micron). There was no correlation between filopodia density and GFP-actin fluorescence or mCherry fluorescence (Fig. \ref{fig:ena-expression}). Therefore, Ena tetramers facilitate the production of significantly more filopodia than dimer and trimer constructs following knockdown of endogenous Ena.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{img/ch02/Figure_5_elife.pdf}
+\caption[Kinetic model of Ena/VASP on actin bundles shows processivity positively correlates with both number of Ena arms and bundle size.]{\textbf{Kinetic model of Ena/VASP on actin bundles shows processivity positively correlates with both number of Ena arms and bundle size.} (A) Modeling schematics showing (from left to right). [1] An Ena arm's GAB domain binds the trailing barbed end with binding rate $k^{t}_{on,1}$. [2] Once the GAB domain is bound, the FAB domain from the other arms binds to sides of either the trailing filament ($k^{t}_{on}$) or leading filaments ($k^{l}_{on}$). [3] Arms can be bound to the trailing filament, while others bind leading filaments. (B) Bar graph of the average processive run length as a function of number of Ena arms and bundle size. Error bars, SEM. (C) Heat map showing average Ena run length in the case of 3-filament bundles and four Ena arms, with systematic variations of $k^{l}_{on}$ and $k^{l}_{off}$. Diamond denotes optimized rates for fascin bundles and region within dotted line shows potential rates for $\alpha$-actinin and fimbrin. (D) Average time between binding events ($\tau_{free}^{arm}$) for varying arm number and bundle size.}
+\label{fig:ena-model}
+\end{figure}
+
+\subsection{Kinetic model of Ena shows a direct correlation between processivity and both bundle size and Ena oligomerization}\label{ena-model}
+
+We observed that Ena's processivity depends on the number of filaments in a fascin bundle (Fig. \ref{fig:ena-filaments}D) and number of Ena arms (Fig. \ref{fig:ena-arms}E). Therefore, it is likely that the underlying molecular mechanism for Ena's increased processivity on trailing barbed ends depends on Ena's ability to simultaneously bind to an elongating barbed end and sides of filaments via its multiple arms (Fig. \ref{fig:ena-bundlers}B). To investigate this avidity effect, we developed a kinetic model of Ena with varying number of arms, $N$, binding bundles composed of varying number of actin filaments, $n$ (Fig. \ref{fig:ena-model}A, \ref{fig:ena-si-model}A). 
+
+Our model considers binding and unbinding kinetics of all $N$ Ena arms on various binding sites of individual actin filaments in a bundle, which together dictate the kinetics of the Ena “molecule” as a whole (Fig. \ref{fig:ena-model}A). An Ena arm initially binds to the trailing barbed end with an on rate of $k_{on,1}^{t}$ and unbinds with an off rate of $k_{off,1}^t$ (Fig. \ref{fig:ena-model}A1). The remaining Ena arms are available to bind and unbind to the side of the trailing filament with a rate $k_{on}^{t}$ and $k_{off}^{t}$ or to the side of other filaments in the bundle with a rate $k_{on}^{l}$ and $k_{off}^{l}$ (Fig. \ref{fig:ena-model}A2-3). A Monte Carlo algorithm was used to integrate rates of binding and unbinding of Ena arms over time as described in the SI. The model parameter $k_{on,1}^{t}$ was 0.007 s\textsuperscript{-1}, estimated using the TIRFM measured off rate of 0.109 s\textsuperscript{-1} for Ena, and an equilibrium constant of Ena for the barbed end of 0.8 nM \citep{winkelman_ena/vasp_2014}. We therefore considered the local concentration of Ena near the barbed end as 50 pM. The other model parameters were optimized using TIRFM off rates for $N\in(2,3,4)$ and $n\in(1,2,\geq3)$ (Fig. \ref{fig:ena-arms}E), as described in the materials and methods. 
+
+We used the model to characterize Ena's processive run length at the trailing barbed end. Increasing both the number of filaments in a bundle and the number of Ena arms increases Ena's processive run length, which strongly supports the avidity hypothesis. The modeling results are also in excellent agreement with the trends observed from our TIRFM data (Fig. \ref{fig:ena-model}B). Using the model, we tested conditions over a range of both $k_{on}^{l}$ and $k_{off}^{l}$ to mimic $\alpha$-actinin and fimbrin bundles (Fig. \ref{fig:ena-bundlers}I), where Ena processivity is not enhanced on trailing barbed ends (Fig. \ref{fig:ena-si-model}B-F). The model shows a broad regime that results in the same average processive run length on both leading and trailing barbed ends (Fig. \ref{fig:ena-model}C, dashed region). This indicates that differences between bundlers could be due to diverse association and dissociation rates caused by differences in how CH domain bundlers and fascin bind F-actin. 
+
+Finally, we used the model to estimate rates of Ena-mediated filament elongation. While at least one Ena arm associates with the barbed end, its other arms undergo binding and dissociation events. When free, an arm can bind G-actin from solution and transfer it to the barbed end. The elongation rate of the Ena bound filament should be proportional to the average time that individual arms are free. From the model, the average time that individual arms remain unbound while the Ena molecule is in the bound state, $\tau_{free}^{arm}$, increases with $N$, and decreases with $n$ (Fig. \ref{fig:ena-model}D). This result is consistent with the TIRFM data for the fold increase of actin elongation rate due to Ena on the leading ($n=1$ in the model) and trailing barbed ends ($n>1$ in the model) (Fig. \ref{fig:ena-bundlers}K, 3B).
+
+\section{Discussion}\label{ch02-discussion}
+
+\subsection{Ena's processivity is enhanced specifically on fascin bundles}\label{ena-discuss-specific-fascin}
+
+Ena/VASP proteins are important processive actin elongation factors that are localized to diverse F-actin networks composed of filaments bundled by different crosslinking proteins, including fascin, fimbrin, and $\alpha$-actinin. Previously, we found that Ena takes \mytilde3-fold longer processive runs on trailing barbed ends of fascin-bundled F-actin \citep{winkelman_ena/vasp_2014}. Here we investigated the mechanism and conservation of Ena/VASP's processivity at the barbed end of single filaments and filaments bundled by different crosslinking proteins, as well as the physiological relevance of Ena/VASP tetramerization.
+
+We found that although fly Ena's processivity is enhanced \mytilde3-fold on trailing barbed ends in fascin bundles, there is no processivity enhancement on trailing barbed ends of $\alpha$-actinin or fimbrin bundles (Fig. \ref{fig:ena-bundlers}I). Fimbrin and $\alpha$-actinin use two CH domains to bundle F-actin, whereas fascin uses $\beta$-trefoil domains. Though the exact mechanism for Ena's specificity for fascin bundles remains unclear, we suggest several hypotheses. First, fascin could hold the trailing filament in a specific register with respect to the leading filament, allowing for easier Ena/VASP binding. Second, fascin's strong cooperativity \citep{yamakita_phosphorylation_1996,winkelman_fascin-_2016} could promote more rapid bundling, thereby promoting longer processive runs by keeping trailing barbed ends closer to sides of leading filaments. Third, it is also possible that Ena weakly associates with fascin, although no interaction has yet been detected. If Ena does associate with fascin, it would need to be carefully tuned because a strong interaction could pull Ena from the barbed end. Fourth, our kinetic model revealed a broad region of Ena binding kinetics to sides of bundled filaments ($k_{on}^{l}$ and $k_{off}^{l}$) that could explain Ena's lack of enhanced processivity on fimbrin and $\alpha$-actinin bundles (Fig. \ref{fig:ena-model}B). It is possible that these rates are affected by competition between Ena and the CH domain bundling proteins for similar binding sites on actin filaments. Further studies of how fascin forms F-actin networks differently than $\alpha$-actinin and fimbrin will be required to fully elucidate the underlying molecular mechanism. However, this important observation reveals for the first time that bundling proteins and the F-actin networks they form can differentially regulate the activity of processive actin assembly factors, thereby providing a mechanism to allow Ena/VASP proteins to facilitate the assembly of diverse bundled networks with different dynamics in cells. Understanding how different bundling proteins associate with and help form specific F-actin networks in cells will therefore be of critical importance.
+ 
+\subsection{The mechanism of tetrameric Ena acting on fascin bundles for filopodia formation}\label{filopodia-mechanism}
+
+Given that Ena localizes to filopodia with fascin, lamellipodia with fimbrin, and stress fibers with $\alpha$-actinin, sensitivity to diverse bundles could play an important role in regulating Ena activity in cells. Filopodia are unique amongst these networks with long, straight filaments that emerge from a network capped by capping proteins. Lamellipodia have short, branched filaments and stress fibers are contractile, bipolar networks. Thus, filopodia are the ideal network for enhanced Ena/VASP processivity facilitating elongation of longer filaments that requires stronger competition against capping protein to form a protrusive network. The increased residence time on trailing barbed ends could play a critical role in a feedback mechanism between Ena and fascin in emerging filopodia \citep{winkelman_ena/vasp_2014}. Ena/VASP-associated barbed ends elongate faster, assembling longer actin filaments that contain more fascin binding sites, which subsequently enhance Ena/VASP's processivity. Trailing barbed ends that have longer Ena processive runs can catch up to the leading barbed end, allowing all filaments to reach the same length and resulting in mature filopodia with uniform thickness and aligned barbed ends.
+ 
+\subsection{Avidity promotes enhanced Ena processivity on fascin bundles.}\label{avidity-processivity}
+
+We hypothesize that avidity between multiple actin filaments in a fascin bundle and multiple Ena arms promotes the formation of long filopodia filaments. We investigated the avidity effect by testing how the number of filaments in a fascin bundle and number of Ena arms affects Ena's processive run length. Our results strongly indicate that avidity plays a major role, as there is a \mytilde2-fold increase in Ena's residence time on trailing barbed ends in 2-filament bundles and an additional \mytilde1.5-fold increase on bundles with 3- or more filaments compared to single filament barbed ends (Fig. \ref{fig:ena-filaments}B-D). Similarly, the residence time of both VASP and UNC-34 is longer on trailing barbed ends and is correlated with number of actin filaments in a fascin bundle (Fig. \ref{fig:ena-filaments}E-G). Furthermore, the residence time of Ena\textsubscript{Trimer} and Ena\textsubscript{Tetramer} is \mytilde4.5- and \mytilde10-fold longer than Ena\textsubscript{Dimer} on fascin bundles with 3- or more filaments (Fig. \ref{fig:ena-arms}C-E). A recent study measuring processive elongation using chimeric human VASP with Dictyostelium FAB domains on single filaments \citep{bruhmann_distinct_2017} supports our conclusions that enhanced elongation and processive run length are positively correlated with the number of Ena arms. Observing this positive correlation under more ‘physiological conditions', a construct using Ena's unmodified EVH2 domains and on fascin bundles, indicates that these properties are relevant for Ena's activity in cells and specifically for filopodia. 
+
+We further tested the avidity hypothesis by developing a kinetic model that incorporates Ena with differing number of arms binding to single or multiple filaments (Fig. \ref{fig:ena-model}). Previous models have focused exclusively on modeling the kinetics of Ena/VASP-mediated barbed end elongation of single actin filaments \citep{hansen_vasp_2010, breitsprecher_molecular_2011, bruhmann_distinct_2017}. VASP-mediated single filament elongation rates were shown to increase linearly with the number of VASP arms in solution as predicted by the model \citep{breitsprecher_molecular_2011}. However, this model overlooks the binding kinetics of arms that are not associated with the barbed end. Hence, we developed a kinetic model that explicitly incorporates the binding and unbinding rates of each Ena arm on multiple filaments (Fig. \ref{fig:ena-model}A). After an Ena arm binds to the barbed end ($k_{on,1}^{t}$), the remaining arm(s) are free to bind to the side of the leading filament(s) ($k_{on}^{l}$) or the trailing filament ($k_{on}^{t}$). We quantified the processive run length for various numbers of bundled filaments and Ena arms. 
+
+The model demonstrates that the avidity effect of Ena emerges from an effective increase in local concentration of F-actin that allows for more FAB binding sites and from multiple Ena arms with available FAB domains. The avidity effect results in longer residence times near the trailing barbed end. Importantly, if an arm dissociates from the trailing barbed end, Ena will continue to processively elongate the barbed end and not diffuse away given that other arms' FAB domains are associated with nearby actin filaments. Furthermore, our model that includes multiple arms binding to multiple actin filaments still has a linear correlation of elongation rates with number of Ena arms on single filaments (Fig. \ref{fig:ena-model}D), as predicted by a previous model \citep{bruhmann_distinct_2017}. The $\tau_{free}^{arm}$ is linear with respect to increasing additional Ena arms on single filaments, but with increasing number of filaments there are diminishing returns by adding more Ena arms. $\tau_{free}^{arm}$ peaks at a tetramer on larger bundles, which gives an additional argument of why a tetramer of Ena/VASP is evolutionarily preferred. We also observe that an Ena tetramer is more efficient at forming filopodia in Drosophila culture cells compared to dimer and trimer constructs (Fig. \ref{fig:ena-cells}). Since the tetramer has increased residence time on trailing barbed ends and increases actin's elongation rate above the dimer and trimer, this suggests that the tetramer is necessary for proper actin elongation rates and competition with capping protein to allow for the formation of the correct number of filopodia. 
+% * <aharker619@gmail.com> 2018-08-15T19:07:50.120Z:
+% 
+% >  \citep{bruhmann_distinct_2017}.
+% Should this be breitsprecher instead?
+% 
+% 
+% ^.
+
+
+\section{Materials and Methods}\label{ch02-materials-methods}
+
+\subsection{Total internal reflection fluorescence microscopy (TIRFM)}\label{ena-mm-tirf}
+
+TIRFM images were collected at 250ms-1s intervals with a cellTIRF 4Line system (Olympus, Center Valley, PA) fitted to an Olympus IX-71 microscope with through-the-objective TIRF illumination and an iXon EMCCD camera (Andor Technology, Belfast, UK). Mg-ATP-actin (15\% Oregon Green or Alexa 488 labeled) was mixed with polymerization TIRF buffer [10 mM imidazole (pH 7.0), 50 mM KCl, 1 mM MgCl\textsubscript{2}, 1 mM EGTA, 50 mM DTT, 0.2 mM ATP, 50 $\mu$M CaCl\textsubscript{2}, 15 mM glucose, 20 $\mu$g/mL catalase, 100 $\mu$g/mL glucose oxidase, and 0.5\% (400 centipoise) methylcellulose] to induce F-actin assembly and any additional actin binding proteins. This mixture was transferred to a flow cell for imaging at room temperature. For two color TIRFM, we cyclically imaged labeled actin (1 frame, 488 nm excitation for 50ms) and SNAP(549)-Ena/VASP (1 frame, 561 nm excitation for 50ms) \citep{winkelman_ena/vasp_2014}.
+
+\subsection{D16 cell culture}\label{ena-mm-cell-culture}
+
+ML-DmD16-c3 (DGRC) cells were cultured in Schneider's Media with 10\% Fetal Bovine Serum (Gibco, Waltham, MA), Anti-Anti (Gibco, Waltham, MA), and 10 $\mu$g/mL recombinant human insulin (Gibco, Waltham, MA), transfected with FugeneHD (Promega, Madison, WI), and imaged on extracellular matrix (ECM) coated glass-bottom dishes after 48–72 hr. ECM was harvested from ML-DmD17-c3 (DGRC, Bloomington, IN) \citep{currie_using_2011}. All imaging was performed on a total internal reflection fluorescence (TIRF) system mounted on an inverted microscope (Ti-E, Nikon, Tokyo, Japan) using a 100X/1.49NA oil immersion TIRF objective driven by Nikon Elements software. Images were captured using an Orca-Flash 4.0 (Hamamatsu, Hamamatsu, Japan) and were processed for brightness and contrast using ImageJ \citep{schneider_nih_2012} analysis. We quantified $>$30 cells using CellGeo \citep{tsygankov_cellgeo:_2014}. Filopodia were quantified with the criteria of $>$0.78 $\mu$m long and $<$0.91 $\mu$m wide. 
+
+\subsection{Plasmid Construction}\label{ena-mm-plasmid}
+
+Enabled (Ena) constructs were prepared by removing the 6x-His tag from the C-terminus of previously described Ena constructs [MBP-SNAP-Ena$\Delta$L or MBP-Ena$\Delta$L] \citep{winkelman_ena/vasp_2014} and insertion into a MBP containing plasmid (pet21A) by standard restriction digest and infusion (Clontech, Mountain View, CA) following PCR amplification (iProof; Bio-Rad, Hercules, California). Ena\textsubscript{Dimer} and Ena\textsubscript{Trimer} constructs were prepared by removing the coiled-coil domain and adding a Foldon domain \citep{guthe_very_2004,papanikolopoulou_formation_2004} [MBP-SNAP-Ena$\Delta$L$\Delta$CC-Foldon] or GCN4 domain \citep{harbury_switch_1993} [MBP-SNAP-Ena$\Delta$L$\Delta$CC-GCN4] from MBP-SNAP-Ena$\Delta$L. UNC-34 was cloned from worm cDNA and inserted into a pet21A vector with MBP-SNAP (New England Biolabs, Ipswich, MA) at XmaI/PacI sites, while also including a flexible linker (GGSGGS) in the forward primer sequence of SNAP constructs. Singed and VASP constructs were cloned from fly and human cDNA libraries, respectively. VASP was inserted into a MBP-SNAP and SNAP containing vector while Singed was inserted into a pGEX KT Ext plasmid containing GST with a Thrombin cleavage site at XbaI/XhoI sites. Plasmids for transfection of mCherry-Ena$\Delta$CC-GCN4 and mCherry-Ena$\Delta$CC-Foldon were cloned into a pIZ-mCherry-Ena \citep{bilancia_enabled_2014} construct using infusion (Clontech, Mountain View, CA). The RNAi was designed using Primer3Plus \citep{untergasser_primer3new_2012} targeting the 3' UTR of \textit{enabled} using forward primer 5' TAATACGACTCACTATAGGGAGACCACGTGATGGCATGTGCATAGGC 3' and reverse primer 5' TAATACGACTCACTATAGGGAGACCACTGCTGAAGACTTGCTGGTTC 3'. The 3'UTR was extracted from w1118 strain fly genome and the DNA region of interest was isolated by PCR amplification and placed in a bluescript SK vector. dsDNA was produced using PCR amplification and dsRNA was produced from the resulting dsDNA using MEGAscript T7 Transcription kit (Invitrogen, Waltham, MA).
+
+\subsection{Protein Expression and Purification}\label{ena-mm-protein-purification}
+
+Recombinant Ena/VASP proteins were purified by expressing in \textit{Escherichia coli} strain BL21-Codon Plus (DE3)-RP (Agilent Technologies, Santa Clara, CA) with 0.25 mM isopropyl $\beta$-D-1-thiogalactopyranoside for 16 h at 16 $^{\circ}$C. Cells were lysed with an Emulsi-Flex-C3 (Avestin, Ottawa, Canada) in extraction buffer [20 mM TRIS-HCl (pH 8.0), 200 mM NaCl, 10\% glycerol, 0.1 mM DTT] with 0.5 $\mu$M PMSF and cOmplete, EDTA-free Protease Inhibitor Cocktail (Roche, Basel, Switzerland) and were clarified. The extract was incubated for 1 h at 4 $^{\circ}$C with amylose resin (New England Biolabs, Ipswich, MA) and was washed with extraction buffer, then Ena/VASP was batch eluted with elution buffer [20 mM TRIS-HCl (pH 8.0), 200 mM NaCl, 10\% glycerol, 0.1 mM DTT, 40 mM maltose] Ena/VASP was incubated overnight with and without 1 $\mu$M TEV protease to cleave MBP and filtered on an Superdex 200 10/300 GL or Superose 6 Increase 10/300 GL column (GE Healthcare, Little Chalfont, UK) where they eluted as stable oligomers. Ena/VASP constructs were dialyzed against SNAP buffer [20 mM Hepes (pH 7.4), 200 mM KCl, 0.01\% NaN3, and 10\% Glycerol, and 0.1 mM DTT]. SEC-MALS was performed using DAWN HELEOS II and Optilab T-rEX (Wyatt Technology, Goleta, CA) with a Superdex 200 Increase 10/300 GL column and Akta FPLC (GE Healthcare, Little Chalfont, UK). SEC-MALS data was analyzed using Astra 6.0 (Wyatt Technology, Goleta, CA). SNAP-tagged proteins were labeled with BG-549 (New England Biolabs, Ipswich, MA) following the manufacturers' protocols. Concentrations of SNAP-tagged proteins and the degree of labeling were determined by densitometry of Coomassie stained bands on SDS/PAGE gels compared with standards. Ena/VASP was flash-frozen in liquid nitrogen and stored at -80 $^{\circ}$C. N-terminal SNAP and MBP tags did not affect Ena/VASP's activity. Actin was purified from rabbit skeletal muscle acetone powder (Pel-Freez, Rogers, AR) or self-prepared chicken skeletal muscle acetone powder by a cycle of polymerization and depolymerization and gel filtration \citep{spudich_regulation_1971}. Gel-filtered actin was labeled with Oregon Green \citep{kuhn_real-time_2005} or Alexa 488. Human fascin, human $\alpha$-actinin IV, and \textit{S. pombe} fimbrin were expressed in bacteria and purified as described \citep{vignjevic_formation_2003,skau_fimbrin_2010,li_f-actin_2016}. Singed was purified in the same manner as previously reported for human fascin \citep{vignjevic_formation_2003}. 
+
+\subsection{Glass Preparation}\label{ena-mm-glass}
+
+Microscope slides and coverslips (\#1.5; Fisher Scientific, Waltham, MA) were washed for 30 min with acetone and for 10 min with 95\% ethanol, were sonicated for 2 h with Helmanex III detergent (Hellma Analytics, M\"ullheim, Germany), incubated for 2 h with piranha solution (66.6\% H\textsubscript{2}SO\textsubscript{4}, 33.3\% H\textsubscript{2}O\textsubscript{2}), washed with deionized water, and dried. Glass then was incubated for 18 h with 1 mg/mL mPeg-Silane (5,000 MW) in 95\% ethanol, pH 2.0. Parallel strips of double-sided tape were placed on the coverslip to create multiple flow chambers \citep{zimmermann_vitro_2016}. 
+
+\subsection{Calculation of Residence Time and Elongation Rates}\label{ena-mm-resi-elong-measure}
+
+To calculate Ena/VASP's residence time on barbed ends, SNAP(549)-Ena/VASP fluorescent spots associated with the barbed end were manually tracked using MTrackJ \citep{meijering_chapter_2012} in ImageJ. Spots that did not move were not scored, because they were assumed to be adsorbed to the glass. Events that contained joined barbed ends with no clear leading or trailing barbed bend were not included in the average lifetime calculation. Residence times for single SNAP(549)-Ena$\Delta$L tetramers were determined by fitting a Kaplan-Meier \citep{kaplan_nonparametric_1958} survival curve with a single exponential equation, $f(x) = x_{0} * exp^{(-x/\tau)}$ to calculate the average lifetime. Kaplan Meier survival curves were used to account for processive runs that started before imaging began or ends after imaging terminated. Log rank statistical significance tests were done using Prism 7 (GraphPad Software, San Diego, CA). Barbed end elongation rates were calculated by measuring filament lengths over time with ImageJ software. Multiple filament lengths were plotted over time and the distribution was fit with a linear equation using KaleidaGraph 4.5 (Synergy Software, Reading, PA). To calculate the number of filaments in a bundle the TIRFM movie was used to follow the history of the filaments. This could most accurately differentiate between two-filament bundles and three or more filament bundles. Due to photobleaching of the filaments over time the actin fluorescence was not used to determine the number of filaments within the bundle.
+
+\subsection{Fluorescence Spectroscopy}\label{ena-mm-pyrene}
+
+Bulk actin assembly was measured from the fluorescence of pyrene-actin with a Safire2 or Infinite M200 Pro (Tecan Systems, Inc., M\"annedorf, Switzerland) fluorescent plate reader \citep{neidt_cytokinesis_2008,zimmermann_vitro_2016}. Briefly, unlabeled Mg-ATP-actin was preassembled into seeds for 1 hour by adding 50 mM KCl, 1 mM MgCl\textsubscript{2}, 1 mM EGTA, 10 mM imidazole, pH 7.0. The assay measures the elongation rate of actin by addition of 20\% pyrene-labeled Mg-ATP-actin monomers and actin binding proteins to be assayed. Final protein concentrations are indicated in the figure legends.
+
+\section{Acknowledgements}\label{ch02-acknowledgements}
+
+We thank Elena Solomaha of the University of Chicago BioPhysics Core Facility for performing SEC-MALS and Jonathan Winkelman for cloning VASP and UNC-34. We thank Caitlin Anderson, Katie Homa, Cristian Suarez and other members of the D.R.K. laboratory for helpful discussions. We thank the Drosophila Genomics Resource Center, supported by NIH grant 2P40OD010949, for Drosophila cells. This material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant No. DGE-1144082 and DGE-1746045 (to A.J.H.), National Institute for Health's Molecular and Cellular Biology Training Grant T32 GM007183 (to A.J.H.), National Institute for Health's Grant RO1 GM079265 (to D.R.K.), Department of Defense Army Research Office's MURI grant W911NF1410403 (to G.A.V. and D.R.K.), and by the University of Chicago Materials Research Science and Engineering Center, funded by National Science Foundation award DMR-1420709 (to G.A.V. and D.R.K.). Acknowledgement is made to the computational resources provided by the Research Computing Center at The University of Chicago.
+
+\section{Supplementary Information}\label{ch02-si}
+
+\subsection{Development of kinetic model}\label{ena-si-develop-model}
+In order to test, mechanistically, the hypothesis that avidity of Ena binding multiple actin filaments with multiple arms determines an increase in time spent at the trailing barbed end for fascin-crosslinked bundles, we developed a kinetic model. The model is based on a kinetic Monte Carlo algorithm that at each time step evaluates binding and unbinding probabilities of each Ena arm for each filament and, accordingly, changes the arm 'state'. The kinetic Monte Carlo scheme is chosen because it can, in principle, give the exact evolution of the system, in terms of bound and unbound states of each Ena arm over time, thus providing a strong approximation of the sequence of events given individual Ena arm's binding and unbinding rates, with respect to individual filaments. The kinetic model used in this work consisted of the following elementary reactions:
+\begin{outline}[enumerate]
+   \1 Initial binding of an arm of Ena to the barbed end of the trailing filament with a rate of $k_{on,1}^{t}$
+   \1 At every subsequent step, binding and unbinding of:
+      \2 an arm of Ena to the barbed end of the trailing filament, with rates $k_{on,1}^{t}$ and $k_{off,1}^{t}$
+      \2 up to two other arms of Ena to the side of the trailing filament, with rates $k_{on}^{t}$ and $k_{off}^{t}$
+      \2 additional arms of Ena beyond three to the side of the trailing filament, with rates $k_{on,4+}^{t}$ and $k_{off,4+}^{t}$
+      \2 other arms of Ena to the sides of other filaments in the bundle, with rates $k_{on}^{l}$ and $k_{off}^{l}$
+\end{outline}
+
+In summary, once any arm is bound to the barbed end of the trailing filament, the Ena 'molecule' is considered to be in the bound state. The Ena molecule unbinds only when none of its arms are bound to any of the filaments in the bundle. Thus, after initiation of the bound state for an Ena molecule, the arm bound to the barbed end can unbind and bind multiple times before the molecule unbinds.
+The model was made efficient by only simulating events involving binding and unbinding of the Ena molecule to the barbed end of a trailing filament. Further, we did not intend to calculate the binding rate of the Ena molecule using the model, and instead optimized the model parameters based on TIRFM data (see below) for calculating the unbinding rates of Ena molecules, and predicting the kinetics of individual Ena arms while the molecule was bound. This gave rise to the following possible scenarios while the Ena molecule is in the bound state.
+\begin{outline}[enumerate]
+   \1 Only one arm is bound to either
+      \2 the barbed end
+      \2 the side of the trailing filament
+      \2 the side of another filament in the bundle
+   \1 Two or more arms are bound
+      \2 one to the barbed end, others to the side of the same filament
+      \2 one to the barbed end, others to the side of another filament
+      \2 one to the barbed end, others to the sides of the same and other filament(s)
+      \2 some to the side of the same filament and the remaining to the side of another filament
+      \2 all to the side of the same filament
+      \2 all to the side of another filament
+\end{outline}
+
+\subsubsection{Model parameters.}\label{ena-si-parameters}
+Since Ena is a homotetramer, all arms in this work are structurally identical to each other. Hence, not all of the eight kinetic rate constants $k_{on,1}^{t}$, $k_{off,1}^{t}$, $k_{on}^{t}$, $k_{off}^{t}$, $k_{on,4+}^{t}$, $k_{off,4+}^{t}$,  $k_{on}^{l}$ and $k_{off}^{l}$ in the model (Fig. \ref{fig:ena-model}A) are independent. We set $k_{on,1}^{t}$ = 0.007, estimated using the TIRFM measured off rate of 0.109 s\textsuperscript{-1} for Ena, and an equilibrium constant of Ena for the barbed end of 0.8 nM \citep{winkelman_ena/vasp_2014}. The model assumes that binding rates of the rest of the arms to sides of filaments are identical ($k_{on}^{t} = k_{on,4+}^{t} = k_{on}^{l}$), consistent with the idea that avidity results from binding and unbinding of multiple Ena arms to multiple filaments, rather than from different kinetics of individual arms.  The corresponding unbinding rates were, however, assumed to be different owing to the following reasons. An arm bound to the barbed end interacts with the barbed end of the filament through its GAB domain and potentially its FAB domain, while an arm bound to the side of a filament interacts only through its FAB domain. Thus, $k_{off,1}^{t}$ is considered an independent parameter.  The number of FAB domain binding sites available on the trailing filament can be assumed to be less than those on leading filaments since it is the shortest filament in the bundle. Thus, $k_{off}^{t}$ and $k_{off}^{l}$ are \textit{a priori} considered to be distinct parameters. Our TIRFM data (Fig. \ref{fig:ena-arms}B) suggests that the fold increase in processive run length between a trimer and a tetramer binding to a single filament is smaller than the fold increase between a dimer and a trimer. Thus, the fourth arm binding to the same filament is assumed to have different unbinding kinetics represented using the rates $k_{off,4+}^{t}$. This translates to having an upper limit on the number of arms that can simultaneously bind to a given filament.
+
+\subsubsection{Optimization procedure for parameter estimation}\label{ena-si-optimization}
+
+With the above assumptions, the number of undetermined parameters to be estimated reduces to five: $k_{on,1}^{t}$, $k_{on}^{t}$, $k_{off}^{t}$, $k_{off,4+}^{t}$ and $k_{off}^{l}$. These parameters were estimated using all 9 data points for the processive run length data in Fig. \ref{fig:ena-arms}B using the Levenberg-Marquardt algorithm implemented in the MATLAB\textsuperscript{\textregistered} function 'fsolve'. Let $\tau(n,N)$ represent the processive run length of Ena with $N$ arms on the trailing barbed end of a bundle consisting of $n$ actin filaments. The rate ratio vector $y$ is defined as
+\begin{equation}\label{eqn:ratio-vector}
+\begin{split}
+y = [\tau(1,4)/\tau(1,2), \tau(1,3)/\tau(1,2), \tau(2,4)/\tau(1,4),\\
+ \tau(2,3)/\tau(1,3), \tau(2,2)/\tau(1,2), \tau(4,4)/\tau(1,4),\\
+ \tau(4,3)/\tau(1,3), \tau(4,2)/\tau(1,2)] 
+\end{split}
+\end{equation}
+the error was then defined as
+\begin{equation}\label{eqn:error}
+error=[(y_{model}-y_{TIRFM})/y_{TIRFM}]^{2}
+\end{equation}
+and minimized iteratively using the five undetermined parameters. For each iteration, the kinetic model was solved for each pair of $N\in(2,3,4)$ and $n\in(1,2,4)$ and the corresponding average processive run length (defined below) was calculated. The TIRFM data for $n\geq 3$ in Fig. \ref{fig:ena-arms}E, corresponding to three or more filaments in the bundle, was considered to be equivalent to $n=4$ in the model, consistent with our observation that most bundles in the TIRF data fell between 3 and 5 filaments for an average 'large' bundle.
+For computational efficiency, we adopted a two-step strategy to obtain the optimum set of parameters. In the first step, we performed error minimization using 50 distinct initial guesses for the parameters and chose six optimized parameter sets with the lowest errors. In the second step, we performed error minimization using 100 sets of initial guesses, each perturbed within $\pm$10\% of the average of these six sets from the first step. The parameter set with the least error was chosen as the final set (Table \ref{tab:model-rates}). A comparison of the rate ratio vectors from the model with corresponding data from TIRFM is shown in Table \ref{tab:model-ratios}. The optimized parameter set was found to predict rate ratios in good agreement with the corresponding ratios from TIRFM data (Fig. \ref{fig:ena-arms}E).
+
+\subsubsection{Algorithm}\label{ena-si-algorithm}
+Using the values of reaction rates provided in Table \ref{tab:model-rates}, the system evolved using a Monte Carlo algorithm with a constant time-step implemented in MATLAB\textsuperscript{\textregistered}. The states of the arm binding the barbed end and the other arms binding sides of filaments was stored along corresponding columns in a \textit{state} array, with an entry of 0 representing an unbound state and 1 representing a bound state. Each row in the array corresponded to a simulation step. The identity of the filament in the bundle that each Ena arm bound to was stored in a separate \textit{filamentid} array, with filament identities ranging from 1 to $n$. 
+
+The simulation was initialized with all arms of Ena in the unbound state. At each timestep $t + dt$, a reaction move (either binding or unbinding) and the corresponding rate constants were selected depending on the previous state of the system at timestep $t$ (Fig. \ref{fig:ena-si-model}A). For example, if the barbed end was bound at timestep t, the unbinding reaction with the rate constant of $k_{off,1}^{t}$ was selected at timestep $t + dt$. $N$ random numbers were generated, one corresponding to each arm, and compared with the rate constant of the selected reaction move. The move was accepted if the random number was less than the corresponding rate constant times $dt$, and the entries \textit{state} and \textit{filamentid} arrays were updated accordingly.
+
+\subsubsection{Model verification and predictions}\label{ena-si-predictions}
+
+The quantities in the model with units of timesteps were converted to real time in seconds by multiplying with a single factor of $5.4374 \times 10^{-3}$ that accounted for the 'timescale' and was chosen to exactly match the processive run length for a dimer on a single filament between the model (defined below) and the TIRFM data (leftmost red bar in Fig. \ref{fig:ena-arms}E). For computational efficiency, we used $dt=0.1 s$.
+	Assuming that any difference in fascin, $\alpha$-actinin and fimbrin bundles due to spacing between filaments or different interactions should be reflected in the binding and unbinding kinetics, we systematically varied binding/unbinding rates $k_{on}^{l}$ and $k_{off}^{l}$ from 0.002 to 0.026 s\textsuperscript{-1}, keeping other model parameters fixed (Fig. \ref{fig:ena-si-model}B-F). For a single filament, the processive run length of an Ena tetramer is independent from $k_{on}^{l}$ and $k_{off}^{l}$ as expected (Fig. \ref{fig:ena-si-model}B). With more than one filament, the processive run length increases with $k_{on}^{l}$, for increasing values of $k_{off}^{l}$ below \mytilde0.010 s\textsuperscript{-1} (Fig. \ref{fig:ena-si-model}C) or below \mytilde0.026 s\textsuperscript{-1}(Fig. \ref{fig:ena-si-model}D). We also systematically changed $k_{on}^{l}$ and $k_{off}^{l}$ using dimers and trimers on 3-filament bundles. Similar to the Ena tetramer, the Ena trimer and dimer showed processive run lengths that increased with $k_{on}^{l}$ for values of $k_{off}^{l}$ below \mytilde0.014 s\textsuperscript{-1} (Fig. \ref{fig:ena-si-model}E-F). In the tested range of values for $k_{on}^{l}$ and $k_{off}^{l}$, the maximum run length with dimers is 3 s (Fig. \ref{fig:ena-si-model}E) and trimers is 20 s (Fig. \ref{fig:ena-si-model}F). Our results show that the processive run length is determined by an interplay between the numbers of arms and filaments, and cross-linker effects on binding rates to sides of leading filaments.
+    
+\subsubsection{Definitions}\label{ena-si-definitions}
+
+\textbf{Processive run length ($\tau$).} The Ena molecule binding was considered the beginning of a processive run event ($\tau_{start}$, Fig. \ref{fig:ena-si-model}A) and unbinding of the Ena molecule ($\tau_{end}$, Fig. \ref{fig:ena-si-model}A) denoted the end of a processive run event. The processive run length $\tau$ was calculated by averaging the difference ($\tau_{start}-\tau_{end}$) across all processive run events observed across 56 independent simulation runs, each consisting of a total of $2\times 10^{6}$ timesteps (equivalent to \mytilde10000 seconds).  
+For the final data in Fig. \ref{fig:ena-model}B, the total number of processive run events used for averaging varied depending on the number of Ena arms and number of filaments in the bundle. Based on the range in our TIRFM data (Fig. \ref{fig:ena-arms}E), the number of events were in the range of \mytilde$1.6 \times 10^{5}$ for $(N=4, n=4)$ and $6.8 \times 10^{5}$ for $(N=2, n=1)$. The least number of events used in obtaining data in Fig. \ref{fig:ena-model}, \mytilde$4.6 \times 10^{3}$, corresponded to $(N=6, n=6)$.
+
+\textbf{Free arm time ($\tau_{free}^{arm}$).} During each processive run event in the model, individual Ena arms bind to and unbind from filaments independently, but according to their specific rates. The average time between consecutive binding events of an average arm was calculated and denoted as $\tau_{free}^{arm}$. A free Ena arm is available to recruit G-actin from the solution and transfer it to the barbed end with an effective rate that should be independent of the number of filaments in the bundle. Further, since each arm is identical, the effective rate should also be independent of the identity of the arm. It should be noted that in the model Ena arms do not have an identity associated with them and are only used as proxies to obtain statistics related to occupied versus unoccupied states of the barbed end and the sides of filaments. A rapid exchange of an Ena arm bound to the barbed end with an arm bound to the side of a filament is possible but not explicitly accounted for in the model. Thus, though the kinetic model does not explicitly consider filament elongation, $\tau_{free}^{arm}$ is assumed to be approximately proportional to the elongation rate through this implicit effective rate at the resolution of the model.
+
+\subsection{Supplementary Figures}\label{ch02-si-figures}
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{img/ch02/Supp_Figure_1.pdf}
+\caption[Ena/VASP homologs have generally conserved processive actin elongation properties.]{\textbf{Ena/VASP homologs have generally conserved processive actin elongation properties.} (A-F) Single-color TIRFM of the spontaneous assembly of 1.5 $\mu$M Mg-ATP-actin (15\% Oregon Green) with worm UNC-34, fly Ena, and human VASP. (A and B) Time-lapse micrographs (scale bar, 5 $\mu$m), and (C and D) corresponding kymographs (scale bar, 1 $\mu$m; time bar, 5 s) for (A and C) actin alone or with (B and D) 18 nM UNC-34. Yellow arrowheads indicate barbed ends. (E) Length of individual filaments over time for actin only (black) and UNC-34 (red). (F) Fold increase in elongation rate over increasing concentration of Ena (green), VASP (blue), and UNC-34 (red). Curve fits revealed the indicated apparent dissociation constants (Kd, app) of Ena/VASP for the barbed end. $n \geq 5$ filaments for at least 2 movies. (G and H) Seeded assembly: addition of 0.5 $\mu$M Mg-ATP-actin monomers (20\% pyrene-labeled) to the barbed end of 0.5 $\mu$M preassembled actin filaments. (G) Time course of seeded assembly alone (black and gray) or with a range of Ena concentrations. (H) Dependence of the initial barbed end assembly rate on Ena/VASP concentration. Curve fits revealed the indicated apparent dissociation constants (Kd, app) of Ena/VASP for the barbed end. Error, SEM. $n \geq 3$. (I and J) Two-color TIRFM visualization of 1.5 $\mu$M Mg-ATP-actin (15\% Oregon Green) with 25 pM SNAP(549)-VASP, 18 pM SNAP(549)-UNC-34 or 15 pM SNAP(549)-Ena, and unlabeled 130 nM human fascin. (I) Kymograph of leading and trailing barbed ends of a fascin bundle with SNAP(549)-VASP (red) and OG actin (green). Dashed blue (trailing) and yellow (leading) lines indicate bound VASP. Scale bar, 5 $\mu$m. Time bar, 10 s. (J) Average elongation rate of leading and trailing filament barbed ends on fascin bundles with actin alone, Ena, VASP, or UNC-34. Error bars, SEM. $n \geq 5$ filaments for at least 2 movies. Elongation rate for Ena in (J) also shown in Fig. \ref{fig:ena-bundlers}K.}
+\label{fig:ena-homologs}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=16.5cm]{img/ch02/Supp_Figure_2_PNAS.pdf}
+\caption[Ena constructs have the predicted oligomerization state.]{\textbf{Ena constructs have the predicted oligomerization state.} (A) UV traces for Ena\textsubscript{Dimer} (orange), Ena\textsubscript{Trimer} (purple), and Ena\textsubscript{Tetramer} (black) from size exclusion gel filtration using a Sepharose 6 Increase column. Peaks are labeled and fractions collected are shaded. (B) The 12.5\% SDS-PAGE of fractions from A. Fractions showing each construct are boxed. (C) Size exclusion chromatography followed by multi-angle light scattering (SEC-MALS) was used to determine the relative size of Ena\textsubscript{Dimer} (orange), Ena\textsubscript{Trimer} (purple), and Ena\textsubscript{Tetramer} (black). (D) Values for the Pearson's correlation of the Ena construct fluorescence intensity and its residence time for all movies analyzed. There is no correlation between an Ena construct's intensity and its bound lifetime. Dependence of (E) Ena\textsubscript{Dimer}, (F) Ena\textsubscript{Trimer}, or (G) Ena\textsubscript{Tetramer} processive run length on its respective fluorescence intensity for an individual movie. Linear correlation fit shown with 95\% CI shaded.}
+\label{fig:ena-sizes}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=5in]{img/ch02/Supp_Figure_3_PNAS.pdf}
+\caption[D16 culture cell expression is independent of construct.]{\textbf{D16 culture cell expression is independent of construct.} (A) Western blot showing expression levels of transfected mCherry-Ena\textsubscript{Dimer}, mCherry-Ena\textsubscript{Trimer}, and mCherry-Ena\textsubscript{Tetramer}. Tubulin showed as loading control. (B) Dependence of filopodia density on GFP-actin fluorescence of cells. (C) Dependence of filopodia density on the respective mCherry-Ena construct fluorescence intensity.}
+\label{fig:ena-expression}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{img/ch02/Supp_Figure_4_PNAS.pdf}
+\caption[Kinetic model can explore different parameter spaces.]{\textbf{Kinetic model can explore different parameter spaces.} (A) Diagram showing the key steps in the algorithm. Nb represents the number of arms bound at time $t$. $\tau_{start}$ and $\tau_{end}$ mark the start and end of Ena 'molecule' binding events. The processive run length $\tau$ is estimated as the average of the difference $\tau_{end} - \tau_{start}$ across several events. }
+\label{fig:ena-si-model}
+\end{figure}
+
+% Continues caption on next page. Requires package ccaption.
+\begin{figure}[!htb]
+  \contcaption{(continued) (B – F) Heat maps showing average Ena processive run length with systematic variations of $k^{l}_{on}$ and $k^{l}_{off}$. Heat maps of average processive run length for (B) single filaments (C) 2-filament bundles or (D) 4-filament bundles with four Ena arms. These are comparable to Fig. \ref{fig:ena-model}C with 3-filament bundles. Heat maps of average processive run length for 3-filament bundles with (E) two or (F) three Ena arms.}
 \end{figure}
 
 \clearpage
 \subsection{Supplementary Tables}\label{ch02-supplementary-tables}
 
-\begin{table}[!htb]
-\caption[Gene expression matrix.]{\textbf{Gene expression matrix.}
-  (see supplementary file associated with this dissertation) Contains
-  the batch-corrected log\textsubscript{2} counts per million for the
-  12,728 Ensembl genes analyzed in this study for each of the 156
-  samples. The column names are in the format
-  ``individual.infection.time''. It can also be downloaded from
-  \url{http://giladlab.uchicago.edu} or
-  \url{https://bitbucket.org/jdblischak/tb-data}.}
-\label{tab:ch02-s1}
+\begin{table}[hbtp]
+\footnotesize
+\centering 
+\begin{tabulary}{1.0\textwidth}{C C C C C C C C C}
+\toprule Ena\slash VASP & Bundling Protein & Leading\textsuperscript{a} (s) & Trailing\textsuperscript{a} (s) & L/T p-value\textsuperscript{b} & 1 fil.\textsuperscript{c} (s) &  1 fil.\textsuperscript{c} (s) & 1 fil.\textsuperscript{c} (s) & 1/2/$\geq$3 p-value\textsuperscript{d} \\ \midrule 
+Ena Tetramer & Fascin & 8.4 [7.7,9.1] (254) & 23.7 [22.0,25.8] (511) & ${<0.0001}$ & 8.9 [7.5,10.6] (107) & 16.8 [14.3,19.7] (201) & 26.0 [23.7,28.6] (308) & ${<0.0001}$ \\ 
+Ena Tetramer & Singed & 10.1 [9.4,11.0] (184) & 28.1 [27.0,29.4] (328) & ${<0.0001}$ & 10.0 [9.2,10.8] (98) & 21.7 [20.4,23.3] (155) & 32.3 [31.0,33.6] (176) & ${<0.0001}$ \\ 
+Ena Tetramer & $\alpha$-actinin & 10.2 [9.5,11.1] (284) & 9.4 [8.4,10.5] (176) & 0.64 & 9.1 [8.3,10.2] (165) & 8.9 [7.7,10.6] (116) & 8.7 [7.8,9.9] (60) & 0.56 \\
+Ena Tetramer & Fimbrin & 9.0 [8.2,10.0] (127) & 8.7 [7.7,10.0] (183) & 0.91 & 8.2 [7.1,9.8] (63) & 7.6 [6.6,9.1] (121) & 10.2 [8.6,12.6] (64) & 0.33 \\
+VASP Tetramer & Fascin & 1.2 [0.9,1.6] (213) & 3.3 [3.1,3.5] (348) & ${<0.0001}$ & 1.0 [0.7,1.8] (123) & 2.6 [2.4,2.9] (207) & 4.2 [3.9,4.4] (143) & ${<0.0001}$ \\
+VASP Tetramer & Singed & 1.0 [0.7,1.5] (187) & 3.5 [3.2,3.8] (463) & ${<0.0001}$ & 0.9  [0.6, 1.6] (118) & 2.8 [2.6,3.2] (224) & 4.1 [3.7,4.7] (220) & ${<0.0001}$ \\
+UNC-34 Tetramer & Fascin & 1.7 [1.4,2.2] (82) & 3.7 [3.4,4.0] (266) & ${<0.0001}$ & 1.2 [0.9,1.8] (65) & 2.9 [2.7,3.3] (123) & 3.9 [3.5,4.5] (144) & ${<0.0001}$ \\
+Ena Trimer & Fascin & 6.2 [5.6,6.9] (322) & 9.8 [9.2,10.4] (299) & ${<0.0001}$ & 5.3 [4.7,6.1] (151) & 8.9 [8.3,9.6] (206) & 11.2 [10.2,12.6] (93) & ${<0.0001}$ \\
+Ena Dimer & Fascin & 1.3 [1.0,1.7] (376) & 1.8 [1.5,2.4] (418) & 0.01 & 1.2 [0.9,1.9] (197) & 1.5 [1.2,2.0] (261) & 2.5 [1.9,3.8] (122) & 0.03 \\
+\bottomrule
+\end{tabulary}
+\caption[Comparison of Ena/VASP proteins' residence time on various bundled F-actin.]{\textbf{Comparison of Ena/VASP proteins' residence time on various bundled F-actin.} \\
+   \textsuperscript{a} Values of average processive lifetime (s) [95\%CI] (n) where n is the number of Ena/VASP binding events measured in at least three movies for Leading or Trailing barbed ends.\\
+   \textsuperscript{b} Log Rank p-value comparing Leading and Trailing average processive lifetime. \\
+   \textsuperscript{c} Values of average processive lifetime (s) [95\%CI] (n) where n is the number of Ena/VASP binding events measured in at least three movies for 1 filament (fil.), 2 filaments, or greater than or equal to 3 filaments barbed ends. \\
+   \textsuperscript{d} Log Rank p-value comparing 1 filament, 2 filaments, or greater than or equal to 3 filaments average processive lifetime.}
+\label{tab:ena-processive}
+\end{table}
+
+\begin{table}[hbtp]
+\centering 
+\begin{tabulary}{1.0\textwidth}{C C C C C C C C C}
+\toprule Ena\slash VASP & Bundling ${\textup{Protein}}$ & Bound Leading\textsuperscript{a} (sub/s) & Bound Trailing\textsuperscript{a} (sub/s) & Control Leading\textsuperscript{b} (sub/s) &  Control Trailing\textsuperscript{b} (sub/s)  &  Fold Change Leading\textsuperscript{c} & Fold Change Trailing\textsuperscript{c} & n\textsuperscript{d} \\ \midrule 
+Ena Tetramer & Fascin & 25.6 $\pm$0.8 & 16.8 $\pm$1.1 & 10.0 $\pm$1.0 & 7.9 $\pm$0.2 & 2.56 $\pm$0.08 & 2.1 $\pm$0.2 & 2 \\ 
+Ena Tetramer & Singed & 22.4 $\pm$0.6 & 20.0 $\pm$0.1 & 10.0 $\pm$0.9 & 10.0 $\pm$0.2 & 2.24 $\pm$0.06 & 2.00 $\pm$0.02 & 2 \\ 
+Ena Tetramer & ${\alpha\mhyphen\textup{actinin}}$ & 27.6 $\pm$2.7 & 25.43 $\pm$0.03 & 10.0 $\pm$0.2 & 11.5 $\pm$0.5 & 2.8 $\pm$0.3 & 2.2 $\pm$0.1 & 2 \\
+Ena Tetramer & ${\textup{Fimbrin}}$ & 29.9 $\pm$3.7 & 21.9 $\pm$1.0 & 10.0     $\pm$0.1 & 9.0 $\pm$0.3 & 3.0 $\pm$0.4 & 2.43 $\pm$0.04 & 2 \\
+VASP Tetramer & Fascin & 23.6 $\pm$3.9 & 18.8 $\pm$4.6 & 10.0 $\pm$1.4 & 8.0 $\pm$0.5 & 2.4 $\pm$0.4 & 2.4 $\pm$0.7 & 2 \\
+${\textup{UNC}\mhyphen34}$ Tetramer & Fascin & 27.2 $\pm$2.3 & 20.2 $\pm$3.4 & 10.0 $\pm$1.8 & 8.0 $\pm$1.5 & 2.7 $\pm$0.2 & 2.7 $\pm$0.9 & 2 \\
+Ena Trimer & Fascin & 17.4 $\pm$1.3 & 14.1 $\pm$0.8 & 10.0 $\pm$0.2 & 8.70 $\pm$0.05 & 1.7 $\pm$0.1 & 1.6 $\pm$0.1 & 2 \\
+Ena Dimer & Fascin & 14.5 $\pm$0.2 & 14.1 $\pm$2.2 & 10.0 $\pm$0.2 & 9.8 $\pm$0.9 & 1.45 $\pm$0.02 & 1.5 $\pm$0.4 & 2 \\
+\bottomrule
+\end{tabulary}
+\caption[Comparison of actin elongation rates with and without (control) Ena/VASP bound.]{\textbf{Comparison of actin elongation rates with and without (control) Ena/VASP bound.} \\
+   \textsuperscript{a} Normalized actin elongation rate (sub/s) of Ena/VASP bound Leading or Trailing barbed ends to Control Leading.\\
+   \textsuperscript{b} Normalized actin elongation rate (sub/s) of Ena/VASP free Leading or Trailing barbed ends to Control Leading.\\
+   \textsuperscript{c} Fold change in actin elongation rate of Ena/VASP bound over Ena/VASP free Leading or Trailing barbed ends.\\
+   \textsuperscript{d} n is the number of movies analyzed. Each movie had at least five filaments with at least 50 length measurements for each movie.}
+\label{tab:ena-elongation}
 \end{table}
 
 \begin{table}[!htb]
-\caption[Differential expression results.]{\textbf{Differential
-    expression results.} (see supplementary file associated with this
-  dissertation) Contains the differential expression statistics from
-  limma. This includes the log\textsubscript{2} fold change (logFC),
-  average expression level (AveExpr), t-statistic (t), p-value
-  (P.Value), q-value (adj.P.Val), and log-odds (B). The column names
-  also contain the infection and timepoint for the given
-  comparison. It can also be downloaded from
-  \url{http://giladlab.uchicago.edu} or
-  \url{https://bitbucket.org/jdblischak/tb-data}.}
-\label{tab:ch02-s2}
+\centering
+\begin{tabular}{ c c c c c }
+\toprule 
+Leading\slash Trailing\textsuperscript{a} & Fascin & Singed & $\alpha$-actinin & Fimbrin \\
+\midrule
+Fascin & 1 / 1 & 0.3 / 1 & 0.6 / 0.7 & 0.4 / 0.3 \\
+Singed & 0.3 / 1 & 1 / 1 & 0.4 / 0.7 & 0.3 / 0.3 \\
+$\alpha$-actinin & 0.6 / 0.7 & 0.4 / 0.7 & 1 / 1 & 0.7 / 0.3 \\
+Fimbrin & 0.4 / 0.3 & 0.3 / 0.3 & 0.7 / 0.3 & 1 / 1 \\
+\bottomrule
+\end{tabular}
+\caption[p-values for comparisons of fold change in actin elongation rate with Ena on different bundling proteins for both leading and trailing filaments.]{\textbf{p-values for comparisons of fold change in actin elongation rate with Ena on different bundling proteins for both leading and trailing filaments.} \\
+\textsuperscript{a} p-values from student's two-tailed t-test with unequal variance between fold change of actin elongation rates when Ena is bound to the Leading or Trailing barbed end.}
+\label{tab:ena-p-elongation-bundlers}
 \end{table}
 
 \begin{table}[!htb]
-\caption[Joint Bayesian analysis results.]{\textbf{Joint Bayesian
-    analysis results.} (see supplementary file associated with this
-  dissertation) Contains the assigned expression patterns for the
-  12,728 Ensembl genes analyzed in this study for each of the three
-  analyses in Fig. \ref{fig:joint-all}, \ref{fig:joint-18h}, and
-  \ref{fig:joint-48h}. The columns ``full\_time\_course'',
-  ``time\_18h'', and ``time\_48h'' correspond to Fig.
-  \ref{fig:joint-all}, \ref{fig:joint-18h}, and \ref{fig:joint-48h},
-  respectively.}
-\label{tab:ch02-s3}
+\centering
+\begin{tabular}{ c c c c c }
+\toprule 
+Ena\slash VASP & Bundling Protein & Parallel\textsuperscript{a} (s) & Anti-parallel\textsuperscript{a} (s) & A/P p-value\textsuperscript{b} \\
+\midrule
+Ena Tetramer & Fascin & 16.8 [14.3,19.7] (201) & N/A & N/A \\
+Ena Tetramer & Singed & 21.7 [20.4,23.3] (155) & N/A & N/A \\
+Ena Tetramer & $\alpha$-actinin & 9.7 [8.1,12.0] (77) & 8.8 [8.0,9.8] (90) & 0.52 \\
+Ena Tetramer & Fimbrin & 8.9 [7.7,10.4] (64) & 6.9 [5.7,8.7] (106) & 0.53 \\
+\bottomrule
+\end{tabular}
+\caption[Comparison of Ena/VASP proteins' residence time on parallel and antiparallel bundled F-actin.]{\textbf{Comparison of Ena/VASP proteins' residence time on parallel and antiparallel bundled F-actin.} \\
+\textsuperscript{a} Values of average processive lifetime (s) [95\%CI] (n) where n is the number of Ena/VASP binding events measured in at least three movies for Parallel or Anti-parallel barbed ends on 2 filament bundles. Fascin results are equal to the values in 2 filaments because fascin only makes parallel bundles. \\
+\textsuperscript{b} Log Rank p-value comparing average processive lifetime trailing barbed ends in parallel and antiparallel bundles.
+}
+\label{tab:ena-parallel}
 \end{table}
 
 \begin{table}[!htb]
-\caption[Joint Bayesian analysis results with gene
-  descriptions.]{\textbf{Joint Bayesian analysis results with gene
-    descriptions.} (see supplementary file associated with this
-  dissertation) Contains the assigned expression patterns for the
-  12,728 Ensembl genes analyzed in this study for each of the three
-  analyses in Fig. \ref{fig:joint-all}, \ref{fig:joint-18h}, and
-  \ref{fig:joint-48h}. It is the same information as Supplementary
-  Table \ref{tab:ch02-s3}, but with the genes from each pattern from
-  each of the three figures in its own sheet of the
-  workbook. Furthermore, it contains the gene descriptions from
-  Ensembl.}
-\label{tab:ch02-s4}
+\centering
+\begin{tabular}{ c c c c c c }
+\toprule 
+Leading\slash Trailing\textsuperscript{a} & Ena\textsubscript{Tetramer} & VASP & UNC-34 & Ena\textsubscript{Trimer} & Ena\textsubscript{Dimer} \\
+\midrule
+Ena\textsubscript{Tetramer} & 1 / 1 & 0.7 / 0.8 & 0.6 / 0.6 & \underline{0.05} / 0.2 & \underline{0.03} / 0.3 \\
+VASP & 0.7 / 0.8 & 1 / 1 & 0.5 / 0.8 & 0.3 / 0.5 & 0.3 / 0.4 \\
+UNC-34 & 0.6 / 0.6 & 0.5 / 0.8 & 1 / 1 & 0.09 / 0.4 & 0.1 / 0.4 \\
+Ena\textsubscript{Trimer} & \underline{0.05} / 0.2 & 0.3 / 0.5 & 0.09 / 0.4 & 1 / 1 & 0.3 / 0.8 \\
+Ena\textsubscript{Dimer} & \underline{0.03} / 0.3 & 0.3 / 0.4 & 0.1 / 0.4 & 0.3 / 0.8 & 1 / 1 \\
+\bottomrule
+\end{tabular}
+\caption[p-values for comparisons of fold change in actin elongation rate with different Ena/VASPs on both leading and trailing filaments of fascin bundles.]{\textbf{p-values for comparisons of fold change in actin elongation rate with different Ena/VASPs on both leading and trailing filaments of fascin bundles.} \\
+\textsuperscript{a} p-values from student's two-tailed t-test with unequal variance between fold change of actin elongation rates when Ena/VASP is bound to the Leading or Trailing barbed end. Underlining shows p-values $\leq0.05$.}
+\label{tab:ena-p-elongation-homologs}
 \end{table}
 
 \begin{table}[!htb]
-\caption[Gene ontology results.]{\textbf{Gene ontology results.} (see
-  supplementary file associated with this dissertation) Contains the
-  gene ontology results for each of the expression patterns for the
-  three analyses in Fig. \ref{fig:joint-all}, \ref{fig:joint-18h}, and
-  \ref{fig:joint-48h}.}
-\label{tab:ch02-s5}
+\centering
+\begin{tabular}{ c c c c c c }
+\toprule 
+$k_{on,1}^{t}$ & $k_{on}^{t}=k_{on,4+}^{t}=k_{on}^{l}$ & $k_{off,1}^{t}$ & $k_{off}^{t}$ & $k_{off,4+}^{t}$ & $k_{off}^{l}$ \\
+\midrule
+0.007 & 0.0122 & 0.1488 & 0.0049 & 0.0055 & 0.0195 \\
+\bottomrule
+\end{tabular}
+\caption[Final set of rate constants in the kinetic model.]{\textbf{Final set of rate constants in the kinetic model.}}
+\label{tab:model-rates}
 \end{table}
 
 \begin{table}[!htb]
-\caption[RNA quality.]{\textbf{RNA quality.} (see supplementary file
-  associated with this dissertation) Contains the RNA Integrity Number
-  (RIN) and molarity (nmol/L) measured with a Bioanalyzer (Agilent)
-  for each of the 156 samples.}
-\label{tab:ch02-s6}
-\end{table}
-
-\begin{table}[!htb]
-\caption[Number of differentially expressed genes from intersecting
-  gene lists.]{\textbf{Number of differentially expressed genes from
-    intersecting gene lists.} (see supplementary file associated with
-  this dissertation) Contains the results of intersecting lists of
-  differentially expressed genes for all pairwise comparisons (within
-  each of the three timepoints).}
-\label{tab:ch02-s7}
-\end{table}
-
-\begin{table}[!htb]
-\caption[Number of differentially expressed genes from pairwise
-  tests.]{\textbf{Number of differentially expressed genes from
-    pairwise tests.} (see supplementary file associated with this
-  dissertation) Contains the number of differentially expressed genes
-  when performing all pairwise tests between bacterial infections for
-  each of the three timepoints.}
-\label{tab:ch02-s8}
-\end{table}
-
-\begin{table}[!htb]
-\caption[Concordance in direction of effect for genes in each
-  expression pattern.]{\textbf{Concordance in direction of effect for
-    genes in each expression pattern.} (see supplementary file
-  associated with this dissertation) Cormotif does not distinguish
-  between the direction of the effect when assigning a gene to a given
-  expression pattern. For example, a gene that is upregulated in one
-  infection but downregulated in another is indistinguishable from a
-  gene that is upregulated in response to both infections. However, in
-  this data set, this is a rare effect. We calculated the percent
-  concordance for the genes in the expression patterns from the three
-  separate analyses. For example, for the expression pattern ``MTB'',
-  100\% would indicate the gene is regulated in the same direction in
-  the five mycobacterial infections, 80\% would indicate that the gene
-  is regulated in the same direction for four of the five
-  mycobacterial infections, etc. ``num\_concord'' is the number of
-  genes in that expression pattern that are 100\% concordant across
-  the infections. ``num\_discord'' is the number of genes in that
-  expression pattern that are not 100\%
-  concordant. ``mean\_perc\_concord'' is the mean percent concordance
-  of all the genes in that expression pattern.}
-\label{tab:ch02-s9}
+\centering
+\begin{tabulary}{1.0\textwidth}{C C C C C C C C C}
+\toprule 
+Run length ratios & $\tau(1,4)/$ $\tau(1,2)$ & $\tau(1,3)/$ $\tau(1,2)$ & $\tau(2,4)/$ $\tau(1,4)$ & $\tau(2,3)/$ $\tau(1,3)$ & $\tau(2,2)/$ $\tau(1,2)$ & $\tau(4,4)/$ $\tau(1,4)$ & $\tau(4,3)/$ $\tau(1,3)$ & $\tau(4,2)/$ $\tau(1,2)$ \\
+\midrule
+$y_{model}$ & 8.3240 & 3.3356 & 1.6951 & 1.2305 & 1.0902 & 2.9064 & 1.7222 & 1.2969 \\
+$y_{TIRFM}$ & 7.5727 & 4.4074 & 1.8333 & 1.6875 & 1.2489 & 2.8947 & 2.1236 & 2.0825 \\
+\bottomrule
+\end{tabulary}
+\caption[Comparison of processive run length ratios from the model and TIRFM data.]{\textbf{Comparison of processive run length ratios defined in Eqn. \ref{eqn:ratio-vector} from the model and from TIRFM data.}}
+\label{tab:model-ratios}
 \end{table}

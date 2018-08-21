@@ -71,7 +71,7 @@
 			IN CANDIDACY FOR THE DEGREE OF\\
 			\MakeUppercase{\@degree}\\
 			\ \\
-                        % My degree is being granted by the Committee on Genetics.
+                        % My degree is being granted by the Department of Biochemistry and Molecular Biology
 			% DEPARTMENT OF \MakeUppercase{\@department}\\
 			DEPARTMENT OF \MakeUppercase{\@department}\\
 			\vspace{0.8in}
@@ -201,8 +201,9 @@
 	\newpage
 	\addcontentsline{toc}{chapter}{References}
 	\begin{singlespace}
-		\bibliography{refs}
+		\bibliography{Zotero} % use Zotero.bib for references
 		\bibliographystyle{plain}
+        % \bibstyle{plain}
 	\end{singlespace}
 }
 
