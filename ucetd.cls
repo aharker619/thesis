@@ -203,7 +203,6 @@
 	\begin{singlespace}
 		\bibliography{Zotero} % use Zotero.bib for references
 		\bibliographystyle{plain}
-        % \bibstyle{plain}
 	\end{singlespace}
 }
 
