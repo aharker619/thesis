@@ -71,9 +71,9 @@
 			IN CANDIDACY FOR THE DEGREE OF\\
 			\MakeUppercase{\@degree}\\
 			\ \\
-                        % My degree is being granted by the Department of Biochemistry and Molecular Biology
+                        % My degree is being granted by the Graduate Program in Biochemistry and Molecular Biophysics
 			% DEPARTMENT OF \MakeUppercase{\@department}\\
-			DEPARTMENT OF \MakeUppercase{\@department}\\
+			GRADUATE PROGRAM IN \MakeUppercase{\@department}\\
 			\vspace{0.8in}
 			BY\\
 			\MakeUppercase{\@author}\\
